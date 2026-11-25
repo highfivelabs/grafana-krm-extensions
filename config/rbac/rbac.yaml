@@ -1,0 +1,123 @@
+# Copyright 2026 High Five Labs
+# SPDX-License-Identifier: Apache-2.0
+# The manager reads Connections and their Secrets in every namespace it
+# reconciles; narrow the binding per namespace if that is too broad.
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: manager
+  namespace: grafana-krm-extensions-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: grafana-krm-extensions-manager
+rules:
+- apiGroups: &id001
+  - annotation.grafana.hfl.dev
+  - data.grafana.hfl.dev
+  - organization.grafana.hfl.dev
+  - playlist.grafana.hfl.dev
+  - report.grafana.hfl.dev
+  - role.grafana.hfl.dev
+  - sso.grafana.hfl.dev
+  - team.grafana.hfl.dev
+  - user.grafana.hfl.dev
+  resources:
+  - annotations
+  - datasourceconfigs
+  - organizationpreferenceses
+  - organizations
+  - playlists
+  - reports
+  - roleassignments
+  - roles
+  - ssosettingses
+  - teams
+  - users
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+  - patch
+- apiGroups: *id001
+  resources:
+  - annotations/status
+  - datasourceconfigs/status
+  - organizationpreferenceses/status
+  - organizations/status
+  - playlists/status
+  - reports/status
+  - roleassignments/status
+  - roles/status
+  - ssosettingses/status
+  - teams/status
+  - users/status
+  verbs:
+  - get
+  - update
+  - patch
+- apiGroups: *id001
+  resources:
+  - annotations/finalizers
+  - datasourceconfigs/finalizers
+  - organizationpreferenceses/finalizers
+  - organizations/finalizers
+  - playlists/finalizers
+  - reports/finalizers
+  - roleassignments/finalizers
+  - roles/finalizers
+  - ssosettingses/finalizers
+  - teams/finalizers
+  - users/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - core.grafana.hfl.dev
+  resources:
+  - connections
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ''
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+- apiGroups:
+  - ''
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: grafana-krm-extensions-manager
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: grafana-krm-extensions-manager
+subjects:
+- kind: ServiceAccount
+  name: manager
+  namespace: grafana-krm-extensions-system
