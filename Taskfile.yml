@@ -1,0 +1,38 @@
+# Copyright 2026 High Five Labs
+# SPDX-License-Identifier: Apache-2.0
+#
+# Only the live:* tasks reach a Grafana server, and none of the other tasks
+# calls them. Live code is compiled only with -tags live (live_test.go).
+version: "3"
+
+env:
+  GOTOOLCHAIN: go1.25.0+auto
+
+tasks:
+  check:
+    desc: Format, vet, every kind on the fake, every CRD through apiserver validation (no live code)
+    cmds:
+      - test -z "$(gofmt -l .)"
+      - go vet ./...
+      - go vet -tags live ./...
+      - go test ./...
+
+  live:sandbox:grafana:
+    desc: Start Grafana OSS 13.3.1 in Docker (127.0.0.1:13000, admin/admin) and make an Admin service-account token
+    cmds:
+      - hack/live/grafana-sandbox.sh up
+
+  live:sandbox:grafana:down:
+    desc: Remove the Grafana sandbox's container
+    cmds:
+      - hack/live/grafana-sandbox.sh down
+
+  live:grafana:
+    desc: Run every kind in hack/live/live.yaml against the sandbox (starts it if needed); writes hack/live/records.json
+    cmds:
+      - hack/live/grafana-sandbox.sh run {{.CLI_ARGS}}
+
+  live:sweep:
+    desc: Delete every live-test leftover in the sandbox
+    cmds:
+      - KRM_LIVE=1 KRM_LIVE_SWEEP=1 KRM_LIVE_CREDS="$(hack/live/grafana-sandbox.sh creds)" go test -tags live -run '^TestLiveSweep$' -count=1 -v .
