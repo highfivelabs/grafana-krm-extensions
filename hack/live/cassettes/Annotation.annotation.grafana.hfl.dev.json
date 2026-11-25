@@ -1,0 +1,87 @@
+{
+  "recorded": "2026-11-22T18:29:43Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/annotations",
+      "body": "{\"tags\":[\"hfl-live\"],\"text\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"message\":\"Annotation added\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/annotations/1",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"dashboardUID\":\"\",\"userUID\":\"cg53dfhvi0pogb\",\"created\":1795372184034,\"updated\":1795372184034,\"time\":1795372184034,\"timeEnd\":1795372184034,\"text\":\"{{name}}\",\"tags\":[\"hfl-live\"],\"login\":\"admin\",\"email\":\"admin@localhost\",\"avatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"data\":{}}"
+    },
+    {
+      "method": "GET",
+      "path": "/annotations/1",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"dashboardUID\":\"\",\"userUID\":\"cg53dfhvi0pogb\",\"created\":1795372184034,\"updated\":1795372184034,\"time\":1795372184034,\"timeEnd\":1795372184034,\"text\":\"{{name}}\",\"tags\":[\"hfl-live\"],\"login\":\"admin\",\"email\":\"admin@localhost\",\"avatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"data\":{}}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/annotations/1",
+      "body": "{\"tags\":[\"hfl-live\"],\"text\":\"{{name}}-changed\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Annotation patched\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/annotations/1",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"dashboardUID\":\"\",\"userUID\":\"cg53dfhvi0pogb\",\"created\":1795372184034,\"updated\":1795372184099,\"time\":1795372184034,\"timeEnd\":1795372184034,\"text\":\"{{name}}-changed\",\"tags\":[\"hfl-live\"],\"login\":\"admin\",\"email\":\"admin@localhost\",\"avatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"data\":{}}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/annotations/1",
+      "body": "{\"text\":\"{{name}}-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Annotation patched\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/annotations/1",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"dashboardUID\":\"\",\"userUID\":\"cg53dfhvi0pogb\",\"created\":1795372184034,\"updated\":1795372184126,\"time\":1795372184034,\"timeEnd\":1795372184034,\"text\":\"{{name}}-drift\",\"tags\":[\"hfl-live\"],\"login\":\"admin\",\"email\":\"admin@localhost\",\"avatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"data\":{}}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/annotations/1",
+      "body": "{\"tags\":[\"hfl-live\"],\"text\":\"{{name}}-changed\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Annotation patched\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/annotations/1",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"dashboardUID\":\"\",\"userUID\":\"cg53dfhvi0pogb\",\"created\":1795372184034,\"updated\":1795372184143,\"time\":1795372184034,\"timeEnd\":1795372184034,\"text\":\"{{name}}-changed\",\"tags\":[\"hfl-live\"],\"login\":\"admin\",\"email\":\"admin@localhost\",\"avatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"data\":{}}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/annotations/1",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Annotation deleted\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/annotations/1",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Annotation not found\"}"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/api/v1/routes",
+      "body": "{\"integration_id\":\"example-integration-id\",\"routing_regex\":\"example-routing-regex\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"example-routing-regex\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/270000056",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"example-routing-regex\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/270000056",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"example-routing-regex\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/routes/270000056",
+      "body": "{\"routing_regex\":\"changed-routing_regex\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"changed-routing_regex\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/270000056",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"changed-routing_regex\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/routes/270000056",
+      "body": "{\"routing_regex\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"hfl-live-drift\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/270000056",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"hfl-live-drift\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/routes/270000056",
+      "body": "{\"routing_regex\":\"changed-routing_regex\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"changed-routing_regex\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/270000056",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":270000056,\"integration_id\":\"example-integration-id\",\"is_the_last_route\":true,\"routing_regex\":\"changed-routing_regex\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/routes/270000056",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/routes/270000056",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

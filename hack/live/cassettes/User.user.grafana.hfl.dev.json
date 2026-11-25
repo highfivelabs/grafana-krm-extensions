@@ -1,0 +1,94 @@
+{
+  "recorded": "2026-11-22T18:29:45Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/admin/users",
+      "body": "{\"email\":\"{{name}}@example.com\",\"login\":\"{{name}}\",\"name\":\"{{name}}\",\"password\":\"{{redacted}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"message\":\"User created\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"email\":\"{{name}}@example.com\",\"name\":\"{{name}}\",\"login\":\"{{name}}\",\"theme\":\"\",\"orgId\":1,\"isGrafanaAdmin\":false,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdminExternallySynced\":false,\"authLabels\":[],\"updatedAt\":\"2026-11-22T18:29:45Z\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"isProvisioned\":false}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"email\":\"{{name}}@example.com\",\"name\":\"{{name}}\",\"login\":\"{{name}}\",\"theme\":\"\",\"orgId\":1,\"isGrafanaAdmin\":false,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdminExternallySynced\":false,\"authLabels\":[],\"updatedAt\":\"2026-11-22T18:29:45Z\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"isProvisioned\":false}"
+    },
+    {
+      "method": "PUT",
+      "path": "/users/3",
+      "body": "{\"email\":\"{{name}}@example.com\",\"login\":\"{{name}}\",\"name\":\"{{name}}-changed\",\"password\":\"{{redacted}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"User updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"email\":\"{{name}}@example.com\",\"name\":\"{{name}}-changed\",\"login\":\"{{name}}\",\"theme\":\"\",\"orgId\":1,\"isGrafanaAdmin\":false,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdminExternallySynced\":false,\"authLabels\":[],\"updatedAt\":\"2026-11-22T18:29:45Z\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"isProvisioned\":false}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"email\":\"{{name}}@example.com\",\"name\":\"{{name}}-changed\",\"login\":\"{{name}}\",\"theme\":\"\",\"orgId\":1,\"isGrafanaAdmin\":false,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdminExternallySynced\":false,\"authLabels\":[],\"updatedAt\":\"2026-11-22T18:29:45Z\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"isProvisioned\":false}"
+    },
+    {
+      "method": "PUT",
+      "path": "/users/3",
+      "body": "{\"authLabels\":[],\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"email\":\"{{name}}@example.com\",\"id\":3,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdmin\":false,\"isGrafanaAdminExternallySynced\":false,\"isProvisioned\":false,\"login\":\"{{name}}\",\"name\":\"{{name}}-drift\",\"orgId\":1,\"password\":\"{{redacted}}\",\"theme\":\"\",\"uid\":\"fg53dkyftdds0a\",\"updatedAt\":\"2026-11-22T18:29:45Z\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"User updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"email\":\"{{name}}@example.com\",\"name\":\"{{name}}-drift\",\"login\":\"{{name}}\",\"theme\":\"\",\"orgId\":1,\"isGrafanaAdmin\":false,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdminExternallySynced\":false,\"authLabels\":[],\"updatedAt\":\"2026-11-22T18:29:45Z\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"isProvisioned\":false}"
+    },
+    {
+      "method": "PUT",
+      "path": "/users/3",
+      "body": "{\"email\":\"{{name}}@example.com\",\"login\":\"{{name}}\",\"name\":\"{{name}}-changed\",\"password\":\"{{redacted}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"User updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"uid\":\"fg53dkyftdds0a\",\"email\":\"{{name}}@example.com\",\"name\":\"{{name}}-changed\",\"login\":\"{{name}}\",\"theme\":\"\",\"orgId\":1,\"isGrafanaAdmin\":false,\"isDisabled\":false,\"isExternal\":false,\"isExternallySynced\":false,\"isGrafanaAdminExternallySynced\":false,\"authLabels\":[],\"updatedAt\":\"2026-11-22T18:29:45Z\",\"createdAt\":\"2026-11-22T18:29:45Z\",\"avatarUrl\":\"/avatar/1fe735e923072352deb5238249120e159bca58c821ffbfa381de6208ec295862\",\"isProvisioned\":false}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/admin/users/3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"User deleted\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/users/3",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"message\":\"user not found\"}"
+    }
+  ]
+}

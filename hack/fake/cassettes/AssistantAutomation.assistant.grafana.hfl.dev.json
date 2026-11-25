@@ -1,0 +1,96 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations",
+      "body": "{\"enabled\":true,\"name\":\"example-name\",\"prompt\":\"example-prompt\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"example-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"example-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"example-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "body": "{\"enabled\":true,\"name\":\"changed-name\",\"prompt\":\"example-prompt\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"changed-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"changed-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"changed-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "body": "{\"name\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"hfl-live-drift\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"hfl-live-drift\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "body": "{\"enabled\":true,\"name\":\"changed-name\",\"prompt\":\"example-prompt\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"changed-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"enabled\":true,\"id\":270000033,\"name\":\"changed-name\",\"prompt\":\"example-prompt\",\"schedule\":{},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\"}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/automations/270000033",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

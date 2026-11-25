@@ -1,0 +1,103 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000017\"},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000017\"},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000017\"},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000017\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000018\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000018\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000018\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000018\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000018\"},\"spec\":{\"defaults\":{\"group_wait\":\"2m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000019\"},\"spec\":{\"defaults\":{\"group_wait\":\"2m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000019\"},\"spec\":{\"defaults\":{\"group_wait\":\"2m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000019\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000020\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000020\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+terraform: [grafana_asserts_stack]
+kind: AssertsStack
+shape: settings
+fields:
+  gcomToken: {type: string}
+  mimirToken: {type: string}
+  assertionDetectorToken: {type: string}
+  grafanaToken: {type: string}
+required: [gcomToken, mimirToken, assertionDetectorToken]
+writeOnly: [gcomToken, mimirToken, assertionDetectorToken, grafanaToken]
+state:
+  field: enabled
+  description: "true enables the stack (POST /v2/stack/datasets/auto-setup, then POST /v2/stack/enable); false disables it (POST /v2/stack/disable); deleting the object disables it."
+  calls:
+    "true": {method: POST, path: /v2/stack/enable, headers: {Content-Type: application/json}}
+    "false": {method: POST, path: /v2/stack/disable, headers: {Content-Type: application/json}}
+  before:
+    "true": [{method: POST, path: /v2/stack/datasets/auto-setup}]
+  delete: "false"
+serverFields: {status: COMPLETE, version: 1}
+sample: {gcomToken: example-token, mimirToken: example-token, assertionDetectorToken: example-token, enabled: "true"}
+read: {method: GET, path: /v1/stack/status}
+update: {method: PUT, path: /v2/stack}

@@ -1,0 +1,92 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-drift\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-drift\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-drift\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"example-source\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/sso-settings/github",
+      "status": 204
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "Annotation.annotation.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:44Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:44Z"
+  },
+  "AppsDashboardDashboardV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsDashboardDashboardV2.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsDashboardDashboardV2beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsGenericResource.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:51Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:51Z"
+  },
+  "AppsNotificationsInhibitionruleV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:48Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:48Z"
+  },
+  "AppsNotificationsRoutingtreeV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsNotificationsTimeintervalV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsPlaylistPlaylistV0alpha1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsPlaylistPlaylistV1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:47Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:47Z"
+  },
+  "AppsProvisioningRepositoryV0alpha1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:53Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:53Z"
+  },
+  "AppsRulesAlertruleV0alpha1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:48Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:48Z"
+  },
+  "AppsRulesAlertruleV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:48Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:48Z"
+  },
+  "AppsRulesRecordingruleV0alpha1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:48Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:48Z"
+  },
+  "AppsRulesRecordingruleV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:48Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:48Z"
+  },
+  "AppsRulesRulesequenceV0alpha1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:51Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:51Z"
+  },
+  "AppsRulesRulesequenceV1beta1.apps.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:51Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:51Z"
+  },
+  "DashboardPermission.dashboard.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:45Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:45Z"
+  },
+  "DashboardPublic.dashboard.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:46Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:46Z"
+  },
+  "DataSourceConfig.data.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:45Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:45Z"
+  },
+  "FolderPermission.folder.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:46Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:46Z"
+  },
+  "Organization.organization.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:44Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:44Z"
+  },
+  "OrganizationPreferences.organization.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:45Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:45Z"
+  },
+  "PermissionItemRole.permission.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:46Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:46Z"
+  },
+  "PermissionItemTeam.permission.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:46Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:46Z"
+  },
+  "PermissionItemUser.permission.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:46Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:46Z"
+  },
+  "Playlist.playlist.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:44Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:44Z"
+  },
+  "SsoSettings.sso.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:45Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:45Z"
+  },
+  "Team.team.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:44Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:44Z"
+  },
+  "User.user.grafana.hfl.dev": {
+    "result": "pass",
+    "steps": [
+      "create",
+      "read",
+      "update",
+      "drift",
+      "delete",
+      "gone"
+    ],
+    "run": "hfl-live-2611221829-81ea",
+    "date": "2026-11-22T18:29:45Z",
+    "target": "Grafana OSS 13.3.1",
+    "lastPass": "2026-11-22T18:29:45Z"
+  }
+}

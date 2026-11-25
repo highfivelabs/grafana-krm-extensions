@@ -1,0 +1,72 @@
+{
+  "recorded": "2026-11-22T18:29:45Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/dashboards/db",
+      "body": "{\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"overwrite\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"folderUid\":\"\",\"id\":3375626225070080,\"slug\":\"{{name}}\",\"status\":\"success\",\"uid\":\"{{name}}\",\"url\":\"/d/{{name}}/{{name}}\",\"version\":1}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":1,\"userUid\":\"\",\"userLogin\":\"admin\",\"userEmail\":\"admin@localhost\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"permission\":4,\"permissionName\":\"Admin\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false},{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Editor\",\"permission\":2,\"permissionName\":\"Edit\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false},{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Viewer\",\"permission\":1,\"permissionName\":\"View\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false}]"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":1,\"userUid\":\"\",\"userLogin\":\"admin\",\"userEmail\":\"admin@localhost\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"permission\":4,\"permissionName\":\"Admin\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false},{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Editor\",\"permission\":2,\"permissionName\":\"Edit\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false},{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Viewer\",\"permission\":1,\"permissionName\":\"View\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false}]"
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "body": "{\"items\":[{\"permission\":1,\"role\":\"Viewer\"}]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Dashboard permissions updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Viewer\",\"permission\":1,\"permissionName\":\"View\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false}]"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Viewer\",\"permission\":1,\"permissionName\":\"View\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false}]"
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "body": "{\"items\":[{\"permission\":1,\"role\":\"Viewer\"},{\"permission\":2,\"role\":\"Editor\"}]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Dashboard permissions updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Viewer\",\"permission\":1,\"permissionName\":\"View\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false},{\"dashboardId\":3375626225070080,\"created\":\"2026-11-22T18:29:45Z\",\"updated\":\"2026-11-22T18:29:45Z\",\"userId\":0,\"userUid\":\"\",\"userLogin\":\"\",\"userEmail\":\"\",\"userAvatarUrl\":\"\",\"teamId\":0,\"teamUid\":\"\",\"teamEmail\":\"\",\"teamAvatarUrl\":\"\",\"team\":\"\",\"role\":\"Editor\",\"permission\":2,\"permissionName\":\"Edit\",\"uid\":\"{{name}}\",\"title\":\"{{name}}\",\"slug\":\"{{name}}\",\"isFolder\":false,\"url\":\"/d/{{name}}/{{name}}\",\"inherited\":false}]"
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Dashboard {{name}} deleted\",\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}"
+    }
+  ]
+}

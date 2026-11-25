@@ -1,0 +1,19 @@
+terraform: [grafana_incident_role]
+kind: IncidentRole
+shape: crud
+fields:
+  name: {type: string}
+  description: {type: string}
+  important: {type: boolean}
+  mandatory: {type: boolean}
+  archived: {type: boolean}
+required: [name]
+id: roleID
+envelope: role
+bodyEnvelope: role
+serverFields: {orgID: "1", createdAt: "2026-11-22T00:00:00Z", updatedAt: "2026-11-22T00:00:00Z"}
+sample: {name: Commander, description: Leads the response, important: true, mandatory: true}
+create: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/RolesService.CreateRole"}
+read: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles", body: {}, find: {list: roles, field: roleID}}
+update: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/RolesService.UpdateRole", body: {roleID: "{id}"}}
+delete: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/RolesService.DeleteRole", body: {roleID: "{id}"}, bareBody: true}

@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/hook-rules",
+      "body": "{\"phase\":\"example-phase\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"example-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/hook-rules/270000031",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"example-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/hook-rules/270000031",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"example-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/hook-rules/270000031",
+      "body": "{\"phase\":\"changed-phase\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"changed-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/hook-rules/270000031",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"changed-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/hook-rules/270000031",
+      "body": "{\"phase\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"hfl-live-drift\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/hook-rules/270000031",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"hfl-live-drift\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/hook-rules/270000031",
+      "body": "{\"phase\":\"changed-phase\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"changed-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/hook-rules/270000031",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created_at\":\"example-created-at\",\"phase\":\"changed-phase\",\"rule_id\":270000031,\"tenant_id\":\"example-tenant-id\",\"updated_at\":\"example-updated-at\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/hook-rules/270000031",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/hook-rules/270000031",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

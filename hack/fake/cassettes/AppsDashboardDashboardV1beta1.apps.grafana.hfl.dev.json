@@ -1,0 +1,96 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-drift\"},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-drift\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-drift\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

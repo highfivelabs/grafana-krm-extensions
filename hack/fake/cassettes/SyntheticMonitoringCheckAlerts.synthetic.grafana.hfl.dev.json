@@ -1,0 +1,47 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/api/v1/check/example-checkID/alerts",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/check/example-checkID/alerts",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/check/example-checkID/alerts",
+      "body": "{\"alerts\":[]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"alerts\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/check/example-checkID/alerts",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"alerts\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/check/example-checkID/alerts",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"alerts\":[]}\n"
+    }
+  ]
+}

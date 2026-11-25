@@ -1,0 +1,128 @@
+{
+  "recorded": "2026-11-22T18:29:48Z",
+  "target": "Grafana OSS 13.3.1",
+  "vars": {
+    "team": 3,
+    "user": 4
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/api/folders",
+      "body": "{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3375638256107520,\"uid\":\"{{name}}\",\"orgId\":1,\"title\":\"{{name}}\",\"url\":\"/dashboards/f/{{name}}/{{name}}\",\"hasAcl\":false,\"canSave\":true,\"canEdit\":true,\"canAdmin\":true,\"canDelete\":true,\"createdBy\":\"admin\",\"created\":\"2026-11-22T18:29:48Z\",\"updatedBy\":\"admin\",\"updated\":\"2026-11-22T18:29:48Z\",\"version\":1}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/datasources",
+      "body": "{\"access\":\"proxy\",\"name\":\"{{name}}\",\"type\":\"prometheus\",\"uid\":\"{{name}}\",\"url\":\"http://127.0.0.1:9090\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"datasource\":{\"id\":3,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":true,\"jsonData\":{},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"},\"id\":3,\"message\":\"Datasource added\",\"name\":\"{{name}}\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RecordingRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"metric\":\"{{name_}}\",\"targetDatasourceUID\":\"{{name}}\",\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"0\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\"}},\"spec\":{\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"1\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"1\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RecordingRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"metric\":\"{{name_}}\",\"targetDatasourceUID\":\"{{name}}\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"2\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"2\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"2\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RecordingRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"},\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\",\"namespace\":\"default\",\"resourceVersion\":\"2\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\"},\"spec\":{\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"metric\":\"{{name_}}\",\"targetDatasourceUID\":\"{{name}}\",\"title\":\"{{name}}-drift\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"3\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-drift\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"3\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-drift\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RecordingRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"metric\":\"{{name_}}\",\"targetDatasourceUID\":\"{{name}}\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"4\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"4\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RecordingRule\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"5a1bc6d8-f602-4092-b71a-60cf5d0091d7\",\"resourceVersion\":\"4\",\"labels\":{\"grafana.app/folder\":\"{{name}}\"},\"annotations\":{\"grafana.app/folder\":\"{{name}}\",\"grafana.app/updatedBy\":\"cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/provenance\":\"\",\"grafana.com/updateTimestamp\":\"2026-11-22T18:29:48Z\",\"grafana.com/updatedBy\":\"cg53dfhvi0pogb\"}},\"spec\":{\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"},\"metric\":\"{{name_}}\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"targetDatasourceUID\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"recordingrules.rules.alerting.grafana.app \\\"{{name}}\\\" not found\",\"reason\":\"NotFound\",\"details\":{\"name\":\"{{name}}\",\"group\":\"rules.alerting.grafana.app\",\"kind\":\"recordingrules\"},\"code\":404}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":3,\"message\":\"Data source deleted\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Folder deleted\"}"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "recorded": "2026-11-22T18:29:47Z",
+  "target": "Grafana OSS 13.3.1",
+  "vars": {
+    "team": 3,
+    "user": 4
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"4fbe9fdb4c726550\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"4fbe9fdb4c726550\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"4fbe9fdb4c726550\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"4fbe9fdb4c726550\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"},\"name\":\"{{name}}\",\"namespace\":\"default\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\"},\"spec\":{\"defaults\":{\"group_wait\":\"2m\",\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"03cd37c9848b5aaf\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"2m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"03cd37c9848b5aaf\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"2m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"RoutingTree\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"03cd37c9848b5aaf\"},\"spec\":{\"defaults\":{\"group_wait\":\"1m\",\"receiver\":\"empty\"},\"routes\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"RoutingTree\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"XMSQrTq7LStuDPNP5KqAdJg5asCEapJZTQQ7DHPoOFMX\",\"resourceVersion\":\"f96a5f4343bac2ca\",\"annotations\":{\"grafana.com/access/canAdmin\":\"true\",\"grafana.com/access/canDelete\":\"true\",\"grafana.com/access/canWrite\":\"true\"}},\"spec\":{\"defaults\":{\"receiver\":\"empty\",\"group_wait\":\"1m\"},\"routes\":[]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/routingtrees/{{name}}",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"Route not found\",\"reason\":\"NotFound\",\"details\":{\"uid\":\"alerting.notifications.routes.notFound\"},\"code\":404}\n"
+    }
+  ]
+}

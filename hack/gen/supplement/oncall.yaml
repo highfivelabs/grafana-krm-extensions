@@ -1,0 +1,648 @@
+openapi: 3.0.3
+info:
+  title: Grafana OnCall public API (supplement)
+  version: v1
+servers:
+- url: https://oncall-prod-us-central-0.grafana.net/oncall
+paths:
+  /api/v1/escalation_chains:
+    post:
+      operationId: createEscalationChain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/EscalationChainWrite'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/EscalationChain'}
+  /api/v1/escalation_chains/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getEscalationChain
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/EscalationChain'}
+    put:
+      operationId: updateEscalationChain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/EscalationChainWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/EscalationChain'}
+    delete:
+      operationId: deleteEscalationChain
+      responses:
+        '204': {description: Deleted}
+  /api/v1/escalation_policies:
+    post:
+      operationId: createEscalationPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/EscalationPolicyCreate'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/EscalationPolicy'}
+  /api/v1/escalation_policies/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getEscalationPolicy
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/EscalationPolicy'}
+    put:
+      operationId: updateEscalationPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/EscalationPolicyWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/EscalationPolicy'}
+    delete:
+      operationId: deleteEscalationPolicy
+      responses:
+        '204': {description: Deleted}
+  /api/v1/integrations:
+    post:
+      operationId: createIntegration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/IntegrationCreate'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Integration'}
+  /api/v1/integrations/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getIntegration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Integration'}
+    put:
+      operationId: updateIntegration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/IntegrationWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Integration'}
+    delete:
+      operationId: deleteIntegration
+      responses:
+        '204': {description: Deleted}
+  /api/v1/routes:
+    post:
+      operationId: createRoute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/RouteCreate'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Route'}
+  /api/v1/routes/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getRoute
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Route'}
+    put:
+      operationId: updateRoute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/RouteWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Route'}
+    delete:
+      operationId: deleteRoute
+      responses:
+        '204': {description: Deleted}
+  /api/v1/schedules:
+    post:
+      operationId: createSchedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ScheduleCreate'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Schedule'}
+  /api/v1/schedules/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getSchedule
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Schedule'}
+    put:
+      operationId: updateSchedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ScheduleWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Schedule'}
+    delete:
+      operationId: deleteSchedule
+      responses:
+        '204': {description: Deleted}
+  /api/v1/on_call_shifts:
+    post:
+      operationId: createOnCallShift
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/OnCallShiftWrite'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/OnCallShift'}
+  /api/v1/on_call_shifts/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getOnCallShift
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/OnCallShift'}
+    put:
+      operationId: updateOnCallShift
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/OnCallShiftWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/OnCallShift'}
+    delete:
+      operationId: deleteOnCallShift
+      responses:
+        '204': {description: Deleted}
+  /api/v1/webhooks:
+    post:
+      operationId: createWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/WebhookWrite'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Webhook'}
+  /api/v1/webhooks/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Webhook'}
+    put:
+      operationId: updateWebhook
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/WebhookWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Webhook'}
+    delete:
+      operationId: deleteWebhook
+      responses:
+        '204': {description: Deleted}
+  /api/v1/personal_notification_rules:
+    post:
+      operationId: createPersonalNotificationRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/PersonalNotificationRuleCreate'}
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/PersonalNotificationRule'}
+  /api/v1/personal_notification_rules/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getPersonalNotificationRule
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/PersonalNotificationRule'}
+    put:
+      operationId: updatePersonalNotificationRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/PersonalNotificationRuleWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/PersonalNotificationRule'}
+    delete:
+      operationId: deletePersonalNotificationRule
+      responses:
+        '204': {description: Deleted}
+  /api/v1/teams/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getTeam
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Team'}
+    put:
+      operationId: updateTeam
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/TeamWrite'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Team'}
+components:
+  securitySchemes:
+    token:
+      type: apiKey
+      in: header
+      name: Authorization
+  schemas:
+    EscalationChainWrite:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string}
+        team_id: {type: string}
+    EscalationChain:
+      allOf:
+      - {$ref: '#/components/schemas/EscalationChainWrite'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+    EscalationPolicyWrite:
+      type: object
+      required: [type]
+      properties:
+        position: {type: integer, from 0.}
+        type:
+          type: string
+          enum: [wait, notify_persons, notify_person_next_each_time, notify_on_call_from_schedule, trigger_webhook, notify_user_group, resolve, notify_whole_channel, notify_if_time_from_to, repeat_escalation, notify_team_members, declare_incident]
+        duration: {type: integer}
+        persons_to_notify: {type: array, items: {type: string}}
+        persons_to_notify_next_each_time: {type: array, items: {type: string}, the next on each escalation.}
+        team_to_notify: {type: string}
+        notify_on_call_from_schedule: {type: string}
+        action_to_trigger: {type: string}
+        group_to_notify: {type: string}
+        manual_order: {type: boolean}
+        important: {type: boolean}
+        notify_if_time_from: {type: string}
+        notify_if_time_to: {type: string}
+        num_alerts_in_window: {type: integer}
+        num_minutes_in_window: {type: integer}
+        severity: {type: string}
+    EscalationPolicyCreate:
+      allOf:
+      - {$ref: '#/components/schemas/EscalationPolicyWrite'}
+      - type: object
+        required: [escalation_chain_id]
+        properties:
+          escalation_chain_id: {type: string}
+    EscalationPolicy:
+      allOf:
+      - {$ref: '#/components/schemas/EscalationPolicyCreate'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+    TitleMessageImageTemplate:
+      type: object
+      properties:
+        title: {type: string, nullable: true}
+        message: {type: string, nullable: true}
+        image_url: {type: string, nullable: true}
+    TitleMessageTemplate:
+      type: object
+      properties:
+        title: {type: string, nullable: true}
+        message: {type: string, nullable: true}
+    TitleTemplate:
+      type: object
+      properties:
+        title: {type: string, nullable: true}
+    Templates:
+      type: object
+      properties:
+        grouping_key: {type: string, nullable: true}
+        resolve_signal: {type: string, nullable: true}
+        acknowledge_signal: {type: string, nullable: true}
+        source_link: {type: string, nullable: true}
+        slack: {$ref: '#/components/schemas/TitleMessageImageTemplate'}
+        web: {$ref: '#/components/schemas/TitleMessageImageTemplate'}
+        msteams: {$ref: '#/components/schemas/TitleMessageImageTemplate'}
+        telegram: {$ref: '#/components/schemas/TitleMessageImageTemplate'}
+        phone_call: {$ref: '#/components/schemas/TitleTemplate'}
+        sms: {$ref: '#/components/schemas/TitleTemplate'}
+        email: {$ref: '#/components/schemas/TitleMessageTemplate'}
+        mobile_app: {$ref: '#/components/schemas/TitleMessageTemplate'}
+    SlackRoute:
+      type: object
+      properties:
+        channel_id: {type: string, nullable: true, description: The Slack channel ID.}
+        enabled: {type: boolean}
+    ChatRoute:
+      type: object
+      properties:
+        id: {type: string, nullable: true, description: The channel ID.}
+        enabled: {type: boolean}
+    DefaultRoute:
+      type: object
+      properties:
+        escalation_chain_id: {type: string, nullable: true}
+        slack: {$ref: '#/components/schemas/SlackRoute'}
+        telegram: {$ref: '#/components/schemas/ChatRoute'}
+        msteams: {$ref: '#/components/schemas/ChatRoute'}
+    Label:
+      type: object
+      properties:
+        key:
+          type: object
+          properties:
+            name: {type: string}
+        value:
+          type: object
+          properties:
+            name: {type: string}
+    IntegrationWrite:
+      type: object
+      properties:
+        name: {type: string}
+        team_id: {type: string}
+        templates: {$ref: '#/components/schemas/Templates'}
+        default_route: {$ref: '#/components/schemas/DefaultRoute'}
+        labels: {type: array, items: {$ref: '#/components/schemas/Label'}}
+        dynamic_labels: {type: array, items: {$ref: '#/components/schemas/Label'}}
+    IntegrationCreate:
+      allOf:
+      - {$ref: '#/components/schemas/IntegrationWrite'}
+      - type: object
+        required: [type]
+        properties:
+          type: {type: string}
+    Integration:
+      allOf:
+      - {$ref: '#/components/schemas/IntegrationCreate'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+          link: {type: string, readOnly: true}
+          inbound_email: {type: string, readOnly: true}
+    RouteWrite:
+      type: object
+      properties:
+        escalation_chain_id: {type: string}
+        position: {type: integer, from 0.}
+        routing_regex: {type: string}
+        routing_type: {type: string, enum: [regex, jinja2]}
+        slack: {$ref: '#/components/schemas/SlackRoute'}
+        telegram: {$ref: '#/components/schemas/ChatRoute'}
+        msteams: {$ref: '#/components/schemas/ChatRoute'}
+        manual_order: {type: boolean}
+    RouteCreate:
+      allOf:
+      - {$ref: '#/components/schemas/RouteWrite'}
+      - type: object
+        required: [integration_id, routing_regex]
+        properties:
+          integration_id: {type: string}
+    Route:
+      allOf:
+      - {$ref: '#/components/schemas/RouteCreate'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+          is_the_last_route: {type: boolean, readOnly: true}
+    SlackSchedule:
+      type: object
+      properties:
+        channel_id: {type: string, nullable: true}
+        user_group_id: {type: string, nullable: true}
+    ScheduleWrite:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string}
+        team_id: {type: string}
+        ical_url_primary: {type: string, nullable: true}
+        ical_url_overrides: {type: string, nullable: true}
+        enable_web_overrides: {type: boolean}
+        time_zone: {type: string}
+        slack: {$ref: '#/components/schemas/SlackSchedule'}
+        shifts: {type: array, nullable: true, items: {type: string}}
+    ScheduleCreate:
+      allOf:
+      - {$ref: '#/components/schemas/ScheduleWrite'}
+      - type: object
+        required: [type]
+        properties:
+          type: {type: string, enum: [ical, calendar, web]}
+    Schedule:
+      allOf:
+      - {$ref: '#/components/schemas/ScheduleCreate'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+          on_call_now: {type: array, items: {type: string}, readOnly: true}
+    OnCallShiftWrite:
+      type: object
+      required: [name, type, start, duration]
+      properties:
+        name: {type: string}
+        type: {type: string, enum: [single_event, recurrent_event, rolling_users]}
+        team_id: {type: string}
+        level: {type: integer}
+        start: {type: string}
+        duration: {type: integer, in seconds.}
+        until: {type: string, nullable: true}
+        frequency: {type: string, nullable: true, enum: [hourly, daily, weekly, monthly]}
+        users: {type: array, nullable: true, items: {type: string}}
+        interval: {type: integer, nullable: true}
+        week_start: {type: string, enum: [MO, TU, WE, TH, FR, SA, SU]}
+        by_day: {type: array, nullable: true, items: {type: string}}
+        by_month: {type: array, nullable: true, items: {type: integer}}
+        by_monthday: {type: array, nullable: true, items: {type: integer}}
+        source: {type: integer}
+        rolling_users: {type: array, nullable: true, items: {type: array, items: {type: string}}}
+        time_zone: {type: string, nullable: true}
+        start_rotation_from_user_index: {type: integer, nullable: true}
+    OnCallShift:
+      allOf:
+      - {$ref: '#/components/schemas/OnCallShiftWrite'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+    WebhookWrite:
+      type: object
+      required: [name, trigger_type]
+      properties:
+        name: {type: string}
+        preset: {type: string}
+        team: {type: string}
+        url: {type: string, description: The URL called.}
+        trigger_type: {type: string, enum: [escalation, alert group created, acknowledge, resolve, silence, unsilence, unresolve, unacknowledge, status change, personal notification]}
+        http_method: {type: string, enum: [GET, POST, PUT, DELETE, OPTIONS]}
+        data: {type: string, nullable: true, description: The request body, a Jinja2 template.}
+        username: {type: string, nullable: true}
+        password: {type: string, nullable: true}
+        authorization_header: {type: string, nullable: true}
+        trigger_template: {type: string, nullable: true}
+        headers: {type: string, nullable: true, description: Request headers, a JSON object as a string.}
+        forward_all: {type: boolean, ignoring data.}
+        integration_filter: {type: array, nullable: true, items: {type: string}}
+        schedule_filter: {type: array, nullable: true, items: {type: string}}
+        is_webhook_enabled: {type: boolean}
+    Webhook:
+      allOf:
+      - {$ref: '#/components/schemas/WebhookWrite'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+    PersonalNotificationRuleWrite:
+      type: object
+      properties:
+        position: {type: integer, from 0.}
+        duration: {type: integer}
+        type: {type: string, enum: [wait, notify_by_slack, notify_by_sms, notify_by_phone_call, notify_by_telegram, notify_by_email, notify_by_mobile_app, notify_by_mobile_app_critical, notify_by_msteams]}
+        manual_order: {type: boolean}
+    PersonalNotificationRuleCreate:
+      allOf:
+      - {$ref: '#/components/schemas/PersonalNotificationRuleWrite'}
+      - type: object
+        required: [user_id, type]
+        properties:
+          user_id: {type: string}
+          important: {type: boolean, description: An important rule, used for important escalation steps.}
+    PersonalNotificationRule:
+      allOf:
+      - {$ref: '#/components/schemas/PersonalNotificationRuleCreate'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+    TeamWrite:
+      type: object
+      required: [is_sharing_resources_to_all]
+      properties:
+        is_sharing_resources_to_all: {type: boolean}
+    Team:
+      allOf:
+      - {$ref: '#/components/schemas/TeamWrite'}
+      - type: object
+        properties:
+          id: {type: string, readOnly: true}
+          name: {type: string, readOnly: true}
+          email: {type: string, readOnly: true}
+          avatar_url: {type: string, readOnly: true}

@@ -1,0 +1,94 @@
+{
+  "recorded": "2026-11-22T18:29:44Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/playlists",
+      "body": "{\"interval\":\"5m\",\"items\":[],\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"5m\",\"items\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"5m\",\"items\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"5m\",\"items\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/playlists/cg53dkw04xou8c",
+      "body": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"10m\",\"items\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"10m\",\"items\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"10m\",\"items\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/playlists/cg53dkw04xou8c",
+      "body": "{\"interval\":\"15m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":\"cg53dkw04xou8c\"}",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"15m\",\"items\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"15m\",\"items\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/playlists/cg53dkw04xou8c",
+      "body": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"10m\",\"items\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"uid\":\"cg53dkw04xou8c\",\"name\":\"{{name}}\",\"interval\":\"10m\",\"items\":[]}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 200,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "\"\"\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/cg53dkw04xou8c",
+      "status": 404,
+      "contentType": "application/json; charset=UTF-8",
+      "response": "{\"message\":\"playlists.playlist.grafana.app \\\"cg53dkw04xou8c\\\" not found\",\"traceID\":\"\"}\n"
+    }
+  ]
+}

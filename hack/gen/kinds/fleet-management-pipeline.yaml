@@ -1,0 +1,20 @@
+terraform: [grafana_fleet_management_pipeline]
+kind: FleetManagementPipeline
+shape: crud
+fields:
+  name: {type: string, unique among the stack's pipelines.}
+  contents: {type: string, or OpenTelemetry Collector YAML).}
+  matchers:
+    type: array
+    items: {type: string}
+  enabled: {type: boolean}
+  configType: {type: string, enum: [CONFIG_TYPE_ALLOY, CONFIG_TYPE_OTEL]}
+required: [name, contents]
+id: id
+bodyEnvelope: pipeline
+serverFields: {createdAt: "2026-11-22T00:00:00Z", updatedAt: "2026-11-22T00:00:00Z"}
+sample: {name: example-pipeline, contents: "prometheus.exporter.self \"default\" { }", matchers: ['env="prod"'], enabled: true, configType: CONFIG_TYPE_ALLOY}
+create: {method: POST, path: /pipeline.v1.PipelineService/CreatePipeline}
+read: {method: POST, path: /pipeline.v1.PipelineService/GetPipeline, body: {id: "{id}"}}
+update: {method: POST, path: /pipeline.v1.PipelineService/UpdatePipeline, body: {id: "{id}"}}
+delete: {method: POST, path: /pipeline.v1.PipelineService/DeletePipeline, body: {id: "{id}"}, bareBody: true}

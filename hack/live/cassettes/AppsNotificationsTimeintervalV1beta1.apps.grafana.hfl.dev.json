@@ -1,0 +1,105 @@
+{
+  "recorded": "2026-11-22T18:29:47Z",
+  "target": "Grafana OSS 13.3.1",
+  "vars": {
+    "team": 3,
+    "user": 4
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"295b569d03ae6a64\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"295b569d03ae6a64\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"295b569d03ae6a64\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"resourceVersion\":\"295b569d03ae6a64\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"annotations\":{\"grafana.com/canUse\":\"true\"},\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"resourceVersion\":\"19d84359ffc5513a\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"wednesday\"]}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"022b685f53568908\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"wednesday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"022b685f53568908\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"wednesday\"]}]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"resourceVersion\":\"022b685f53568908\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"TimeInterval\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"namespace\":\"default\",\"uid\":\"WVuiRmHKZGMPHybkAIbI4OMeZ2IvY9FMzYs2tAD66L0X\",\"resourceVersion\":\"19d84359ffc5513a\",\"annotations\":{\"grafana.com/canUse\":\"true\"}},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"timeintervals.notifications.alerting.grafana.app \\\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\\\" not found\",\"reason\":\"NotFound\",\"details\":{\"name\":\"aGZsLWxpdmUtMjYxMTIyMTgyOS04MWVhLTI3\",\"group\":\"notifications.alerting.grafana.app\",\"kind\":\"timeintervals\"},\"code\":404}\n"
+    }
+  ]
+}

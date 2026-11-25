@@ -1,0 +1,98 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/CreatePipeline",
+      "body": "{\"pipeline\":{\"configType\":\"CONFIG_TYPE_ALLOY\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"enabled\":true,\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"CONFIG_TYPE_ALLOY\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/GetPipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"CONFIG_TYPE_ALLOY\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/GetPipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"CONFIG_TYPE_ALLOY\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/UpdatePipeline",
+      "body": "{\"pipeline\":{\"configType\":\"changed-configType\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"changed-configType\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/GetPipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"changed-configType\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/UpdatePipeline",
+      "body": "{\"pipeline\":{\"configType\":\"hfl-live-drift\",\"id\":\"270000064\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"hfl-live-drift\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/GetPipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"hfl-live-drift\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/UpdatePipeline",
+      "body": "{\"pipeline\":{\"configType\":\"changed-configType\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"changed-configType\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/GetPipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"configType\":\"changed-configType\",\"contents\":\"prometheus.exporter.self \\\"default\\\" { }\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"270000064\",\"matchers\":[\"env=\\\"prod\\\"\"],\"name\":\"example-pipeline\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/DeletePipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline.v1.PipelineService/GetPipeline",
+      "body": "{\"id\":\"270000064\"}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

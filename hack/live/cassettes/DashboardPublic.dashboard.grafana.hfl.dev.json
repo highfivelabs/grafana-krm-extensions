@@ -1,0 +1,100 @@
+{
+  "recorded": "2026-11-22T18:29:45Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/dashboards/db",
+      "body": "{\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"overwrite\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"folderUid\":\"\",\"id\":3375626946490368,\"slug\":\"{{name}}\",\"status\":\"success\",\"uid\":\"{{name}}\",\"url\":\"/d/{{name}}/{{name}}\",\"version\":1}"
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "body": "{\"annotationsEnabled\":false,\"isEnabled\":false,\"share\":\"public\",\"timeSelectionEnabled\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":false,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":false,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":false,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/dashboards/uid/{{name}}/public-dashboards/dg53dkz1bhwxsd",
+      "body": "{\"annotationsEnabled\":false,\"isEnabled\":true,\"share\":\"public\",\"timeSelectionEnabled\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":true,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45.983359589Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":true,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45.983359589Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/dashboards/uid/{{name}}/public-dashboards/dg53dkz1bhwxsd",
+      "body": "{\"isEnabled\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":false,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45.99805437Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":false,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:45.99805437Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/dashboards/uid/{{name}}/public-dashboards/dg53dkz1bhwxsd",
+      "body": "{\"annotationsEnabled\":false,\"isEnabled\":true,\"share\":\"public\",\"timeSelectionEnabled\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":true,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:46.010598529Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessToken\":\"{{redacted}}\",\"annotationsEnabled\":false,\"createdAt\":\"2026-11-22T18:29:45Z\",\"createdBy\":1,\"dashboardUid\":\"{{name}}\",\"isEnabled\":true,\"share\":\"public\",\"timeSelectionEnabled\":false,\"uid\":\"dg53dkz1bhwxsd\",\"updatedAt\":\"2026-11-22T18:29:46.010598529Z\",\"updatedBy\":1}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}/public-dashboards/dg53dkz1bhwxsd",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/public-dashboards",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"statusCode\":404,\"messageId\":\"publicdashboards.notFound\",\"message\":\"Dashboard not found\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Dashboard {{name}} deleted\",\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}"
+    }
+  ]
+}

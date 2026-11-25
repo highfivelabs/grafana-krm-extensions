@@ -1,0 +1,98 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.CreateOrgSeverity",
+      "body": "{\"severity\":{\"darkColor\":\"#FF5286\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"#FF5286\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"#FF5286\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"#FF5286\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.UpdateOrgSeverity",
+      "body": "{\"severity\":{\"darkColor\":\"changed-darkColor\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"lightColor\":\"#FF5286\",\"severityID\":\"270000075\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"changed-darkColor\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"changed-darkColor\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.UpdateOrgSeverity",
+      "body": "{\"severity\":{\"darkColor\":\"hfl-live-drift\",\"severityID\":\"270000075\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"hfl-live-drift\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"hfl-live-drift\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.UpdateOrgSeverity",
+      "body": "{\"severity\":{\"darkColor\":\"changed-darkColor\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"lightColor\":\"#FF5286\",\"severityID\":\"270000075\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"changed-darkColor\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"severity\":{\"archivedAt\":\"\",\"darkColor\":\"changed-darkColor\",\"description\":\"Customer-facing outage\",\"displayLabel\":\"Critical\",\"iconName\":\"fire\",\"level\":1,\"lightColor\":\"#FF5286\",\"orgID\":\"1\",\"severityID\":\"270000075\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.DeleteOrgSeverity",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID",
+      "body": "{\"severityID\":\"270000075\"}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

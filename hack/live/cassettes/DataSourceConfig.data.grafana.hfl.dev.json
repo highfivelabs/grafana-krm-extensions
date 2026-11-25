@@ -1,0 +1,116 @@
+{
+  "recorded": "2026-11-22T18:29:45Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/datasources",
+      "body": "{\"access\":\"proxy\",\"name\":\"{{name}}\",\"type\":\"prometheus\",\"uid\":\"{{name}}\",\"url\":\"http://127.0.0.1:9090\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"datasource\":{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":true,\"jsonData\":{},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"},\"id\":1,\"message\":\"Datasource added\",\"name\":\"{{name}}\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":true,\"jsonData\":{},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/datasources/uid/{{name}}",
+      "body": "{\"access\":\"proxy\",\"jsonData\":{\"httpMethod\":\"POST\"},\"name\":\"{{name}}\",\"type\":\"prometheus\",\"url\":\"http://127.0.0.1:9090\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"datasource\":{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"},\"id\":1,\"message\":\"Datasource updated\",\"name\":\"{{name}}\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9090\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/datasources/uid/{{name}}",
+      "body": "{\"access\":\"proxy\",\"jsonData\":{\"httpMethod\":\"POST\"},\"name\":\"{{name}}\",\"type\":\"prometheus\",\"url\":\"http://127.0.0.1:9091\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"datasource\":{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9091\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"},\"id\":1,\"message\":\"Datasource updated\",\"name\":\"{{name}}\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9091\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9091\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/datasources/uid/{{name}}",
+      "body": "{\"access\":\"proxy\",\"apiVersion\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"database\":\"\",\"id\":1,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"name\":\"{{name}}\",\"orgId\":1,\"readOnly\":false,\"secureJsonFields\":{},\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"uid\":\"{{name}}\",\"url\":\"http://127.0.0.1:9099\",\"user\":\"\",\"version\":1,\"withCredentials\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"datasource\":{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9099\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":2,\"readOnly\":false,\"apiVersion\":\"\"},\"id\":1,\"message\":\"Datasource updated\",\"name\":\"{{name}}\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9099\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":2,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/datasources/uid/{{name}}",
+      "body": "{\"access\":\"proxy\",\"jsonData\":{\"httpMethod\":\"POST\"},\"name\":\"{{name}}\",\"type\":\"prometheus\",\"url\":\"http://127.0.0.1:9091\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"datasource\":{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9091\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"},\"id\":1,\"message\":\"Datasource updated\",\"name\":\"{{name}}\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"uid\":\"{{name}}\",\"orgId\":1,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"typeLogoUrl\":\"public/plugins/prometheus/img/prometheus_logo.svg\",\"access\":\"proxy\",\"url\":\"http://127.0.0.1:9091\",\"user\":\"\",\"database\":\"\",\"basicAuth\":false,\"basicAuthUser\":\"\",\"withCredentials\":false,\"isDefault\":false,\"jsonData\":{\"httpMethod\":\"POST\"},\"secureJsonFields\":{},\"version\":1,\"readOnly\":false,\"apiVersion\":\"\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/datasources/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":1,\"message\":\"Data source deleted\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/datasources/uid/{{name}}",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Data source not found\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/datasources/uid/{{name}}",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Data source not found\"}"
+    }
+  ]
+}

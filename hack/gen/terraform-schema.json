@@ -1,0 +1,285 @@
+{
+ "provider": "grafana/grafana",
+ "resources": {
+  "grafana_asserts_stack": {
+   "attributes": {
+    "cloud_access_policy_token": {
+     "required": true,
+     "sensitive": true,
+     "type": "string"
+    },
+    "enabled": {
+     "computed": true
+    },
+    "grafana_token": {
+     "optional": true,
+     "sensitive": true,
+     "type": "string"
+    },
+    "id": {
+     "computed": true,
+     "optional": true,
+     "type": "string"
+    },
+    "status": {
+     "computed": true
+    },
+    "version": {
+     "computed": true
+    }
+   },
+   "block_types": {
+    "dataset": {
+     "block": {
+      "attributes": {
+       "disabled_vendors": {
+        "optional": true,
+        "type": [
+         "list",
+         "string"
+        ]
+       },
+       "type": {
+        "required": true,
+        "type": "string"
+       }
+      },
+      "block_types": {
+       "filter_group": {
+        "block": {
+         "attributes": {
+          "env_label": {
+           "optional": true,
+           "type": "string"
+          },
+          "env_label_values": {
+           "optional": true,
+           "type": [
+            "list",
+            "string"
+           ]
+          },
+          "env_name": {
+           "optional": true,
+           "type": "string"
+          },
+          "site_label": {
+           "optional": true,
+           "type": "string"
+          },
+          "site_label_values": {
+           "optional": true,
+           "type": [
+            "list",
+            "string"
+           ]
+          }
+         },
+         "block_types": {
+          "filter": {
+           "block": {
+            "attributes": {
+             "name": {
+              "required": true,
+              "type": "string"
+             },
+             "operator": {
+              "required": true,
+              "type": "string"
+             },
+             "values": {
+              "required": true,
+              "type": [
+               "list",
+               "string"
+              ]
+             }
+            }
+           },
+           "nesting_mode": "list"
+          }
+         }
+        },
+        "nesting_mode": "list"
+       }
+      }
+     },
+     "nesting_mode": "list"
+    },
+    "timeouts": {
+     "block": {
+      "attributes": {
+       "create": {
+        "optional": true,
+        "type": "string"
+       },
+       "delete": {
+        "optional": true,
+        "type": "string"
+       },
+       "read": {
+        "optional": true,
+        "type": "string"
+       },
+       "update": {
+        "optional": true,
+        "type": "string"
+       }
+      }
+     },
+     "nesting_mode": "single"
+    }
+   }
+  },
+  "grafana_cloud_access_policy_rotating_token": {
+   "attributes": {
+    "access_policy_id": {
+     "required": true,
+     "type": "string"
+    },
+    "created_at": {
+     "computed": true
+    },
+    "delete_on_destroy": {
+     "optional": true,
+     "type": "bool"
+    },
+    "display_name": {
+     "optional": true,
+     "type": "string"
+    },
+    "early_rotation_window": {
+     "required": true,
+     "type": "string"
+    },
+    "expire_after": {
+     "required": true,
+     "type": "string"
+    },
+    "expires_at": {
+     "computed": true
+    },
+    "id": {
+     "computed": true,
+     "optional": true,
+     "type": "string"
+    },
+    "name": {
+     "computed": true
+    },
+    "name_prefix": {
+     "required": true,
+     "type": "string"
+    },
+    "ready_for_rotation": {
+     "computed": true
+    },
+    "region": {
+     "required": true,
+     "type": "string"
+    },
+    "token": {
+     "computed": true
+    },
+    "updated_at": {
+     "computed": true
+    }
+   }
+  },
+  "grafana_cloud_stack_service_account_rotating_token": {
+   "attributes": {
+    "delete_on_destroy": {
+     "optional": true,
+     "type": "bool"
+    },
+    "early_rotation_window_seconds": {
+     "required": true,
+     "type": "number"
+    },
+    "expiration": {
+     "computed": true
+    },
+    "has_expired": {
+     "computed": true
+    },
+    "id": {
+     "computed": true,
+     "optional": true,
+     "type": "string"
+    },
+    "key": {
+     "computed": true
+    },
+    "name": {
+     "computed": true
+    },
+    "name_prefix": {
+     "required": true,
+     "type": "string"
+    },
+    "ready_for_rotation": {
+     "computed": true
+    },
+    "seconds_to_live": {
+     "required": true,
+     "type": "number"
+    },
+    "service_account_id": {
+     "required": true,
+     "type": "string"
+    },
+    "stack_slug": {
+     "required": true,
+     "type": "string"
+    }
+   }
+  },
+  "grafana_service_account_rotating_token": {
+   "attributes": {
+    "delete_on_destroy": {
+     "optional": true,
+     "type": "bool"
+    },
+    "early_rotation_window_seconds": {
+     "required": true,
+     "type": "number"
+    },
+    "expiration": {
+     "computed": true
+    },
+    "has_expired": {
+     "computed": true
+    },
+    "id": {
+     "computed": true,
+     "optional": true,
+     "type": "string"
+    },
+    "key": {
+     "computed": true
+    },
+    "name": {
+     "computed": true
+    },
+    "name_prefix": {
+     "required": true,
+     "type": "string"
+    },
+    "ready_for_rotation": {
+     "computed": true
+    },
+    "seconds_to_live": {
+     "required": true,
+     "type": "number"
+    },
+    "service_account_id": {
+     "required": true,
+     "type": "string"
+    }
+   }
+  }
+ },
+ "source": "terraform providers schema -json; facts only (no descriptions: the provider is MPL-2.0)",
+ "terraform": "1.17.2",
+ "version": "4.55.0"
+}

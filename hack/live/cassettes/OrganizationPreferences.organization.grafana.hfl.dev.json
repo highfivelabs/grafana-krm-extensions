@@ -1,0 +1,95 @@
+{
+  "recorded": "2026-11-22T18:29:45Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Preferences updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"timezone\":\"utc\",\"weekStart\":\"monday\",\"theme\":\"dark\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"timezone\":\"utc\",\"weekStart\":\"monday\",\"theme\":\"dark\"}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Preferences updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"timezone\":\"utc\",\"weekStart\":\"monday\",\"theme\":\"light\"}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"dark\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Preferences updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"timezone\":\"utc\",\"weekStart\":\"monday\",\"theme\":\"dark\"}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Preferences updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"timezone\":\"utc\",\"weekStart\":\"monday\",\"theme\":\"light\"}"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Preferences updated\"}"
+    }
+  ]
+}

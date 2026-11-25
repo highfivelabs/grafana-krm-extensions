@@ -1,0 +1,92 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/playlists",
+      "body": "{\"interval\":\"5m\",\"items\":[],\"name\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"5m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"5m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"5m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/playlists/270000003",
+      "body": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/playlists/270000003",
+      "body": "{\"interval\":\"15m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"15m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"15m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/playlists/270000003",
+      "body": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"interval\":\"10m\",\"items\":[],\"name\":\"{{name}}\",\"uid\":270000003}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/playlists/270000003",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/playlists/270000003",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

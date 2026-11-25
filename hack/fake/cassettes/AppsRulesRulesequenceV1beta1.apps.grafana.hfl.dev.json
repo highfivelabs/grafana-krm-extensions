@@ -1,0 +1,135 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/api/folders",
+      "body": "{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"id\":280000019,\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/api/datasources",
+      "body": "{\"access\":\"proxy\",\"name\":\"{{name}}\",\"type\":\"prometheus\",\"uid\":\"{{name}}\",\"url\":\"http://127.0.0.1:9090\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"access\":\"proxy\",\"id\":280000020,\"name\":\"{{name}}\",\"type\":\"prometheus\",\"uid\":\"{{name}}\",\"url\":\"http://127.0.0.1:9090\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RecordingRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}-rec\"},\"spec\":{\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"type\":\"math\"},\"source\":true}},\"metric\":\"{{name_}}\",\"targetDatasourceUID\":\"{{name}}\",\"title\":\"{{name}}-rec\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"id\":280000021,\"kind\":\"RecordingRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}-rec\"},\"spec\":{\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 + 1\",\"type\":\"math\"},\"source\":true}},\"metric\":\"{{name_}}\",\"targetDatasourceUID\":\"{{name}}\",\"title\":\"{{name}}-rec\",\"trigger\":{\"interval\":\"1m\"}}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"3m\"}},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"3m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"3m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v1beta1\",\"kind\":\"RuleSequence\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"recordingRules\":[{\"name\":\"{{name}}-rec\"}],\"trigger\":{\"interval\":\"2m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/rulesequences/{{name}}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}-rec",
+      "status": 204
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/datasources/uid/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/folders/{{name}}",
+      "status": 204
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.CreateRole",
+      "body": "{\"role\":{\"description\":\"Leads the response\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"role\":{\"createdAt\":\"2026-11-22T00:00:00Z\",\"description\":\"Leads the response\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"orgID\":\"1\",\"roleID\":\"270000074\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"roles\":[{\"description\":\"Leads the response\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}]}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"roles\":[{\"description\":\"Leads the response\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}]}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.UpdateRole",
+      "body": "{\"role\":{\"description\":\"changed-description\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role\":{\"createdAt\":\"2026-11-22T00:00:00Z\",\"description\":\"changed-description\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"orgID\":\"1\",\"roleID\":\"270000074\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"roles\":[{\"description\":\"changed-description\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}]}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.UpdateRole",
+      "body": "{\"role\":{\"description\":\"hfl-live-drift\",\"roleID\":\"270000074\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role\":{\"createdAt\":\"2026-11-22T00:00:00Z\",\"description\":\"hfl-live-drift\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"orgID\":\"1\",\"roleID\":\"270000074\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"roles\":[{\"description\":\"hfl-live-drift\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}]}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.UpdateRole",
+      "body": "{\"role\":{\"description\":\"changed-description\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role\":{\"createdAt\":\"2026-11-22T00:00:00Z\",\"description\":\"changed-description\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"orgID\":\"1\",\"roleID\":\"270000074\",\"updatedAt\":\"2026-11-22T00:00:00Z\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"roles\":[{\"description\":\"changed-description\",\"important\":true,\"mandatory\":true,\"name\":\"Commander\",\"roleID\":\"270000074\"}]}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.DeleteRole",
+      "body": "{\"roleID\":\"270000074\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/RolesService.GetRoles",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"roles\":[]}\n"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/dashboards/db",
+      "body": "{\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"overwrite\":false}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"id\":280000002,\"overwrite\":false}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "body": "{\"items\":[{\"permission\":1,\"role\":\"Viewer\"}]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "body": "{\"items\":[{\"permission\":1,\"role\":\"Viewer\"},{\"permission\":2,\"role\":\"Editor\"}]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/dashboards/uid/{{name}}/permissions",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"dashboardId\":1,\"folderId\":1,\"folderUid\":\"example-folderUid\",\"inherited\":true,\"isFolder\":true,\"permission\":1,\"permissionName\":\"example-permissionName\",\"role\":\"None\",\"slug\":\"example-slug\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamEmail\":\"example-teamEmail\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"title\":\"example-title\",\"updated\":\"2000-01-01T00:00:00Z\",\"url\":\"example-url\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userEmail\":\"example-userEmail\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}",
+      "status": 204
+    }
+  ]
+}

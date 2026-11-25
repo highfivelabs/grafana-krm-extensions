@@ -1,0 +1,47 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/api/v1/teams/example-id",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"avatar_url\":\"example-avatar-url\",\"email\":\"example-email\",\"name\":\"example-name\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/teams/example-id",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"avatar_url\":\"example-avatar-url\",\"email\":\"example-email\",\"name\":\"example-name\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/teams/example-id",
+      "body": "{\"is_sharing_resources_to_all\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"avatar_url\":\"example-avatar-url\",\"email\":\"example-email\",\"is_sharing_resources_to_all\":true,\"name\":\"example-name\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/teams/example-id",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"avatar_url\":\"example-avatar-url\",\"email\":\"example-email\",\"is_sharing_resources_to_all\":true,\"name\":\"example-name\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/teams/example-id",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"avatar_url\":\"example-avatar-url\",\"email\":\"example-email\",\"is_sharing_resources_to_all\":true,\"name\":\"example-name\"}\n"
+    }
+  ]
+}

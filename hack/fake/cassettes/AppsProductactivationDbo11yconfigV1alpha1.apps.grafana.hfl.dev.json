@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs",
+      "body": "{\"apiVersion\":\"productactivation.ext.grafana.com/v1alpha1\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"productactivation.ext.grafana.com/v1alpha1\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"productactivation.ext.grafana.com/v1alpha1\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"productactivation.ext.grafana.com/v1alpha1\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "body": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "body": "{\"apiVersion\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"hfl-live-drift\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"hfl-live-drift\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "body": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"DbO11yConfig\",\"metadata\":{\"name\":\"example-name\"},\"spec\":{\"enabled\":true},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/productactivation.ext.grafana.com/v1alpha1/namespaces/example-namespace/dbo11yconfigs/example-name",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

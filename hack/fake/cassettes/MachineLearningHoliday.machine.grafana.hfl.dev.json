@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/holidays",
+      "body": "{\"name\":\"example-name\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"example-name\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"example-name\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"example-name\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/holidays/270000050",
+      "body": "{\"name\":\"changed-name\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"changed-name\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"changed-name\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/holidays/270000050",
+      "body": "{\"name\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"hfl-live-drift\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"hfl-live-drift\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/holidays/270000050",
+      "body": "{\"name\":\"changed-name\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"changed-name\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"id\":270000050,\"name\":\"changed-name\"}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/holidays/270000050",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/orgs/example-slugOrId/members",
+      "body": "{\"username\":\"example-username\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"allowGCloudTrial\":true,\"contractTypeId\":0,\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"defaultOrg\":1,\"extraPermissions\":[],\"grafanaCloud\":0,\"grafanaStaffAccess\":{\"accessExpiresAt\":\"example-accessExpiresAt\"},\"hgDatasourceCnts\":\"example-hgDatasourceCnts\",\"hlUsage\":1,\"hmCurrentGraphiteUsage\":1,\"hmCurrentPrometheusUsage\":1,\"marketplaceSubscription\":{\"isLegacy\":true,\"provider\":\"aws\"},\"mfaEnabled\":true,\"orgId\":1,\"orgName\":\"example-orgName\",\"orgSlug\":\"example-orgSlug\",\"orgUrl\":\"example-orgUrl\",\"resellerId\":1,\"status\":1,\"subscriptions\":{\"current\":{\"endDate\":\"example-endDate\",\"enterprisePluginsAdded\":true,\"isTrial\":true,\"payload\":{},\"plan\":\"example-plan\",\"planBillingCycle\":\"example-planBillingCycle\",\"product\":\"example-product\",\"publicName\":\"example-publicName\",\"startDate\":\"example-startDate\"},\"next\":\"example-next\"},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\",\"userEmail\":\"example-userEmail\",\"userFirstName\":\"example-userFirstName\",\"userId\":270000041,\"userLastName\":\"example-userLastName\",\"userName\":\"example-userName\",\"userStatus\":1,\"userUsername\":\"example-userUsername\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/example-slugOrId/members/270000041",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"allowGCloudTrial\":true,\"contractTypeId\":0,\"createdAt\":\"example-createdAt\",\"createdBy\":\"example-createdBy\",\"defaultOrg\":1,\"extraPermissions\":[],\"grafanaCloud\":0,\"grafanaStaffAccess\":{\"accessExpiresAt\":\"example-accessExpiresAt\"},\"hgDatasourceCnts\":\"example-hgDatasourceCnts\",\"hlUsage\":1,\"hmCurrentGraphiteUsage\":1,\"hmCurrentPrometheusUsage\":1,\"marketplaceSubscription\":{\"isLegacy\":true,\"provider\":\"aws\"},\"mfaEnabled\":true,\"orgId\":1,\"orgName\":\"example-orgName\",\"orgSlug\":\"example-orgSlug\",\"orgUrl\":\"example-orgUrl\",\"resellerId\":1,\"status\":1,\"subscriptions\":{\"current\":{\"endDate\":\"example-endDate\",\"enterprisePluginsAdded\":true,\"isTrial\":true,\"payload\":{},\"plan\":\"example-plan\",\"planBillingCycle\":\"example-planBillingCycle\",\"product\":\"example-product\",\"publicName\":\"example-publicName\",\"startDate\":\"example-startDate\"},\"next\":\"example-next\"},\"updatedAt\":\"example-updatedAt\",\"updatedBy\":\"example-updatedBy\",\"userEmail\":\"example-userEmail\",\"userFirstName\":\"example-userFirstName\",\"userId\":270000041,\"userLastName\":\"example-userLastName\",\"userName\":\"example-userName\",\"userStatus\":1,\"userUsername\":\"example-userUsername\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/orgs/example-slugOrId/members/270000041",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/example-slugOrId/members/270000041",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists",
+      "body": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"interval\":\"5m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000013\"},\"spec\":{\"interval\":\"5m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000013\"},\"spec\":{\"interval\":\"5m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000013\"},\"spec\":{\"interval\":\"5m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "body": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000013\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000014\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000014\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000014\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000014\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "body": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000014\"},\"spec\":{\"interval\":\"15m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000015\"},\"spec\":{\"interval\":\"15m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000015\"},\"spec\":{\"interval\":\"15m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "body": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000015\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000016\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"playlist.grafana.app/v1\",\"kind\":\"Playlist\",\"metadata\":{\"name\":\"{{name}}\",\"resourceVersion\":\"270000016\"},\"spec\":{\"interval\":\"10m\",\"items\":[{\"type\":\"dashboard_by_tag\",\"value\":\"hfl-live\"}],\"title\":\"{{name}}\"},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/playlist.grafana.app/v1/namespaces/default/playlists/{{name}}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

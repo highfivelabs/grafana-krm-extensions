@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Grafana Cloud k6 load tests (supplement)
+  version: v6
+servers:
+- url: https://api.k6.io
+paths:
+  /cloud/v6/projects/{project_id}/load_tests:
+    parameters:
+    - {in: path, name: project_id, required: true, description: ID of the project., schema: {type: integer, format: int64}}
+    post:
+      operationId: projects_load_tests_create
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: {$ref: '#/components/schemas/CreateLoadTestApiModel'}
+      responses:
+        '201':
+          description: Created.
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/LoadTestApiModel'}
+  /cloud/v6/load_tests/{id}:
+    parameters:
+    - {in: path, name: id, required: true, description: ID of the load test., schema: {type: integer, format: int64}}
+    get:
+      operationId: load_tests_retrieve
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/LoadTestApiModel'}
+    patch:
+      operationId: load_tests_partial_update
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/PatchLoadTestApiModel'}
+      responses:
+        '204': {description: No response body.}
+    delete:
+      operationId: load_tests_destroy
+      responses:
+        '204': {description: No response body.}
+components:
+  schemas:
+    CreateLoadTestApiModel:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string, minLength: 1, maxLength: 300, description: Unique name of the test within the project.}
+        script: {type: [string, 'null'], format: binary, description: Test script in the form of a UTF-8 encoded text or a k6 .tar archive.}
+        k6_version: {type: [integer, 'null'], description: Identifier of the k6 version used to run the test.}
+    LoadTestApiModel:
+      type: object
+      required: [id, project_id, name, baseline_test_run_id, created, updated]
+      properties:
+        id: {type: integer, format: int64, description: ID of the load test.}
+        project_id: {type: integer, format: int64, description: ID of the parent project.}
+        name: {type: string, minLength: 1, maxLength: 300, description: Unique name of the test within the project.}
+        baseline_test_run_id: {type: [integer, 'null'], format: int64, deprecated: true, description: 'ID of a baseline test run used for results comparison. Deprecated: baselines are being replaced by the star/unstar test run APIs.'}
+        k6_version: {type: [integer, 'null'], description: Identifier of the k6 version used to run the test.}
+        created: {type: string, format: date-time, description: The date when the test was created.}
+        updated: {type: string, format: date-time, description: The date when the test was last updated.}
+    PatchLoadTestApiModel:
+      type: object
+      additionalProperties: false
+      properties:
+        name: {type: string, minLength: 1, maxLength: 300, description: Unique name of the test within the project.}
+        baseline_test_run_id: {type: [integer, 'null'], format: int64, deprecated: true, description: ID of a baseline test run used for results comparison (deprecated).}
+        k6_version: {type: [integer, 'null'], description: Identifier of the k6 version used to run the test.}

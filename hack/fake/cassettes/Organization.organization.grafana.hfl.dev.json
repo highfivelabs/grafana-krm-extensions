@@ -1,0 +1,85 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/orgs",
+      "body": "{\"name\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/270000004",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/270000004",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/orgs/270000004",
+      "body": "{\"name\":\"{{name}}-changed\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}-changed\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/270000004",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}-changed\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/orgs/270000004",
+      "body": "{\"name\":\"{{name}}-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}-drift\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/270000004",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}-drift\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/orgs/270000004",
+      "body": "{\"name\":\"{{name}}-changed\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}-changed\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/270000004",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"address\":{},\"name\":\"{{name}}-changed\",\"orgId\":270000004}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/orgs/270000004",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/270000004",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

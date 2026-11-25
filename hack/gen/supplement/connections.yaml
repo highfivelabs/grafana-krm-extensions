@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: Grafana Cloud Connections API (supplement)
+  version: v1
+paths:
+  /api/v1/stacks/{stack_id}/metrics-endpoint/jobs/{job_name}:
+    parameters:
+    - {in: path, name: stack_id, required: true, schema: {type: string}}
+    - {in: path, name: job_name, required: true, schema: {type: string}}
+    post:
+      operationId: createMetricsEndpointScrapeJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/MetricsEndpointScrapeJob'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/MetricsEndpointScrapeJobResponse'}}}}
+    get:
+      operationId: getMetricsEndpointScrapeJob
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/MetricsEndpointScrapeJobResponse'}}}}
+    put:
+      operationId: updateMetricsEndpointScrapeJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/MetricsEndpointScrapeJob'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/MetricsEndpointScrapeJobResponse'}}}}
+    delete:
+      operationId: deleteMetricsEndpointScrapeJob
+      responses:
+        '200': {description: Deleted}
+components:
+  schemas:
+    MetricsEndpointScrapeJob:
+      type: object
+      required: [authentication_method, url]
+      properties:
+        enabled: {type: boolean}
+        authentication_method: {type: string, enum: [basic, bearer]}
+        bearer_token: {type: string, description: The bearer token, with the bearer authentication method. Sensitive.}
+        basic_username: {type: string, description: The username, with the basic authentication method.}
+        basic_password: {type: string, description: The password, with the basic authentication method. Sensitive.}
+        url: {type: string}
+        scrape_interval_seconds: {type: integer, enum: [30, 60, 120], in seconds.}
+        static_labels: {type: object, additionalProperties: {type: string}}
+    MetricsEndpointScrapeJobResponse:
+      type: object
+      properties:
+        data: {$ref: '#/components/schemas/MetricsEndpointScrapeJob'}

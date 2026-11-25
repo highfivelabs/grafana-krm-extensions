@@ -1,0 +1,96 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories",
+      "body": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}\",\"type\":\"local\",\"workflows\":[]}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "body": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "body": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-drift\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-drift\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-drift\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "body": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"provisioning.grafana.app/v0alpha1\",\"kind\":\"Repository\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"local\":{\"path\":\"conf/provisioning\"},\"sync\":{\"enabled\":false,\"intervalSeconds\":10,\"target\":\"folder\"},\"title\":\"{{name}}-changed\",\"type\":\"local\",\"workflows\":[]},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/provisioning.grafana.app/v0alpha1/namespaces/default/repositories/{{name}}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+openapi: 3.0.3
+info:
+  title: Grafana AI Observability evaluation API (supplement)
+  version: v1
+paths:
+  /evaluators:
+    post:
+      operationId: createEvaluator
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/EvaluatorWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Evaluator'}}}}
+  /evaluators/{evaluator_id}:
+    parameters:
+    - {in: path, name: evaluator_id, required: true, schema: {type: string}}
+    get:
+      operationId: getEvaluator
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Evaluator'}}}}
+    delete:
+      operationId: deleteEvaluator
+      responses:
+        '204': {description: Deleted}
+  /rules:
+    post:
+      operationId: createRule
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RuleWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Rule'}}}}
+  /rules/{rule_id}:
+    parameters:
+    - {in: path, name: rule_id, required: true, schema: {type: string}}
+    get:
+      operationId: getRule
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Rule'}}}}
+    patch:
+      operationId: updateRule
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RulePatch'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Rule'}}}}
+    delete:
+      operationId: deleteRule
+      responses:
+        '204': {description: Deleted}
+  /rules/{rule_id}/actions:
+    parameters:
+    - {in: path, name: rule_id, required: true, schema: {type: string}}
+    post:
+      operationId: createRuleAction
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RuleActionWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/RuleAction'}}}}
+  /rules/{rule_id}/actions/{action_id}:
+    parameters:
+    - {in: path, name: rule_id, required: true, schema: {type: string}}
+    - {in: path, name: action_id, required: true, schema: {type: string}}
+    get:
+      operationId: getRuleAction
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/RuleAction'}}}}
+    patch:
+      operationId: updateRuleAction
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/RuleActionWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/RuleAction'}}}}
+    delete:
+      operationId: deleteRuleAction
+      responses:
+        '204': {description: Deleted}
+  /collections:
+    post:
+      operationId: createCollection
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/CollectionWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Collection'}}}}
+  /collections/{collection_id}:
+    parameters:
+    - {in: path, name: collection_id, required: true, schema: {type: string}}
+    get:
+      operationId: getCollection
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Collection'}}}}
+    patch:
+      operationId: updateCollection
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/CollectionWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/Collection'}}}}
+    delete:
+      operationId: deleteCollection
+      responses:
+        '204': {description: Deleted}
+  /hook-rules:
+    post:
+      operationId: createHookRule
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/HookRuleWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/HookRule'}}}}
+  /hook-rules/{rule_id}:
+    parameters:
+    - {in: path, name: rule_id, required: true, schema: {type: string}}
+    get:
+      operationId: getHookRule
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/HookRule'}}}}
+    put:
+      operationId: updateHookRule
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/HookRuleWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/HookRule'}}}}
+    delete:
+      operationId: deleteHookRule
+      responses:
+        '204': {description: Deleted}
+components:
+  schemas:
+    OutputKey:
+      type: object
+      required: [key]
+      properties:
+        key: {type: string}
+        type: {type: string}
+        description: {type: string}
+        unit: {type: string}
+        pass_threshold: {type: number}
+        enum: {type: array, items: {type: string}}
+        min: {type: number}
+        max: {type: number}
+        pass_match: {type: array, items: {type: string}}
+        pass_value: {type: boolean}
+    EvaluatorWrite:
+      type: object
+      required: [evaluator_id, version, kind, config, output_keys]
+      properties:
+        evaluator_id: {type: string, description: The evaluator's ID, chosen by the caller.}
+        version: {type: string}
+        kind: {type: string}
+        description: {type: string}
+        config: {type: object, additionalProperties: true}
+        output_keys: {type: array, items: {$ref: '#/components/schemas/OutputKey'}}
+    Evaluator:
+      allOf:
+      - {$ref: '#/components/schemas/EvaluatorWrite'}
+      - type: object
+        properties:
+          tenant_id: {type: string, readOnly: true}
+          is_predefined: {type: boolean, readOnly: true}
+          created_at: {type: string, readOnly: true}
+          updated_at: {type: string, readOnly: true}
+    RulePatch:
+      type: object
+      properties:
+        enabled: {type: boolean}
+        selector: {type: string}
+        match: {type: object, additionalProperties: true}
+        sample_rate: {type: number, 0 to 1.}
+        evaluator_ids: {type: array, items: {type: string}}
+        execution_mode: {type: string}
+        alert_rule_uids: {type: array, items: {type: string}}
+        filterable_tag_keys: {type: array, items: {type: string}}
+        min_idle_seconds: {type: integer}
+    RuleWrite:
+      allOf:
+      - {$ref: '#/components/schemas/RulePatch'}
+      - type: object
+        required: [rule_id, evaluator_ids]
+        properties:
+          rule_id: {type: string, description: The rule's ID, chosen by the caller.}
+    Rule:
+      allOf:
+      - {$ref: '#/components/schemas/RuleWrite'}
+      - type: object
+        properties:
+          tenant_id: {type: string, readOnly: true}
+          created_at: {type: string, readOnly: true}
+          updated_at: {type: string, readOnly: true}
+    RuleActionWrite:
+      type: object
+      required: [condition, action_config]
+      properties:
+        condition:
+          type: object
+          required: [kind]
+          properties:
+            kind: {type: string}
+        action_config:
+          type: object
+          required: [kind]
+          properties:
+            kind: {type: string}
+            collection_ids: {type: array, items: {type: string}}
+        enabled: {type: boolean}
+    RuleAction:
+      allOf:
+      - {$ref: '#/components/schemas/RuleActionWrite'}
+      - type: object
+        properties:
+          action_id: {type: string, readOnly: true}
+          tenant_id: {type: string, readOnly: true}
+          created_at: {type: string, readOnly: true}
+          updated_at: {type: string, readOnly: true}
+    CollectionWrite:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string}
+        description: {type: string}
+    Collection:
+      allOf:
+      - {$ref: '#/components/schemas/CollectionWrite'}
+      - type: object
+        properties:
+          collection_id: {type: string, readOnly: true}
+          member_count: {type: integer, readOnly: true}
+          created_at: {type: string, readOnly: true}
+          updated_at: {type: string, readOnly: true}
+    HookRuleWrite:
+      type: object
+      properties:
+        rule_id: {type: string}
+        enabled: {type: boolean}
+        phase: {type: string}
+        priority: {type: integer}
+        selector: {type: string}
+        match: {type: object, additionalProperties: true}
+        evaluator_ids: {type: array, items: {type: string}}
+        action_on_fail: {type: string}
+        short_circuit: {type: boolean}
+        tool_filter:
+          type: object
+          required: [blocked_names]
+          properties:
+            blocked_names: {type: array, items: {type: string}}
+        redact:
+          type: object
+          required: [patterns]
+          properties:
+            patterns:
+              type: array
+              items:
+                type: object
+                required: [regex]
+                properties:
+                  id: {type: string}
+                  regex: {type: string}
+    HookRule:
+      allOf:
+      - {$ref: '#/components/schemas/HookRuleWrite'}
+      - type: object
+        properties:
+          tenant_id: {type: string, readOnly: true}
+          created_at: {type: string, readOnly: true}
+          updated_at: {type: string, readOnly: true}

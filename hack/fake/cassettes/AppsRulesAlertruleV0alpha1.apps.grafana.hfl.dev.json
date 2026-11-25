@@ -1,0 +1,109 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/api/folders",
+      "body": "{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"id\":280000010,\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-drift\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-drift\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-drift\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "body": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"rules.alerting.grafana.app/v0alpha1\",\"kind\":\"AlertRule\",\"metadata\":{\"annotations\":{\"grafana.app/folder\":\"{{name}}\"},\"name\":\"{{name}}\"},\"spec\":{\"execErrState\":\"Error\",\"expressions\":{\"A\":{\"model\":{\"expression\":\"1 \\u003e 0\",\"intervalMs\":1000,\"maxDataPoints\":43200,\"refId\":\"A\",\"type\":\"math\"},\"source\":true}},\"noDataState\":\"NoData\",\"title\":\"{{name}}-changed\",\"trigger\":{\"interval\":\"1m\"}},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/alertrules/{{name}}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/folders/{{name}}",
+      "status": 204
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.AddField",
+      "body": "{\"field\":{\"domainName\":\"incident\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"type\":\"single-select\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"incident\",\"immutable\":\"270000067\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000066\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"incident\",\"immutable\":\"270000067\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000066\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"incident\",\"immutable\":\"270000067\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000066\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.UpdateField",
+      "body": "{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000067\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"version\":\"270000066\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000069\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000068\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000069\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000068\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000069\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000068\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.UpdateField",
+      "body": "{\"domainName\":\"hfl-live-drift\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000069\",\"version\":\"270000068\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"hfl-live-drift\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000071\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000070\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"hfl-live-drift\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000071\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000070\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.UpdateField",
+      "body": "{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000071\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"version\":\"270000070\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000073\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000072\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"field\":{\"domainName\":\"changed-domainName\",\"fieldUUID\":\"270000065\",\"immutable\":\"270000073\",\"name\":\"Affected team\",\"selectoptions\":[{\"label\":\"Payments\",\"value\":\"payments\"}],\"slug\":\"affected_team\",\"source\":\"grafana-incident\",\"type\":\"single-select\",\"uuid\":\"270000065\",\"version\":\"270000072\"}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.DeleteField",
+      "body": "{\"fieldUUID\":\"270000065\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField",
+      "body": "{\"fieldUUID\":\"270000065\",\"includeArchived\":true}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

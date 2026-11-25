@@ -1,0 +1,518 @@
+# Copyright 2026 High Five Labs
+# SPDX-License-Identifier: Apache-2.0
+#
+# Live tests (TestEveryKindLive, krm-rest-runtime's kindtest.Live): these
+# kinds, in this order, against a real Grafana. Kinds not listed are not run
+# live. Run: task live:grafana (Grafana OSS in Docker), or against any Grafana
+# with go test -tags live, KRM_LIVE=1 and the secret below. How it works and
+# what the {{...}} templates mean: krm-rest-runtime docs/live.md.
+#
+# Everything is named after the run (hfl-live-<stamp>-<hex>-NN) and deleted at
+# the end; the sweep deletes older runs' leftovers.
+#
+# The secret (krm-live-grafana, or KRM_LIVE_CREDS for a Grafana on this
+# machine) is a JSON object:
+#   {"token": "<service-account token> or <user>:<password>",
+#    "baseURL": "https://<grafana>/api", "rootURL": "https://<grafana>"}
+# rootURL is the same Grafana's root URL: the app platform's kinds (Apps*)
+# run on the connection "root" below, whose /apis/... paths are not under
+# /api. Without rootURL those kinds skip, naming it.
+secret: krm-live-grafana
+target: Grafana OSS
+version: {path: /health, field: version}
+
+connections:
+  root:                         # the app platform (/apis/...): Grafana's root URL, the same credentials
+    baseURL: "{{cred:rootURL}}"
+    creds: {token: "{{cred:token}}"}
+
+sweep:
+- {list: "/teams/search?query=hfl-live-&perpage=1000", items: teams, name: name, id: id, delete: "/teams/{id}"}
+- {list: "/orgs?query=hfl-live-&perpage=1000", name: name, id: id, delete: "/orgs/{id}"}
+- {list: "/playlists?query=hfl-live-", name: name, id: uid, delete: "/playlists/{id}"}
+- {list: /datasources, name: name, id: uid, delete: "/datasources/uid/{id}"}
+- {list: "/users/search?query=hfl-live-&perpage=1000", items: users, name: login, id: id, delete: "/admin/users/{id}"}
+- {list: "/annotations?tags=hfl-live&limit=1000", name: text, id: id, delete: "/annotations/{id}"}
+- {list: /v1/provisioning/alert-rules, name: title, id: uid, delete: "/v1/provisioning/alert-rules/{id}"}
+- {list: "/search?query=hfl-live-&type=dash-db&limit=5000", name: title, id: uid, delete: "/dashboards/uid/{id}"}
+- {list: "/search?query=hfl-live-&type=dash-folder&limit=5000", name: title, id: uid, delete: "/folders/{id}"}
+
+kinds:
+- kind: Annotation
+  replaceSample: true
+  spec: {text: "{{name}}", tags: [hfl-live]}
+  change: {text: "{{name}}-changed"}
+  drift: "{{name}}-drift"
+
+- kind: Team
+  replaceSample: true
+  spec: {name: "{{name}}", email: "hfl-live@example.com"}
+  change: {email: "hfl-live-2@example.com"}
+  drift: "hfl-live-drift@example.com"
+  driftFull: true
+
+- kind: Playlist
+  replaceSample: true
+  spec: {name: "{{name}}", interval: 5m, items: []}
+  change: {interval: 10m}
+  drift: 15m
+  driftFull: true
+
+- kind: Organization
+  replaceSample: true
+  spec: {name: "{{name}}"}
+  change: {name: "{{name}}-changed"}
+  drift: "{{name}}-drift"
+
+- kind: OrganizationPreferences
+  replaceSample: true
+  spec: {theme: dark, timezone: utc, weekStart: monday}
+  change: {theme: light}
+  drift: dark
+
+- kind: DataSourceConfig
+  before:
+  - {method: POST, path: /datasources, body: {uid: "{{name}}", name: "{{name}}", type: prometheus, access: proxy, url: "http://127.0.0.1:9090"}}
+  after:
+  - {method: DELETE, path: "/datasources/uid/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {uid: "{{name}}", name: "{{name}}", type: prometheus, access: proxy, url: "http://127.0.0.1:9090", jsonData: {httpMethod: POST}}
+  change: {url: "http://127.0.0.1:9091"}
+  drift: "http://127.0.0.1:9099"
+  driftFull: true
+
+- kind: SsoSettings
+  replaceSample: true
+  spec: {key: github, provider: github, settings: {clientId: hfl-live, clientSecret: hfl-live-not-a-secret, enabled: false, scopes: "user:email"}}
+  change: {settings: {clientId: hfl-live-2, clientSecret: hfl-live-not-a-secret, enabled: false, scopes: "user:email"}}
+  drift: {clientId: hfl-live-drift, clientSecret: hfl-live-not-a-secret, enabled: false, scopes: "user:email"}
+  driftFull: true
+  stays: DELETE /v1/sso-settings/{key} puts the provider's defaults back; a read still answers
+
+- kind: User
+  replaceSample: true
+  spec: {login: "{{name}}", email: "{{name}}@example.com", name: "{{name}}", password: hfl-live-not-a-secret}
+  change: {name: "{{name}}-changed"}
+  drift: "{{name}}-drift"
+  driftFull: true
+
+# The permission kinds replace the whole permission list of a dashboard or
+# folder this kind makes first (and deletes after). A read answers the list as
+# Grafana keeps it (user, team and role rows), not the items sent, so items is
+# write-only and the drift step cannot see a change.
+- kind: DashboardPermission
+  before:
+  - {method: POST, path: /dashboards/db, body: {dashboard: {uid: "{{name}}", title: "{{name}}"}, overwrite: false}}
+  after:
+  - {method: DELETE, path: "/dashboards/uid/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {uid: "{{name}}", items: [{role: Viewer, permission: 1}]}
+  change: {items: [{role: Viewer, permission: 1}, {role: Editor, permission: 2}]}
+  noDrift: items is write-only (a read answers the permission rows, not items), so a change behind the controller's back is not seen
+
+# A dashboard's public dashboard (its share link), made on a dashboard made
+# first. Grafana reads it at the dashboard's .../public-dashboards and
+# updates and deletes it at .../public-dashboards/{uid}.
+- kind: DashboardPublic
+  before:
+  - {method: POST, path: /dashboards/db, body: {dashboard: {uid: "{{name}}", title: "{{name}}"}, overwrite: false}}
+  after:
+  - {method: DELETE, path: "/dashboards/uid/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {dashboarduid: "{{name}}", isEnabled: false, timeSelectionEnabled: false, annotationsEnabled: false, share: public}
+  change: {isEnabled: true}
+  drift: false
+
+- kind: FolderPermission
+  before:
+  - {method: POST, path: /folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  after:
+  - {method: DELETE, path: "/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {folderUid: "{{name}}", items: [{role: Viewer, permission: 1}]}
+  change: {items: [{role: Viewer, permission: 1}, {role: Editor, permission: 2}]}
+  noDrift: items is write-only (a read answers the permission rows, not items), so a change behind the controller's back is not seen
+# Each permission item kind sets one row of a dashboard's or folder's
+# permission list: a dashboard or folder made first, and the user or team
+# the row is for. The delete is the same POST with permission "".
+- kind: PermissionItemUser
+  before:
+  - {method: POST, path: /dashboards/db, body: {dashboard: {uid: "{{name}}", title: "{{name}}"}, overwrite: false}}
+  - {method: POST, path: /admin/users, body: {login: "{{name}}", email: "{{name}}@example.com", password: hfl-live-not-a-secret}, save: {user: id}}
+  after:
+  - {method: DELETE, path: "/admin/users/{{var:user}}", ok: [404]}
+  - {method: DELETE, path: "/dashboards/uid/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {resource: dashboards, resourceid: "{{name}}", userid: "{{var:user}}", permission: View}
+  change: {permission: Edit}
+  drift: Admin
+- kind: PermissionItemTeam
+  before:
+  - {method: POST, path: /folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  - {method: POST, path: /teams, body: {name: "{{name}}"}, save: {team: teamId}}
+  after:
+  - {method: DELETE, path: "/teams/{{var:team}}", ok: [404]}
+  - {method: DELETE, path: "/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {resource: folders, resourceid: "{{name}}", teamid: "{{var:team}}", permission: View}
+  change: {permission: Edit}
+  drift: Admin
+# A new dashboard already has a Viewer row (View): the create changes it.
+- kind: PermissionItemRole
+  before:
+  - {method: POST, path: /dashboards/db, body: {dashboard: {uid: "{{name}}", title: "{{name}}"}, overwrite: false}}
+  after:
+  - {method: DELETE, path: "/dashboards/uid/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {resource: dashboards, resourceid: "{{name}}", builtinrole: Viewer, permission: Edit}
+  change: {permission: Admin}
+  drift: View
+
+- kind: Report
+  skip: Grafana Enterprise only (reporting); OSS answers 404
+- kind: Role
+  skip: Grafana Enterprise only (custom RBAC roles); OSS answers 404
+- kind: RoleAssignment
+  skip: Grafana Enterprise only (custom RBAC roles); OSS answers 404
+- kind: TeamExternalGroup
+  skip: "Grafana Enterprise or Grafana Cloud only (team sync), and needs an external identity provider's group (LDAP, SAML or OAuth); Grafana OSS 13.3.1 answers POST /api/teams/{id}/groups with 404 \"Not found\""
+
+# Grafana Enterprise and Cloud features of the Grafana HTTP API.
+- kind: DataSourceCacheConfig
+  skip: Grafana Enterprise or Grafana Cloud only (query caching); not in Grafana OSS
+- kind: DataSourceConfigLbacRules
+  skip: Grafana Enterprise or Grafana Cloud only (LBAC for data sources); not in Grafana OSS
+
+# The app platform (/apis/...): the same Grafana, on its root URL (the
+# connection "root", from the secret's rootURL). Each object's namespace is
+# "default", org 1's. Every update is a PUT of the whole object, so each
+# change: and drift: is a whole spec, and the drift step sends the object as
+# read (driftFull). Some groups are Grafana Cloud or Enterprise APIs: Grafana
+# OSS 13.3.1 does not serve them (GET /apis lists the groups it does).
+- kind: AppsDashboardDashboardV1beta1
+  connection: root
+  replaceSample: true
+  spec: {namespace: default, apiVersion: dashboard.grafana.app/v1beta1, kind: Dashboard, metadata: {name: "{{name}}"}, spec: {title: "{{name}}"}}
+  change: {spec: {title: "{{name}}-changed"}}
+  drift: {title: "{{name}}-drift"}
+  driftFull: true
+- kind: AppsDashboardDashboardV2beta1
+  connection: root
+  replaceSample: true
+  spec:
+    namespace: default
+    apiVersion: dashboard.grafana.app/v2beta1
+    kind: Dashboard
+    metadata: {name: "{{name}}"}
+    spec: {title: "{{name}}", annotations: [], cursorSync: "Off", elements: {}, layout: {kind: GridLayout, spec: {items: []}}, links: [], preload: false, tags: [], variables: [], timeSettings: {autoRefresh: "", autoRefreshIntervals: [5s, 1m], fiscalYearStartMonth: 0, from: now-6h, to: now, hideTimepicker: false, timezone: browser}}
+  change:
+    spec: {title: "{{name}}-changed", annotations: [], cursorSync: "Off", elements: {}, layout: {kind: GridLayout, spec: {items: []}}, links: [], preload: false, tags: [], variables: [], timeSettings: {autoRefresh: "", autoRefreshIntervals: [5s, 1m], fiscalYearStartMonth: 0, from: now-6h, to: now, hideTimepicker: false, timezone: browser}}
+  drift: {title: "{{name}}-drift", annotations: [], cursorSync: "Off", elements: {}, layout: {kind: GridLayout, spec: {items: []}}, links: [], preload: false, tags: [], variables: [], timeSettings: {autoRefresh: "", autoRefreshIntervals: [5s, 1m], fiscalYearStartMonth: 0, from: now-6h, to: now, hideTimepicker: false, timezone: browser}}
+  driftFull: true
+- kind: AppsDashboardDashboardV2
+  connection: root
+  replaceSample: true
+  spec:
+    namespace: default
+    apiVersion: dashboard.grafana.app/v2
+    kind: Dashboard
+    metadata: {name: "{{name}}"}
+    spec: {title: "{{name}}", annotations: [], cursorSync: "Off", elements: {}, layout: {kind: GridLayout, spec: {items: []}}, links: [], preload: false, tags: [], variables: [], timeSettings: {autoRefresh: "", autoRefreshIntervals: [5s, 1m], fiscalYearStartMonth: 0, from: now-6h, to: now, hideTimepicker: false, timezone: browser}}
+  change:
+    spec: {title: "{{name}}-changed", annotations: [], cursorSync: "Off", elements: {}, layout: {kind: GridLayout, spec: {items: []}}, links: [], preload: false, tags: [], variables: [], timeSettings: {autoRefresh: "", autoRefreshIntervals: [5s, 1m], fiscalYearStartMonth: 0, from: now-6h, to: now, hideTimepicker: false, timezone: browser}}
+  drift: {title: "{{name}}-drift", annotations: [], cursorSync: "Off", elements: {}, layout: {kind: GridLayout, spec: {items: []}}, links: [], preload: false, tags: [], variables: [], timeSettings: {autoRefresh: "", autoRefreshIntervals: [5s, 1m], fiscalYearStartMonth: 0, from: now-6h, to: now, hideTimepicker: false, timezone: browser}}
+  driftFull: true
+- kind: AppsPlaylistPlaylistV0alpha1
+  connection: root
+  replaceSample: true
+  spec: {namespace: default, apiVersion: playlist.grafana.app/v0alpha1, kind: Playlist, metadata: {name: "{{name}}"}, spec: {title: "{{name}}", interval: 5m, items: [{type: dashboard_by_tag, value: hfl-live}]}}
+  change: {spec: {title: "{{name}}", interval: 10m, items: [{type: dashboard_by_tag, value: hfl-live}]}}
+  drift: {title: "{{name}}", interval: 15m, items: [{type: dashboard_by_tag, value: hfl-live}]}
+  driftFull: true
+- kind: AppsPlaylistPlaylistV1
+  connection: root
+  replaceSample: true
+  spec: {namespace: default, apiVersion: playlist.grafana.app/v1, kind: Playlist, metadata: {name: "{{name}}"}, spec: {title: "{{name}}", interval: 5m, items: [{type: dashboard_by_tag, value: hfl-live}]}}
+  change: {spec: {title: "{{name}}", interval: 10m, items: [{type: dashboard_by_tag, value: hfl-live}]}}
+  drift: {title: "{{name}}", interval: 15m, items: [{type: dashboard_by_tag, value: hfl-live}]}
+  driftFull: true
+- kind: AppsNotificationsRoutingtreeV1beta1
+  connection: root
+  replaceSample: true
+  spec: {namespace: default, apiVersion: notifications.alerting.grafana.app/v1beta1, kind: RoutingTree, metadata: {name: "{{name}}"}, spec: {defaults: {receiver: empty}, routes: []}}
+  change: {spec: {defaults: {receiver: empty, group_wait: 1m}, routes: []}}
+  drift: {defaults: {receiver: empty, group_wait: 2m}, routes: []}
+  driftFull: true
+- kind: AppsNotificationsTimeintervalV1beta1
+  connection: root
+  replaceSample: true
+  # Grafana names it (from spec.name): the create sends no metadata.name.
+  spec: {namespace: default, apiVersion: notifications.alerting.grafana.app/v1beta1, kind: TimeInterval, metadata: {}, spec: {name: "{{name}}", time_intervals: [{weekdays: [monday]}]}}
+  change: {spec: {name: "{{name}}", time_intervals: [{weekdays: [tuesday]}]}}
+  drift: {name: "{{name}}", time_intervals: [{weekdays: [wednesday]}]}
+  driftFull: true
+- kind: AppsNotificationsInhibitionruleV1beta1
+  connection: root
+  replaceSample: true
+  spec: {namespace: default, apiVersion: notifications.alerting.grafana.app/v1beta1, kind: InhibitionRule, metadata: {name: "{{name}}"}, spec: {source_matchers: [{label: severity, type: "=", value: critical}], target_matchers: [{label: severity, type: "=", value: warning}], equal: [alertname]}}
+  change: {spec: {source_matchers: [{label: severity, type: "=", value: critical}], target_matchers: [{label: severity, type: "=", value: warning}], equal: [alertname, cluster]}}
+  drift: {source_matchers: [{label: severity, type: "=", value: critical}], target_matchers: [{label: severity, type: "=", value: warning}], equal: [cluster]}
+  driftFull: true
+
+# Alert and recording rules live in a folder (the grafana.app/folder
+# annotation; without it: 403 "folder is required"), which each kind makes
+# first. A recording rule writes to a Prometheus data source, made first too
+# (Grafana does not reach it: nothing evaluates in the run's few seconds).
+# Expressions read back with refId, intervalMs and maxDataPoints filled in
+# and the expression data source's UID (__expr__) left out, so they are sent
+# that way.
+- kind: AppsRulesAlertruleV0alpha1
+  connection: root
+  before:
+  - {method: POST, path: /api/folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  after:
+  - {method: DELETE, path: "/api/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {namespace: default, apiVersion: rules.alerting.grafana.app/v0alpha1, kind: AlertRule, metadata: {name: "{{name}}", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {title: "{{name}}", trigger: {interval: 1m}, noDataState: NoData, execErrState: Error, expressions: {A: {model: {type: math, expression: "1 > 0", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  change: {spec: {title: "{{name}}-changed", trigger: {interval: 1m}, noDataState: NoData, execErrState: Error, expressions: {A: {model: {type: math, expression: "1 > 0", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  drift: {title: "{{name}}-drift", trigger: {interval: 1m}, noDataState: NoData, execErrState: Error, expressions: {A: {model: {type: math, expression: "1 > 0", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}
+  driftFull: true
+- kind: AppsRulesAlertruleV1beta1
+  connection: root
+  before:
+  - {method: POST, path: /api/folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  after:
+  - {method: DELETE, path: "/api/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {namespace: default, apiVersion: rules.alerting.grafana.app/v1beta1, kind: AlertRule, metadata: {name: "{{name}}", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {title: "{{name}}", trigger: {interval: 1m}, noDataState: NoData, execErrState: Error, expressions: {A: {model: {type: math, expression: "1 > 0", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  change: {spec: {title: "{{name}}-changed", trigger: {interval: 1m}, noDataState: NoData, execErrState: Error, expressions: {A: {model: {type: math, expression: "1 > 0", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  drift: {title: "{{name}}-drift", trigger: {interval: 1m}, noDataState: NoData, execErrState: Error, expressions: {A: {model: {type: math, expression: "1 > 0", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}
+  driftFull: true
+- kind: AppsRulesRecordingruleV0alpha1
+  connection: root
+  before:
+  - {method: POST, path: /api/folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  - {method: POST, path: /api/datasources, body: {uid: "{{name}}", name: "{{name}}", type: prometheus, access: proxy, url: "http://127.0.0.1:9090"}}
+  after:
+  - {method: DELETE, path: "/api/datasources/uid/{{name}}", ok: [404]}
+  - {method: DELETE, path: "/api/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {namespace: default, apiVersion: rules.alerting.grafana.app/v0alpha1, kind: RecordingRule, metadata: {name: "{{name}}", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {title: "{{name}}", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  change: {spec: {title: "{{name}}-changed", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  drift: {title: "{{name}}-drift", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}
+  driftFull: true
+- kind: AppsRulesRecordingruleV1beta1
+  connection: root
+  before:
+  - {method: POST, path: /api/folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  - {method: POST, path: /api/datasources, body: {uid: "{{name}}", name: "{{name}}", type: prometheus, access: proxy, url: "http://127.0.0.1:9090"}}
+  after:
+  - {method: DELETE, path: "/api/datasources/uid/{{name}}", ok: [404]}
+  - {method: DELETE, path: "/api/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {namespace: default, apiVersion: rules.alerting.grafana.app/v1beta1, kind: RecordingRule, metadata: {name: "{{name}}", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {title: "{{name}}", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  change: {spec: {title: "{{name}}-changed", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}}
+  drift: {title: "{{name}}-drift", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1", refId: A, intervalMs: 1000, maxDataPoints: 43200}, source: true}}}
+  driftFull: true
+
+# A rule sequence chains recording rules: each kind makes one first (in a
+# folder, writing to a Prometheus data source it makes too).
+- kind: AppsRulesRulesequenceV0alpha1
+  connection: root
+  before:
+  - {method: POST, path: /api/folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  - {method: POST, path: /api/datasources, body: {uid: "{{name}}", name: "{{name}}", type: prometheus, access: proxy, url: "http://127.0.0.1:9090"}}
+  - {method: POST, path: /apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/recordingrules, body: {apiVersion: rules.alerting.grafana.app/v0alpha1, kind: RecordingRule, metadata: {name: "{{name}}-rec", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {title: "{{name}}-rec", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1"}, source: true}}}}}
+  after:
+  - {method: DELETE, path: "/apis/rules.alerting.grafana.app/v0alpha1/namespaces/default/recordingrules/{{name}}-rec", ok: [404]}
+  - {method: DELETE, path: "/api/datasources/uid/{{name}}", ok: [404]}
+  - {method: DELETE, path: "/api/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {namespace: default, apiVersion: rules.alerting.grafana.app/v0alpha1, kind: RuleSequence, metadata: {name: "{{name}}", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {trigger: {interval: 1m}, recordingRules: [{name: "{{name}}-rec"}]}}
+  change: {spec: {trigger: {interval: 2m}, recordingRules: [{name: "{{name}}-rec"}]}}
+  drift: {trigger: {interval: 3m}, recordingRules: [{name: "{{name}}-rec"}]}
+  driftFull: true
+- kind: AppsRulesRulesequenceV1beta1
+  connection: root
+  before:
+  - {method: POST, path: /api/folders, body: {uid: "{{name}}", title: "{{name}}"}}
+  - {method: POST, path: /api/datasources, body: {uid: "{{name}}", name: "{{name}}", type: prometheus, access: proxy, url: "http://127.0.0.1:9090"}}
+  - {method: POST, path: /apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules, body: {apiVersion: rules.alerting.grafana.app/v1beta1, kind: RecordingRule, metadata: {name: "{{name}}-rec", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {title: "{{name}}-rec", metric: "{{name_}}", targetDatasourceUID: "{{name}}", trigger: {interval: 1m}, expressions: {A: {model: {type: math, expression: "1 + 1"}, source: true}}}}}
+  after:
+  - {method: DELETE, path: "/apis/rules.alerting.grafana.app/v1beta1/namespaces/default/recordingrules/{{name}}-rec", ok: [404]}
+  - {method: DELETE, path: "/api/datasources/uid/{{name}}", ok: [404]}
+  - {method: DELETE, path: "/api/folders/{{name}}", ok: [404]}
+  replaceSample: true
+  spec: {namespace: default, apiVersion: rules.alerting.grafana.app/v1beta1, kind: RuleSequence, metadata: {name: "{{name}}", annotations: {"grafana.app/folder": "{{name}}"}}, spec: {trigger: {interval: 1m}, recordingRules: [{name: "{{name}}-rec"}]}}
+  change: {spec: {trigger: {interval: 2m}, recordingRules: [{name: "{{name}}-rec"}]}}
+  drift: {trigger: {interval: 3m}, recordingRules: [{name: "{{name}}-rec"}]}
+  driftFull: true
+
+# Any app-platform object by group, version and plural: here a
+# playlist.grafana.app/v1 playlist.
+- kind: AppsGenericResource
+  connection: root
+  replaceSample: true
+  spec: {group: playlist.grafana.app, version: v1, namespace: default, plural: playlists, apiVersion: playlist.grafana.app/v1, kind: Playlist, metadata: {name: "{{name}}"}, spec: {title: "{{name}}", interval: 5m, items: [{type: dashboard_by_tag, value: hfl-live}]}}
+  change: {spec: {title: "{{name}}", interval: 10m, items: [{type: dashboard_by_tag, value: hfl-live}]}}
+  drift: {title: "{{name}}", interval: 15m, items: [{type: dashboard_by_tag, value: hfl-live}]}
+  driftFull: true
+- kind: AppsSecretKeeperV1beta1
+  skip: "Grafana OSS 13.3.1 does not serve secret.grafana.app: GET /apis/secret.grafana.app/v1beta1/namespaces/default/keepers/... answers 404 \"404 page not found\" (GET /apis does not list the group); an AWS keeper needs an outside AWS role too"
+- kind: AppsSecretKeeperActivationV1beta1
+  skip: "Grafana OSS 13.3.1 does not serve secret.grafana.app: GET /apis/secret.grafana.app/v1beta1/namespaces/default/keepers/... answers 404 \"404 page not found\" (GET /apis does not list the group)"
+- kind: AppsSecretSecurevalueV1beta1
+  skip: "Grafana OSS 13.3.1 does not serve secret.grafana.app: GET /apis/secret.grafana.app/v1beta1/namespaces/default/securevalues/... answers 404 \"404 page not found\" (GET /apis does not list the group)"
+# A local repository (a directory under Grafana's home, read-only, sync
+# off) needs no outside Git repository.
+- kind: AppsProvisioningRepositoryV0alpha1
+  connection: root
+  replaceSample: true
+  spec: {namespace: default, apiVersion: provisioning.grafana.app/v0alpha1, kind: Repository, metadata: {name: "{{name}}"}, spec: {title: "{{name}}", type: local, local: {path: conf/provisioning}, sync: {enabled: false, target: folder, intervalSeconds: 10}, workflows: []}}
+  change: {spec: {title: "{{name}}-changed", type: local, local: {path: conf/provisioning}, sync: {enabled: false, target: folder, intervalSeconds: 10}, workflows: []}}
+  drift: {title: "{{name}}-drift", type: local, local: {path: conf/provisioning}, sync: {enabled: false, target: folder, intervalSeconds: 10}, workflows: []}
+  driftFull: true
+- kind: AppsProvisioningConnectionV0alpha1
+  skip: "needs an outside GitHub App: Grafana OSS 13.3.1 serves provisioning.grafana.app/v0alpha1 connections, but a GitHub connection without its private key answers 422 \"secure.privateKey: Required value: privateKey must be specified for GitHub connection\""
+- kind: AppsQueriesQueryV1
+  skip: "Grafana Enterprise or Grafana Cloud only (saved queries): Grafana OSS 13.3.1 answers GET /apis/queries.grafana.app/v1/namespaces/default/queries/... with 404 \"404 page not found\""
+- kind: AppsAlertenrichmentAlertenrichmentV1beta1
+  skip: "Grafana Cloud only (alert enrichment): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 answers GET /apis/alertenrichment.grafana.app/v1beta1/namespaces/default/alertenrichments/... with 404 \"404 page not found\""
+- kind: AppsProductactivationAppo11yconfigV1alpha1
+  skip: "Grafana Cloud only (productactivation.ext.grafana.com: turns Application Observability on for the stack): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 answers 404 \"404 page not found\""
+- kind: AppsProductactivationDbo11yconfigV1alpha1
+  skip: "Grafana Cloud only (productactivation.ext.grafana.com: turns Database Observability on for the stack): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 answers 404 \"404 page not found\""
+- kind: AppsProductactivationK8so11yconfigV1alpha1
+  skip: "Grafana Cloud only (productactivation.ext.grafana.com: turns Kubernetes Monitoring on for the stack): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 answers 404 \"404 page not found\""
+- kind: AppsServicemodelComponentV1alpha1
+  skip: "Grafana Cloud only (servicemodel.ext.grafana.com): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 answers 404 \"404 page not found\""
+- kind: ScimConfig
+  skip: "Grafana Enterprise or Grafana Cloud only (SCIM), and a SCIM config changes how the whole instance provisions users; Grafana OSS 13.3.1 answers GET /apis/scim.grafana.app/v0alpha1/namespaces/default/config/default with 404 \"404 page not found\""
+
+# Grafana Cloud's other APIs: each has a base URL and token of its own
+# (README, "Grafana's other APIs: a Connection each").
+- kind: Agento11yCollection
+  skip: "Grafana Cloud only (AI Observability app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-agento11y-app/resources/eval; the live run reaches only Grafana OSS"
+- kind: Agento11yEvaluator
+  skip: "Grafana Cloud only (AI Observability app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-agento11y-app/resources/eval; the live run reaches only Grafana OSS"
+- kind: Agento11yEvaluationRule
+  skip: "Grafana Cloud only (AI Observability app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-agento11y-app/resources/eval; the live run reaches only Grafana OSS"
+- kind: Agento11yHookRule
+  skip: "Grafana Cloud only (AI Observability app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-agento11y-app/resources/eval; the live run reaches only Grafana OSS"
+- kind: Agento11yRuleAction
+  skip: "Grafana Cloud only (AI Observability app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-agento11y-app/resources/eval; the live run reaches only Grafana OSS"
+- kind: AssertsStack
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsCustomModelRules
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsLogConfig
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsNotificationAlertsConfig
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsProfileConfig
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsSuppressedAssertionsConfig
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsTraceConfig
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsPromRuleFile
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssertsThresholdsConfig
+  skip: "Grafana Cloud only (Asserts, the knowledge graph): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-asserts-app/resources/asserts/api-server with scopeOrgID; the live run reaches only Grafana OSS"
+- kind: AssistantAutomation
+  skip: "Grafana Cloud only (Grafana Assistant app): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 has no grafana-assistant-app and answers GET /api/plugins/grafana-assistant-app/resources/api/v1/... with 404 \"Plugin not found\""
+- kind: AssistantMcpServer
+  skip: "Grafana Cloud only (Grafana Assistant app): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 has no grafana-assistant-app and answers GET /api/plugins/grafana-assistant-app/resources/api/v1/... with 404 \"Plugin not found\""
+- kind: AssistantQuickstart
+  skip: "Grafana Cloud only (Grafana Assistant app): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 has no grafana-assistant-app and answers GET /api/plugins/grafana-assistant-app/resources/api/v1/... with 404 \"Plugin not found\""
+- kind: AssistantRule
+  skip: "Grafana Cloud only (Grafana Assistant app): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 has no grafana-assistant-app and answers GET /api/plugins/grafana-assistant-app/resources/api/v1/... with 404 \"Plugin not found\""
+- kind: AssistantSkill
+  skip: "Grafana Cloud only (Grafana Assistant app): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 has no grafana-assistant-app and answers GET /api/plugins/grafana-assistant-app/resources/api/v1/... with 404 \"Plugin not found\""
+- kind: AssistantTermsAcceptance
+  skip: "Grafana Cloud only (Grafana Assistant app): needs the Grafana Cloud free stack (KLIVE3); Grafana OSS 13.3.1 has no grafana-assistant-app and answers GET /api/plugins/grafana-assistant-app/resources/api/v1/... with 404 \"Plugin not found\""
+- kind: CloudStack
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token, and room under the org's free-tier stack limit for the stack a run makes; the live run reaches only Grafana OSS"
+- kind: CloudStackServiceAccount
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token; the live run reaches only Grafana OSS"
+- kind: CloudPluginInstallation
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token; the live run reaches only Grafana OSS"
+- kind: CloudOrgMember
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token, and a second grafana.com user to add (a real person's account); the live run reaches only Grafana OSS"
+- kind: CloudAccessPolicy
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token allowed accesspolicies:write; the live run reaches only Grafana OSS"
+- kind: CloudAccessPolicyToken
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token allowed accesspolicies:write; the live run reaches only Grafana OSS"
+- kind: CloudProviderAwsAccount
+  skip: "Grafana Cloud only (Cloud Provider Observability): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Cloud Provider API URL with an access policy token, and an AWS account with an IAM role Grafana may assume (outside account); the live run reaches only Grafana OSS"
+- kind: CloudProviderAwsCloudwatchScrapeJob
+  skip: "Grafana Cloud only (Cloud Provider Observability): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Cloud Provider API URL with an access policy token, and an AWS account with an IAM role Grafana may assume (outside account); the live run reaches only Grafana OSS"
+- kind: CloudProviderAwsResourceMetadataScrapeJob
+  skip: "Grafana Cloud only (Cloud Provider Observability): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Cloud Provider API URL with an access policy token, and an AWS account with an IAM role Grafana may assume (outside account); the live run reaches only Grafana OSS"
+- kind: CloudProviderAzureCredential
+  skip: "Grafana Cloud only (Cloud Provider Observability): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Cloud Provider API URL with an access policy token, and an Azure service principal (outside account); the live run reaches only Grafana OSS"
+- kind: ConnectionsMetricsEndpointScrapeJob
+  skip: "Grafana Cloud only (Connections API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Connections API URL with an access policy token, and a public metrics endpoint to scrape; the live run reaches only Grafana OSS"
+- kind: FrontendO11yApp
+  skip: "Grafana Cloud only (Frontend Observability): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack region's Faro API URL; the live run reaches only Grafana OSS"
+- kind: K6Project
+  skip: "Grafana Cloud only (k6): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://api.k6.io with a k6 token and stackID; the live run reaches only Grafana OSS"
+- kind: K6ProjectLimits
+  skip: "Grafana Cloud only (k6): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://api.k6.io with a k6 token and stackID; the live run reaches only Grafana OSS"
+- kind: K6ProjectAllowedLoadZones
+  skip: "Grafana Cloud only (k6): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://api.k6.io with a k6 token and stackID; the live run reaches only Grafana OSS"
+- kind: K6LoadTest
+  skip: "Grafana Cloud only (k6): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://api.k6.io with a k6 token and stackID; the live run reaches only Grafana OSS"
+- kind: MachineLearningJob
+  skip: "Grafana Cloud only (Machine Learning app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-ml-app/resources; the live run reaches only Grafana OSS"
+- kind: MachineLearningHoliday
+  skip: "Grafana Cloud only (Machine Learning app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-ml-app/resources; the live run reaches only Grafana OSS"
+- kind: MachineLearningOutlierDetector
+  skip: "Grafana Cloud only (Machine Learning app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-ml-app/resources; the live run reaches only Grafana OSS"
+- kind: MachineLearningAlert
+  skip: "Grafana Cloud only (Machine Learning app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-ml-app/resources; the live run reaches only Grafana OSS"
+- kind: OncallEscalationChain
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallEscalation
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallIntegration
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallRoute
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallSchedule
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallOnCallShift
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallOutgoingWebhook
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL; the live run reaches only Grafana OSS"
+- kind: OncallUserNotificationRule
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL, and an OnCall user to give the rule to that is not a real person; the live run reaches only Grafana OSS"
+- kind: OncallTeamAccessManagement
+  skip: "Grafana Cloud only (OnCall, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's OnCall API URL, and a team the run makes in the stack's Grafana first; the live run reaches only Grafana OSS"
+- kind: Slo
+  skip: "Grafana Cloud only (SLO app): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's /api/plugins/grafana-slo-app/resources; the live run reaches only Grafana OSS"
+- kind: SyntheticMonitoringCheckAlerts
+  skip: "Grafana Cloud only (Synthetic Monitoring): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Synthetic Monitoring API URL with an access token, and a check to alert on; the live run reaches only Grafana OSS"
+- kind: SyntheticMonitoringCheck
+  skip: "Grafana Cloud only (Synthetic Monitoring): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Synthetic Monitoring API URL with an access token, and a probe to run the check on; the live run reaches only Grafana OSS"
+- kind: SyntheticMonitoringProbe
+  skip: "Grafana Cloud only (Synthetic Monitoring): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Synthetic Monitoring API URL with an access token; the live run reaches only Grafana OSS"
+- kind: RoleAssignmentItem
+  skip: "Grafana Enterprise only (custom RBAC roles and their assignments); OSS answers 404"
+- kind: CloudStackServiceAccountToken
+  skip: "Grafana Cloud only (grafana.com API): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://grafana.com/api with an access policy token, and a stack service account (CloudStackServiceAccount is skipped); the live run reaches only Grafana OSS"
+- kind: FleetManagementCollector
+  skip: "Grafana Cloud only (Fleet Management): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Fleet Management API URL with an access policy token; the live run reaches only Grafana OSS"
+- kind: FleetManagementPipeline
+  skip: "Grafana Cloud only (Fleet Management): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Fleet Management API URL with an access policy token; the live run reaches only Grafana OSS"
+- kind: IncidentCustomField
+  skip: "Grafana Cloud only (Incident, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Incident app API; the live run reaches only Grafana OSS"
+- kind: IncidentRole
+  skip: "Grafana Cloud only (Incident, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Incident app API; the live run reaches only Grafana OSS"
+- kind: IncidentSeverity
+  skip: "Grafana Cloud only (Incident, Grafana IRM): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to the stack's Incident app API; the live run reaches only Grafana OSS"
+- kind: K6Schedule
+  skip: "Grafana Cloud only (k6): needs the Grafana Cloud free stack (KLIVE3) and a second Connection, to https://api.k6.io with a k6 token and stackID, and a k6 load test to schedule; the live run reaches only Grafana OSS"
+- {kind: CloudAccessPolicyRotatingToken, skip: "Grafana Cloud only: needs the Grafana Cloud free stack (KLIVE3) and a Connection to the Cloud API; the live run reaches only Grafana OSS"}
+- {kind: CloudStackServiceAccountRotatingToken, skip: "Grafana Cloud only: needs the Grafana Cloud free stack (KLIVE3) and a Connection to the Cloud API; the live run reaches only Grafana OSS"}
+- {kind: ServiceAccountRotatingToken, skip: "not yet tried on the OSS sandbox: rotation is time-driven, and a live run would need to wait out a token's rotation window"}

@@ -1,0 +1,98 @@
+{
+  "recorded": "2026-11-22T18:29:46Z",
+  "target": "Grafana OSS 13.3.1",
+  "vars": {
+    "team": 3,
+    "user": 4
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}\"}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186917002\",\"generation\":1,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186917002\",\"generation\":1,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186917002\",\"generation\":1,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186959006\",\"generation\":2,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:46Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-changed\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186959006\",\"generation\":2,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:46Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-changed\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186959006\",\"generation\":2,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:46Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-changed\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:46Z\"},\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"generation\":2,\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"managedFields\":[{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}},\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"time\":\"2026-11-22T18:29:46Z\"}],\"name\":\"{{name}}\",\"namespace\":\"default\",\"resourceVersion\":\"1795372186959006\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\"},\"spec\":{\"title\":\"{{name}}-drift\"},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186988014\",\"generation\":3,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:46Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-drift\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372186988014\",\"generation\":3,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:46Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:46Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-drift\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "body": "{\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"kind\":\"Dashboard\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"title\":\"{{name}}-changed\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372187004992\",\"generation\":4,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:47Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:47Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-changed\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Dashboard\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\",\"resourceVersion\":\"1795372187004992\",\"generation\":4,\"creationTimestamp\":\"2026-11-22T18:29:46Z\",\"labels\":{\"grafana.app/deprecatedInternalID\":\"3375631034204160\"},\"annotations\":{\"grafana.app/createdBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedBy\":\"user:cg53dfhvi0pogb\",\"grafana.app/updatedTimestamp\":\"2026-11-22T18:29:47Z\"},\"managedFields\":[{\"manager\":\"highfivelabs-grafana-extensions\",\"operation\":\"Update\",\"apiVersion\":\"dashboard.grafana.app/v1beta1\",\"time\":\"2026-11-22T18:29:47Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:title\":{}}}}]},\"spec\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations \\u0026 Alerts\",\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"panels\":[],\"refresh\":\"\",\"schemaVersion\":42,\"tags\":[],\"templating\":{\"list\":[]},\"time\":{\"from\":\"now-6h\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"{{name}}-changed\",\"weekStart\":\"\"},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Success\",\"details\":{\"name\":\"{{name}}\",\"group\":\"dashboard.grafana.app\",\"kind\":\"dashboards\",\"uid\":\"108b59af-0e15-4c37-a4be-415a08916b39\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/dashboard.grafana.app/v1beta1/namespaces/default/dashboards/{{name}}",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"dashboards.dashboard.grafana.app \\\"{{name}}\\\" not found\",\"reason\":\"NotFound\",\"details\":{\"name\":\"{{name}}\",\"group\":\"dashboard.grafana.app\",\"kind\":\"dashboards\"},\"code\":404}\n"
+    }
+  ]
+}

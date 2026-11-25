@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/reports",
+      "body": "{\"message\":\"example-message\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"example-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/reports/270000007",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"example-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/reports/270000007",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"example-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/reports/270000007",
+      "body": "{\"message\":\"changed-message\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"changed-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/reports/270000007",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"changed-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/reports/270000007",
+      "body": "{\"message\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"hfl-live-drift\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/reports/270000007",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"hfl-live-drift\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/reports/270000007",
+      "body": "{\"message\":\"changed-message\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"changed-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/reports/270000007",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"id\":270000007,\"message\":\"changed-message\",\"orgId\":1,\"uid\":\"example-uid\",\"updated\":\"2000-01-01T00:00:00Z\",\"userId\":1}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/reports/270000007",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/reports/270000007",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

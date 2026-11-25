@@ -1,0 +1,128 @@
+{
+  "recorded": "2026-11-22T18:29:46Z",
+  "target": "Grafana OSS 13.3.1",
+  "vars": {
+    "user": 4
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/dashboards/db",
+      "body": "{\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"overwrite\":false}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"folderUid\":\"\",\"id\":3375628066369536,\"slug\":\"{{name}}\",\"status\":\"success\",\"uid\":\"{{name}}\",\"url\":\"/d/{{name}}/{{name}}\",\"version\":1}"
+    },
+    {
+      "method": "POST",
+      "path": "/admin/users",
+      "body": "{\"email\":\"{{name}}@example.com\",\"login\":\"{{name}}\",\"password\":\"{{redacted}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":4,\"uid\":\"bg53dkzjk97uof\",\"message\":\"User created\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/4",
+      "body": "{\"permission\":\"View\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Permission updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":824,\"roleName\":\"managed:users:4:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":4,\"userUid\":\"bg53dkzjk97uof\",\"userLogin\":\"{{name}}\",\"userAvatarUrl\":\"/avatar/d08070d2f7007caad1ba69c4898ae2bf07f61651fe293fabffe1e7ac6e1c2c2f\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":824,\"roleName\":\"managed:users:4:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":4,\"userUid\":\"bg53dkzjk97uof\",\"userLogin\":\"{{name}}\",\"userAvatarUrl\":\"/avatar/d08070d2f7007caad1ba69c4898ae2bf07f61651fe293fabffe1e7ac6e1c2c2f\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/4",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Permission updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":825,\"roleName\":\"managed:users:4:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":4,\"userUid\":\"bg53dkzjk97uof\",\"userLogin\":\"{{name}}\",\"userAvatarUrl\":\"/avatar/d08070d2f7007caad1ba69c4898ae2bf07f61651fe293fabffe1e7ac6e1c2c2f\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/4",
+      "body": "{\"permission\":\"Admin\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Permission updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":826,\"roleName\":\"managed:users:4:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":4,\"userUid\":\"bg53dkzjk97uof\",\"userLogin\":\"{{name}}\",\"userAvatarUrl\":\"/avatar/d08070d2f7007caad1ba69c4898ae2bf07f61651fe293fabffe1e7ac6e1c2c2f\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/4",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Permission updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":827,\"roleName\":\"managed:users:4:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":4,\"userUid\":\"bg53dkzjk97uof\",\"userLogin\":\"{{name}}\",\"userAvatarUrl\":\"/avatar/d08070d2f7007caad1ba69c4898ae2bf07f61651fe293fabffe1e7ac6e1c2c2f\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/4",
+      "body": "{\"permission\":\"\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Permission removed\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"id\":821,\"roleName\":\"managed:users:1:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"userId\":1,\"userUid\":\"cg53dfhvi0pogb\",\"userLogin\":\"admin\",\"userAvatarUrl\":\"/avatar/7ba684f146c9445720e4b9a8d6ed775de4804bc2dbe01fb6490b8cce05db9f43\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\"],\"permission\":\"Admin\"},{\"id\":823,\"roleName\":\"managed:builtins:viewer:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Viewer\",\"actions\":[\"dashboards:read\",\"annotations:read\"],\"permission\":\"View\"},{\"id\":481,\"roleName\":\"basic:admin\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:delete\",\"dashboards.permissions:read\",\"annotations:write\",\"dashboards:delete\",\"annotations:create\",\"dashboards.permissions:read\",\"dashboards.permissions:write\",\"dashboards:read\",\"dashboards:write\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"dashboards:read\"],\"permission\":\"Admin\"},{\"id\":822,\"roleName\":\"managed:builtins:editor:permissions\",\"isManaged\":true,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Editor\",\"actions\":[\"dashboards:read\",\"annotations:read\",\"dashboards:write\",\"dashboards:delete\",\"annotations:write\",\"annotations:delete\",\"annotations:create\"],\"permission\":\"Edit\"},{\"id\":0,\"roleName\":\"\",\"isManaged\":false,\"isInherited\":false,\"isServiceAccount\":false,\"builtInRole\":\"Admin\",\"actions\":[\"dashboards.permissions:write\",\"annotations:read\",\"dashboards:delete\",\"annotations:delete\",\"annotations:create\",\"dashboards:read\",\"dashboards:write\",\"annotations:write\",\"dashboards.permissions:read\"],\"permission\":\"Admin\"}]"
+    },
+    {
+      "method": "DELETE",
+      "path": "/admin/users/4",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"User deleted\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Dashboard {{name}} deleted\",\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}"
+    }
+  ]
+}

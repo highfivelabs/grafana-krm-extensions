@@ -1,0 +1,87 @@
+{
+  "recorded": "2026-11-22T18:29:44Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/orgs",
+      "body": "{\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Organization created\",\"orgId\":2}"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"name\":\"{{name}}\",\"address\":{\"address1\":\"\",\"address2\":\"\",\"city\":\"\",\"zipCode\":\"\",\"state\":\"\",\"country\":\"\"}}"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"name\":\"{{name}}\",\"address\":{\"address1\":\"\",\"address2\":\"\",\"city\":\"\",\"zipCode\":\"\",\"state\":\"\",\"country\":\"\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/orgs/2",
+      "body": "{\"name\":\"{{name}}-changed\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Organization updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"name\":\"{{name}}-changed\",\"address\":{\"address1\":\"\",\"address2\":\"\",\"city\":\"\",\"zipCode\":\"\",\"state\":\"\",\"country\":\"\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/orgs/2",
+      "body": "{\"name\":\"{{name}}-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Organization updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"name\":\"{{name}}-drift\",\"address\":{\"address1\":\"\",\"address2\":\"\",\"city\":\"\",\"zipCode\":\"\",\"state\":\"\",\"country\":\"\"}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/orgs/2",
+      "body": "{\"name\":\"{{name}}-changed\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Organization updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"name\":\"{{name}}-changed\",\"address\":{\"address1\":\"\",\"address2\":\"\",\"city\":\"\",\"zipCode\":\"\",\"state\":\"\",\"country\":\"\"}}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/orgs/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Organization deleted\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/orgs/2",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Organization not found\"}"
+    }
+  ]
+}

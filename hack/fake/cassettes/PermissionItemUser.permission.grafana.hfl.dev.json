@@ -1,0 +1,124 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/dashboards/db",
+      "body": "{\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"overwrite\":false}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"id\":280000005,\"overwrite\":false}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/admin/users",
+      "body": "{\"email\":\"{{name}}@example.com\",\"login\":\"{{name}}\",\"password\":\"{{redacted}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"email\":\"{{name}}@example.com\",\"id\":280000006,\"login\":\"{{name}}\",\"password\":\"{{redacted}}\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/280000006",
+      "body": "{\"permission\":\"View\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"View\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":\"280000006\",\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"View\",\"userId\":\"280000006\"}]\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"View\",\"userId\":\"280000006\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/280000006",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Edit\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":\"280000006\",\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"Edit\",\"userId\":\"280000006\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/280000006",
+      "body": "{\"permission\":\"Admin\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Admin\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":\"280000006\",\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"Admin\",\"userId\":\"280000006\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/280000006",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Edit\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":\"280000006\",\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"Edit\",\"userId\":\"280000006\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/users/280000006",
+      "body": "{\"permission\":\"\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/admin/users/280000006",
+      "status": 204
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}",
+      "status": 204
+    }
+  ]
+}

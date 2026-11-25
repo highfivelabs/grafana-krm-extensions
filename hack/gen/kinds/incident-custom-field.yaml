@@ -1,0 +1,35 @@
+terraform: [grafana_incident_custom_field]
+kind: IncidentCustomField
+shape: crud
+fields:
+  name: {type: string}
+  slug: {type: string}
+  type: {type: string, enum: [string, single-select, multi-select, number, bool, date]}
+  description: {type: string}
+  color: {type: string}
+  icon: {type: string}
+  required: {type: boolean}
+  domainName: {type: string, enum: [incident], default: incident}
+  selectoptions:
+    type: array
+    items:
+      type: object
+      required: [value]
+      properties:
+        value: {type: string, which names it.}
+        label: {type: string}
+        description: {type: string}
+        color: {type: string}
+        icon: {type: string}
+        archived: {type: boolean}
+required: [name, slug, type]
+createOnly: [type]
+id: uuid
+envelope: field
+bodyEnvelope: field
+serverFields: {immutable: false, source: grafana-incident, version: 1}
+sample: {name: Affected team, slug: affected_team, type: single-select, domainName: incident, selectoptions: [{value: payments, label: Payments}]}
+create: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/FieldsService.AddField"}
+read: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/FieldsService.GetField", body: {fieldUUID: "{id}", includeArchived: true}}
+update: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/FieldsService.UpdateField", body: {fieldUUID: "{id}"}, bareBody: true, carry: [version, immutable]}
+delete: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/FieldsService.DeleteField", body: {fieldUUID: "{id}"}, bareBody: true}

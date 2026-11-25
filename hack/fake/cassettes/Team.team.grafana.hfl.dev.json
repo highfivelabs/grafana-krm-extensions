@@ -1,0 +1,92 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/teams",
+      "body": "{\"email\":\"hfl-live@example.com\",\"name\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/teams/270000002",
+      "body": "{\"email\":\"hfl-live-2@example.com\",\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/teams/270000002",
+      "body": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-drift@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-drift@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-drift@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/teams/270000002",
+      "body": "{\"email\":\"hfl-live-2@example.com\",\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"accessControl\":{},\"avatarUrl\":\"example-avatarUrl\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"example-externalUID\",\"isProvisioned\":true,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":1,\"teamId\":270000002,\"uid\":\"example-uid\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/teams/270000002",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/teams/270000002",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/CreateCollector",
+      "body": "{\"collector\":{\"collectorType\":\"COLLECTOR_TYPE_ALLOY\",\"enabled\":true,\"id\":\"example-collector\",\"remoteAttributes\":{\"env\":\"prod\"}}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"COLLECTOR_TYPE_ALLOY\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"COLLECTOR_TYPE_ALLOY\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"COLLECTOR_TYPE_ALLOY\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/UpdateCollector",
+      "body": "{\"collector\":{\"collectorType\":\"changed-collectorType\",\"enabled\":true,\"id\":\"example-collector\",\"remoteAttributes\":{\"env\":\"prod\"}}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"changed-collectorType\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"changed-collectorType\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/UpdateCollector",
+      "body": "{\"collector\":{\"collectorType\":\"hfl-live-drift\",\"id\":\"example-collector\"}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"hfl-live-drift\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"hfl-live-drift\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/UpdateCollector",
+      "body": "{\"collector\":{\"collectorType\":\"changed-collectorType\",\"enabled\":true,\"id\":\"example-collector\",\"remoteAttributes\":{\"env\":\"prod\"}}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"changed-collectorType\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"collectorType\":\"changed-collectorType\",\"createdAt\":\"2026-11-22T00:00:00Z\",\"enabled\":true,\"id\":\"example-collector\",\"localAttributes\":{},\"remoteAttributes\":{\"env\":\"prod\"},\"updatedAt\":\"2026-11-22T00:00:00Z\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/DeleteCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/collector.v1.CollectorService/GetCollector",
+      "body": "{\"id\":\"example-collector\"}",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

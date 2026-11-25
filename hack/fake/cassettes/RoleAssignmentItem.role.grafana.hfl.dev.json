@@ -1,0 +1,54 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/access-control/roles/example-roleUID-holder/assignments",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role_uid\":\"example-role-uid\",\"service_accounts\":[],\"teams\":[],\"users\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/access-control/roles/example-roleUID-holder/assignments",
+      "body": "{\"service_accounts\":[1],\"teams\":[],\"users\":[]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role_uid\":\"example-role-uid\",\"service_accounts\":[1],\"teams\":[],\"users\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/roles/example-roleUID-holder/assignments",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role_uid\":\"example-role-uid\",\"service_accounts\":[1],\"teams\":[],\"users\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/roles/example-roleUID-holder/assignments",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role_uid\":\"example-role-uid\",\"service_accounts\":[1],\"teams\":[],\"users\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/access-control/roles/example-roleUID-holder/assignments",
+      "body": "{\"service_accounts\":[],\"teams\":[],\"users\":[]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role_uid\":\"example-role-uid\",\"service_accounts\":[],\"teams\":[],\"users\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/roles/example-roleUID-holder/assignments",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"role_uid\":\"example-role-uid\",\"service_accounts\":[],\"teams\":[],\"users\":[]}\n"
+    }
+  ]
+}

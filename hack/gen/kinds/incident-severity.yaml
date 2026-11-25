@@ -1,0 +1,21 @@
+terraform: [grafana_incident_severity]
+kind: IncidentSeverity
+shape: crud
+fields:
+  displayLabel: {type: string}
+  level: {type: integer, minimum: 1, maximum: 5, 1 to 5; lower is more severe. Unique in the organization; cannot be changed.}
+  description: {type: string}
+  iconName: {type: string, enum: ["", angle-double-down, angle-double-up, bolt, bug, exclamation, exclamation-triangle, fire, question-circle, shield]}
+  darkColor: {type: string}
+  lightColor: {type: string}
+required: [displayLabel, level]
+createOnly: [level]
+id: severityID
+envelope: severity
+bodyEnvelope: severity
+serverFields: {orgID: "1", archivedAt: ""}
+sample: {displayLabel: Critical, level: 1, description: Customer-facing outage, iconName: fire, darkColor: "#FF5286", lightColor: "#FF5286"}
+create: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.CreateOrgSeverity"}
+read: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.GetSeverityByID", body: {severityID: "{id}"}}
+update: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.UpdateOrgSeverity", body: {severityID: "{id}"}}
+delete: {method: POST, path: "/plugins/grafana-irm-app/resources/api/v1/SeveritiesService.DeleteOrgSeverity", body: {severityID: "{id}"}, bareBody: true}

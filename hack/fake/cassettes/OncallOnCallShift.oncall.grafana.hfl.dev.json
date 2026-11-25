@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/api/v1/on_call_shifts",
+      "body": "{\"duration\":1,\"name\":\"example-name\",\"start\":\"example-start\",\"type\":\"single_event\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"example-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"example-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"example-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "body": "{\"duration\":1,\"name\":\"changed-name\",\"start\":\"example-start\",\"type\":\"single_event\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"changed-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"changed-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "body": "{\"name\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"hfl-live-drift\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"hfl-live-drift\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "body": "{\"duration\":1,\"name\":\"changed-name\",\"start\":\"example-start\",\"type\":\"single_event\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"changed-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"duration\":1,\"id\":270000058,\"name\":\"changed-name\",\"start\":\"example-start\",\"type\":\"single_event\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/on_call_shifts/270000058",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

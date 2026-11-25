@@ -1,0 +1,47 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/settings/terms",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/settings/terms",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/settings/accept-terms",
+      "body": "{\"acceptedTermsAndConditions\":true}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"acceptedTermsAndConditions\":true}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/settings/terms",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"acceptedTermsAndConditions\":true}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/settings/accept-terms",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"acceptedTermsAndConditions\":true}}\n"
+    }
+  ]
+}

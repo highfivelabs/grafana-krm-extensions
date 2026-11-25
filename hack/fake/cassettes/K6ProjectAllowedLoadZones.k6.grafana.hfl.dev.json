@@ -1,0 +1,47 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/example-id/allowed_load_zones",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/example-id/allowed_load_zones",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/cloud/v6/projects/example-id/allowed_load_zones",
+      "body": "{\"value\":[]}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"value\":[]}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/example-id/allowed_load_zones",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"value\":[]}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/cloud/v6/projects/example-id/allowed_load_zones",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"value\":[]}\n"
+    }
+  ]
+}

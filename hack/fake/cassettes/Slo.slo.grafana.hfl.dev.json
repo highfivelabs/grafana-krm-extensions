@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/v1/slo",
+      "body": "{\"description\":\"example-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"description\":\"example-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/slo/example-uuid",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"example-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/slo/example-uuid",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"example-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/slo/example-uuid",
+      "body": "{\"description\":\"changed-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"changed-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/slo/example-uuid",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"changed-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/slo/example-uuid",
+      "body": "{\"description\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"hfl-live-drift\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/slo/example-uuid",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"hfl-live-drift\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/slo/example-uuid",
+      "body": "{\"description\":\"changed-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"changed-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/slo/example-uuid",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"description\":\"changed-description\",\"name\":\"example-name\",\"objectives\":[],\"query\":{\"type\":\"freeform\"},\"uuid\":\"example-uuid\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/slo/example-uuid",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/v1/slo/example-uuid",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

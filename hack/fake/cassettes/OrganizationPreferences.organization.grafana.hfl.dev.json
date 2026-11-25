@@ -1,0 +1,95 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"dark\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"dark\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/org/preferences",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/org/preferences",
+      "body": "{}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"homeURL\":\"example-homeURL\",\"theme\":\"light\",\"timezone\":\"utc\",\"weekStart\":\"monday\"}\n"
+    }
+  ]
+}

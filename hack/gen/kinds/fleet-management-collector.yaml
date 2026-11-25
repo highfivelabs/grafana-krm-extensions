@@ -1,0 +1,18 @@
+terraform: [grafana_fleet_management_collector]
+kind: FleetManagementCollector
+shape: upsert
+params:
+  id: {type: string, inBody: true, description: The collector's ID, as it registers itself.}
+fields:
+  remoteAttributes:
+    type: object
+    additionalProperties: {type: string}
+  enabled: {type: boolean}
+  collectorType: {type: string, enum: [COLLECTOR_TYPE_ALLOY, COLLECTOR_TYPE_OTEL]}
+bodyEnvelope: collector
+serverFields: {createdAt: "2026-11-22T00:00:00Z", updatedAt: "2026-11-22T00:00:00Z", localAttributes: {}}
+sample: {id: example-collector, remoteAttributes: {env: prod}, enabled: true, collectorType: COLLECTOR_TYPE_ALLOY}
+create: {method: POST, path: /collector.v1.CollectorService/CreateCollector}
+read: {method: POST, path: /collector.v1.CollectorService/GetCollector, body: {id: "{id}"}}
+update: {method: POST, path: /collector.v1.CollectorService/UpdateCollector, body: {id: "{id}"}}
+delete: {method: POST, path: /collector.v1.CollectorService/DeleteCollector, body: {id: "{id}"}, bareBody: true}

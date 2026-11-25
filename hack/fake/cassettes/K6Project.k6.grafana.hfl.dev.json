@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/cloud/v6/projects",
+      "body": "{\"name\":\"example-name\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"example-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"example-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"example-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/cloud/v6/projects/270000047",
+      "body": "{\"name\":\"changed-name\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"changed-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"changed-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/cloud/v6/projects/270000047",
+      "body": "{\"name\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"hfl-live-drift\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"hfl-live-drift\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "PATCH",
+      "path": "/cloud/v6/projects/270000047",
+      "body": "{\"name\":\"changed-name\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"changed-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"grafana_folder_uid\":\"example-grafana-folder-uid\",\"id\":270000047,\"is_default\":true,\"labels\":{},\"name\":\"changed-name\",\"updated\":\"2000-01-01T00:00:00Z\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/cloud/v6/projects/270000047",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

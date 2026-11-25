@@ -1,0 +1,112 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/dashboards/db",
+      "body": "{\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"overwrite\":false}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"dashboard\":{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"},\"id\":280000009,\"overwrite\":false}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/builtInRoles/Viewer",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"Viewer\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Edit\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"builtInRole\":\"Viewer\",\"permission\":\"Edit\"}]\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"builtInRole\":\"Viewer\",\"permission\":\"Edit\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/builtInRoles/Viewer",
+      "body": "{\"permission\":\"Admin\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"Viewer\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Admin\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"builtInRole\":\"Viewer\",\"permission\":\"Admin\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/builtInRoles/Viewer",
+      "body": "{\"permission\":\"View\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"Viewer\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"View\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"builtInRole\":\"Viewer\",\"permission\":\"View\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/builtInRoles/Viewer",
+      "body": "{\"permission\":\"Admin\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"Viewer\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Admin\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":1,\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"builtInRole\":\"Viewer\",\"permission\":\"Admin\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/dashboards/{{name}}/builtInRoles/Viewer",
+      "body": "{\"permission\":\"\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/dashboards/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/dashboards/uid/{{name}}",
+      "status": 204
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/teams/example-teamId/groups",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/teams/example-teamId/groups",
+      "body": "{\"groupId\":\"example-groupId\"}",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"status\":\"ok\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/example-teamId/groups",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"groupId\":\"example-groupId\"}]\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/teams/example-teamId/groups?groupId=example-groupId",
+      "status": 200,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"status\":\"ok\"}"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000022\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000022\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000022\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"monday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000022\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000023\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000023\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000023\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000023\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000023\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"wednesday\"]}]},\"status\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000024\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"wednesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000024\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"wednesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000024\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000025\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"TimeInterval\",\"metadata\":{\"name\":270000021,\"resourceVersion\":\"270000025\"},\"spec\":{\"name\":\"{{name}}\",\"time_intervals\":[{\"weekdays\":[\"tuesday\"]}]},\"status\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/timeintervals/270000021",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

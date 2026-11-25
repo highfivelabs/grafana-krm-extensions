@@ -1,0 +1,247 @@
+openapi: 3.0.3
+info:
+  title: Grafana Cloud Provider API (supplement)
+  version: v2
+paths:
+  /api/v2/stacks/{stack_id}/aws/accounts:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    post:
+      operationId: createAWSAccount
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AWSAccount'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSAccountResponse'}}}}
+  /api/v2/stacks/{stack_id}/aws/accounts/{account_id}:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    - {in: path, name: account_id, required: true, schema: {type: string}}
+    get:
+      operationId: getAWSAccount
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSAccountResponse'}}}}
+    put:
+      operationId: updateAWSAccount
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AWSAccount'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSAccountResponse'}}}}
+    delete:
+      operationId: deleteAWSAccount
+      responses:
+        '200': {description: Deleted}
+  /api/v2/stacks/{stack_id}/aws/jobs/cloudwatch:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    post:
+      operationId: createAWSCloudWatchScrapeJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AWSCloudWatchScrapeJob'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSCloudWatchScrapeJobResponse'}}}}
+  /api/v2/stacks/{stack_id}/aws/jobs/cloudwatch/{job_name}:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    - {in: path, name: job_name, required: true, schema: {type: string}}
+    get:
+      operationId: getAWSCloudWatchScrapeJob
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSCloudWatchScrapeJobResponse'}}}}
+    put:
+      operationId: updateAWSCloudWatchScrapeJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AWSCloudWatchScrapeJob'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSCloudWatchScrapeJobResponse'}}}}
+    delete:
+      operationId: deleteAWSCloudWatchScrapeJob
+      responses:
+        '200': {description: Deleted}
+  /api/v2/stacks/{stack_id}/aws/jobs/resources:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    post:
+      operationId: createAWSResourceMetadataScrapeJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AWSResourceMetadataScrapeJob'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSResourceMetadataScrapeJobResponse'}}}}
+  /api/v2/stacks/{stack_id}/aws/jobs/resources/{job_name}:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    - {in: path, name: job_name, required: true, schema: {type: string}}
+    get:
+      operationId: getAWSResourceMetadataScrapeJob
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSResourceMetadataScrapeJobResponse'}}}}
+    put:
+      operationId: updateAWSResourceMetadataScrapeJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AWSResourceMetadataScrapeJob'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AWSResourceMetadataScrapeJobResponse'}}}}
+    delete:
+      operationId: deleteAWSResourceMetadataScrapeJob
+      responses:
+        '200': {description: Deleted}
+  /api/v2/stacks/{stack_id}/azure/credentials:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    post:
+      operationId: createAzureCredential
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AzureCredential'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AzureCredentialResponse'}}}}
+  /api/v2/stacks/{stack_id}/azure/credentials/{credential_id}:
+    parameters:
+    - $ref: '#/components/parameters/StackID'
+    - {in: path, name: credential_id, required: true, schema: {type: string}}
+    get:
+      operationId: getAzureCredential
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AzureCredentialResponse'}}}}
+    put:
+      operationId: updateAzureCredential
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AzureCredential'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AzureCredentialResponse'}}}}
+    delete:
+      operationId: deleteAzureCredential
+      responses:
+        '200': {description: Deleted}
+components:
+  parameters:
+    StackID:
+      in: path
+      name: stack_id
+      required: true
+      schema: {type: string}
+  schemas:
+    AWSAccount:
+      type: object
+      required: [role_arn, regions]
+      properties:
+        id: {type: string, readOnly: true}
+        name: {type: string}
+        role_arn: {type: string}
+        regions: {type: array, items: {type: string}}
+    AWSAccountResponse:
+      type: object
+      properties:
+        data: {$ref: '#/components/schemas/AWSAccount'}
+    TagFilter:
+      type: object
+      required: [key, value]
+      properties:
+        key: {type: string}
+        value: {type: string}
+    CloudWatchMetric:
+      type: object
+      required: [name, statistics]
+      properties:
+        name: {type: string}
+        statistics: {type: array, items: {type: string}}
+    AWSCloudWatchScrapeJob:
+      type: object
+      required: [name, awsAccountResourceID]
+      properties:
+        name: {type: string}
+        enabled: {type: boolean}
+        awsAccountResourceID: {type: string}
+        regionsSubsetOverride: {type: array, items: {type: string}}
+        exportTags: {type: boolean}
+        services:
+          type: array
+          items:
+            type: object
+            required: [name]
+            properties:
+              name: {type: string}
+              metrics: {type: array, items: {$ref: '#/components/schemas/CloudWatchMetric'}}
+              enhancedMetrics:
+                type: array
+                items: {type: object, required: [name], properties: {name: {type: string}}}
+              scrapeIntervalSeconds: {type: integer, in seconds.}
+              resourceDiscoveryTagFilters: {type: array, items: {$ref: '#/components/schemas/TagFilter'}}
+              tagsToAddToMetrics: {type: array, items: {type: string}}
+        customNamespaces:
+          type: array
+          items:
+            type: object
+            required: [name]
+            properties:
+              name: {type: string, description: The custom namespace.}
+              metrics: {type: array, items: {$ref: '#/components/schemas/CloudWatchMetric'}}
+              scrapeIntervalSeconds: {type: integer, in seconds.}
+        staticLabels: {type: object, additionalProperties: {type: string}}
+        roleARN: {type: string, readOnly: true}
+        regions: {type: array, items: {type: string}, readOnly: true}
+        regionsSubsetOverrideUsed: {type: boolean, readOnly: true}
+        disabledReason: {type: string, readOnly: true, when it is.}
+        provenance: {type: string, readOnly: true}
+    AWSCloudWatchScrapeJobResponse:
+      type: object
+      properties:
+        data: {$ref: '#/components/schemas/AWSCloudWatchScrapeJob'}
+    AWSResourceMetadataScrapeJob:
+      type: object
+      required: [name, awsAccountResourceID]
+      properties:
+        name: {type: string}
+        enabled: {type: boolean}
+        awsAccountResourceID: {type: string}
+        regionsSubsetOverride: {type: array, items: {type: string}}
+        services:
+          type: array
+          items:
+            type: object
+            required: [name]
+            properties:
+              name: {type: string}
+              scrapeIntervalSeconds: {type: integer, in seconds.}
+              resourceDiscoveryTagFilters: {type: array, items: {$ref: '#/components/schemas/TagFilter'}}
+        staticLabels: {type: object, additionalProperties: {type: string}}
+        roleARN: {type: string, readOnly: true}
+        regions: {type: array, items: {type: string}, readOnly: true}
+        regionsSubsetOverrideUsed: {type: boolean, readOnly: true}
+        disabledReason: {type: string, readOnly: true, when it is.}
+        provenance: {type: string, readOnly: true}
+    AWSResourceMetadataScrapeJobResponse:
+      type: object
+      properties:
+        data: {$ref: '#/components/schemas/AWSResourceMetadataScrapeJob'}
+    AzureCredential:
+      type: object
+      required: [name, tenant_id, client_id, client_secret]
+      properties:
+        id: {type: string, readOnly: true}
+        name: {type: string}
+        tenant_id: {type: string, description: The Azure tenant ID.}
+        client_id: {type: string, description: The Azure client ID.}
+        client_secret: {type: string}
+        stack_id: {type: string, readOnly: true}
+        enabled: {type: boolean}
+        resource_tag_filters: {type: array, items: {$ref: '#/components/schemas/TagFilter'}}
+        auto_discovery_configuration:
+          type: array
+          items:
+            type: object
+            required: [subscription_id]
+            properties:
+              subscription_id: {type: string, description: The Azure subscription ID.}
+              resource_type_configurations:
+                type: array
+                items:
+                  type: object
+                  required: [resource_type_name]
+                  properties:
+                    resource_type_name: {type: string}
+                    metric_configuration:
+                      type: array
+                      items:
+                        type: object
+                        required: [name]
+                        properties:
+                          name: {type: string}
+                          dimensions: {type: array, items: {type: string}}
+                          aggregations: {type: array, items: {type: string}}
+        resource_tags_to_add_to_metrics: {type: array, items: {type: string}}
+        static_labels: {type: object, additionalProperties: {type: string}}
+    AzureCredentialResponse:
+      type: object
+      properties:
+        data: {$ref: '#/components/schemas/AzureCredential'}

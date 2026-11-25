@@ -1,0 +1,212 @@
+openapi: 3.0.3
+info:
+  title: Grafana Machine Learning API (supplement)
+  version: v1
+paths:
+  /manage/api/v1/jobs:
+    post:
+      operationId: createJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Job'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/JobResponse'}}}}
+  /manage/api/v1/jobs/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getJob
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/JobResponse'}}}}
+    post:
+      operationId: updateJob
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Job'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/JobResponse'}}}}
+    delete:
+      operationId: deleteJob
+      responses:
+        '200': {description: Deleted}
+  /manage/api/v1/holidays:
+    post:
+      operationId: createHoliday
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Holiday'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/HolidayResponse'}}}}
+  /manage/api/v1/holidays/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getHoliday
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/HolidayResponse'}}}}
+    post:
+      operationId: updateHoliday
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Holiday'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/HolidayResponse'}}}}
+    delete:
+      operationId: deleteHoliday
+      responses:
+        '200': {description: Deleted}
+  /manage/api/v1/outliers:
+    post:
+      operationId: createOutlierDetector
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/OutlierDetector'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/OutlierDetectorResponse'}}}}
+  /manage/api/v1/outliers/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: string}}
+    get:
+      operationId: getOutlierDetector
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/OutlierDetectorResponse'}}}}
+    post:
+      operationId: updateOutlierDetector
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/OutlierDetector'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/OutlierDetectorResponse'}}}}
+    delete:
+      operationId: deleteOutlierDetector
+      responses:
+        '200': {description: Deleted}
+  # A forecast job's alerts (/manage/api/v1/jobs/{jobID}/alerts) and an
+  # outlier detector's (/manage/api/v1/outliers/{outlierID}/alerts) take the
+  # same calls and fields: one template, with the parent's collection as
+  # its first placeholder.
+  /manage/api/v1/{parent}/{parent_id}/alerts:
+    parameters:
+    - $ref: '#/components/parameters/Parent'
+    - $ref: '#/components/parameters/ParentID'
+    post:
+      operationId: createAlert
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Alert'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AlertResponse'}}}}
+  /manage/api/v1/{parent}/{parent_id}/alerts/{alertId}:
+    parameters:
+    - $ref: '#/components/parameters/Parent'
+    - $ref: '#/components/parameters/ParentID'
+    - {in: path, name: alertId, required: true, schema: {type: string}}
+    get:
+      operationId: getAlert
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AlertResponse'}}}}
+    post:
+      operationId: updateAlert
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/Alert'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/AlertResponse'}}}}
+    delete:
+      operationId: deleteAlert
+      responses:
+        '200': {description: Deleted}
+components:
+  parameters:
+    Parent:
+      in: path
+      name: parent
+      required: true
+      schema: {type: string, enum: [jobs, outliers]}
+    ParentID:
+      in: path
+      name: parent_id
+      required: true
+      schema: {type: string}
+  schemas:
+    Job:
+      type: object
+      required: [name, metric, datasourceUid, datasourceType, queryParams]
+      properties:
+        id: {type: string, readOnly: true}
+        name: {type: string}
+        metric: {type: string}
+        description: {type: string}
+        grafanaUrl: {type: string}
+        datasourceId: {type: integer}
+        datasourceUid: {type: string}
+        datasourceType: {type: string}
+        customLabels: {type: object, additionalProperties: true}
+        queryParams: {type: object, additionalProperties: true}
+        interval: {type: integer}
+        trainingWindow: {type: integer, in seconds.}
+        trainingFrequency: {type: integer, in seconds.}
+        algorithm: {type: string}
+        hyperParams: {type: object, additionalProperties: true}
+        holidays: {type: array, items: {type: string}}
+    JobResponse:
+      type: object
+      properties:
+        status: {type: string}
+        data: {$ref: '#/components/schemas/Job'}
+    Holiday:
+      type: object
+      required: [name]
+      properties:
+        id: {type: string, readOnly: true}
+        name: {type: string}
+        description: {type: string}
+        iCalUrl: {type: string}
+        iCalTimeZone: {type: string}
+        customPeriods:
+          type: array
+          items:
+            type: object
+            required: [startTime, endTime]
+            properties:
+              name: {type: string}
+              startTime: {type: string, format: date-time}
+              endTime: {type: string, format: date-time}
+        jobs: {type: array, items: {type: string}}
+    HolidayResponse:
+      type: object
+      properties:
+        status: {type: string}
+        data: {$ref: '#/components/schemas/Holiday'}
+    OutlierDetector:
+      type: object
+      required: [name, metric, datasourceUid, datasourceType, queryParams, algorithm]
+      properties:
+        id: {type: string, readOnly: true}
+        name: {type: string}
+        metric: {type: string}
+        description: {type: string}
+        grafanaUrl: {type: string}
+        datasourceId: {type: integer}
+        datasourceUid: {type: string}
+        datasourceType: {type: string}
+        queryParams: {type: object, additionalProperties: true}
+        interval: {type: integer}
+        algorithm:
+          type: object
+          required: [name]
+          properties:
+            name: {type: string, enum: [mad, dbscan], description: The algorithm.}
+            sensitivity: {type: number, between 0 and 1.}
+            config:
+              type: object
+              properties:
+                epsilon: {type: number, description: DBSCAN's epsilon.}
+    OutlierDetectorResponse:
+      type: object
+      properties:
+        status: {type: string}
+        data: {$ref: '#/components/schemas/OutlierDetector'}
+    Alert:
+      type: object
+      required: [title]
+      properties:
+        id: {type: string, readOnly: true}
+        title: {type: string, at most 190 characters.}
+        anomalyCondition: {type: string, enum: [high, low, any]}
+        for: {type: string}
+        threshold: {type: string}
+        window: {type: string}
+        labels: {type: object, additionalProperties: {type: string}}
+        annotations: {type: object, additionalProperties: {type: string}}
+        noDataCondition: {type: string, enum: [OK, Alerting, NoData]}
+        syncError: {type: string, readOnly: true}
+    AlertResponse:
+      type: object
+      properties:
+        status: {type: string}
+        data: {$ref: '#/components/schemas/Alert'}

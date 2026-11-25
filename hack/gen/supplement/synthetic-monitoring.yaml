@@ -1,0 +1,217 @@
+openapi: 3.0.3
+info:
+  title: Grafana Synthetic Monitoring API (supplement)
+  version: v1
+paths:
+  /api/v1/check/add:
+    post:
+      operationId: addCheck
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Check'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Check'}
+  /api/v1/check/update:
+    post:
+      operationId: updateCheck
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Check'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Check'}
+  /api/v1/check/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: integer}}
+    get:
+      operationId: getCheck
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Check'}
+  /api/v1/check/delete/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: integer}}
+    delete:
+      operationId: deleteCheck
+      responses:
+        '200': {description: OK}
+  /api/v1/probe/add:
+    post:
+      operationId: addProbe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Probe'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  probe: {$ref: '#/components/schemas/Probe'}
+                  token: {type: string, readOnly: true, answered only here.}
+  /api/v1/probe/update:
+    post:
+      operationId: updateProbe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Probe'}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Probe'}
+  /api/v1/probe/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: integer}}
+    get:
+      operationId: getProbe
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Probe'}
+  /api/v1/probe/delete/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: integer}}
+    delete:
+      operationId: deleteProbe
+      responses:
+        '200': {description: OK}
+  /api/v1/check/{checkID}/alerts:
+    parameters:
+    - {in: path, name: checkID, required: true, schema: {type: integer}}
+    get:
+      operationId: getCheckAlerts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts: {type: array, items: {$ref: '#/components/schemas/CheckAlertWithStatus'}}
+    put:
+      operationId: updateCheckAlerts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [alerts]
+              properties:
+                alerts: {type: array, items: {$ref: '#/components/schemas/CheckAlert'}}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts: {type: array, items: {$ref: '#/components/schemas/CheckAlert'}}
+components:
+  schemas:
+    Label:
+      type: object
+      required: [name, value]
+      properties:
+        name: {type: string}
+        value: {type: string}
+    Check:
+      type: object
+      required: [job, target, probes, settings]
+      properties:
+        id: {type: integer, readOnly: true, description: The check's ID, assigned by the API.}
+        tenantId: {type: integer, readOnly: true}
+        job: {type: string}
+        target: {type: string, description: Hostname to ping, URL to request, or address to connect to, by check type.}
+        frequency: {type: integer, in milliseconds.}
+        offset: {type: integer}
+        timeout: {type: integer, in milliseconds.}
+        enabled: {type: boolean}
+        labels: {type: array, items: {$ref: '#/components/schemas/Label'}}
+        settings:
+          type: object
+          additionalProperties: true
+        probes: {type: array, items: {type: integer}}
+        basicMetricsOnly: {type: boolean}
+        alertSensitivity: {type: string, enum: [none, low, medium, high]}
+        channels:
+          type: object
+          properties:
+            k6:
+              type: object
+              properties:
+                id: {type: string}
+                manifest: {type: string}
+        folderUid: {type: string}
+        created: {type: number, readOnly: true}
+        modified: {type: number, readOnly: true}
+    Probe:
+      type: object
+      required: [name, latitude, longitude, region]
+      properties:
+        id: {type: integer, readOnly: true, description: The probe's ID, assigned by the API.}
+        tenantId: {type: integer, readOnly: true}
+        name: {type: string}
+        latitude: {type: number}
+        longitude: {type: number}
+        region: {type: string, such as AMER, EMEA or APAC.}
+        labels: {type: array, items: {$ref: '#/components/schemas/Label'}}
+        public: {type: boolean, readOnly: true}
+        capabilities:
+          type: object
+          properties:
+            disableScriptedChecks: {type: boolean}
+            disableBrowserChecks: {type: boolean}
+        online: {type: boolean, readOnly: true}
+        onlineChange: {type: number, readOnly: true}
+        version: {type: string, readOnly: true}
+        commit: {type: string, readOnly: true}
+        buildstamp: {type: string, readOnly: true}
+        deprecated: {type: boolean, readOnly: true}
+        created: {type: number, readOnly: true}
+        modified: {type: number, readOnly: true}
+    CheckAlert:
+      type: object
+      required: [name, threshold]
+      properties:
+        name:
+          type: string
+          enum: [ProbeFailedExecutionsTooHigh, TLSTargetCertificateCloseToExpiring, HTTPRequestDurationTooHighAvg, PingRequestDurationTooHighAvg, DNSRequestDurationTooHighAvg]
+        threshold: {type: number}
+        period: {type: string, enum: [5m, 10m, 15m, 20m, 30m, 1h]}
+        runbookUrl: {type: string}
+    CheckAlertWithStatus:
+      allOf:
+      - {$ref: '#/components/schemas/CheckAlert'}
+      - type: object
+        properties:
+          status: {type: string, readOnly: true}
+          error: {type: string, readOnly: true}
+          created: {type: integer, readOnly: true}
+          modified: {type: integer, readOnly: true}

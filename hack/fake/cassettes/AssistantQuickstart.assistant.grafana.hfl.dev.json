@@ -1,0 +1,96 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts",
+      "body": "{\"prompt\":\"example-prompt\",\"scope\":\"user\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"example-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"example-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"example-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "body": "{\"prompt\":\"changed-prompt\",\"scope\":\"user\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"changed-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"changed-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"changed-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "body": "{\"prompt\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"hfl-live-drift\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"hfl-live-drift\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "body": "{\"prompt\":\"changed-prompt\",\"scope\":\"user\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"changed-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000035,\"modified\":\"example-modified\",\"prompt\":\"changed-prompt\",\"scope\":\"user\",\"updatedBy\":\"example-updatedBy\",\"userId\":\"example-userId\"}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/quickstarts/270000035",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

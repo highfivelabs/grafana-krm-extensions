@@ -1,0 +1,96 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "body": "{\"apiVersion\":\"scim.grafana.app/v0alpha1\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"scim.grafana.app/v0alpha1\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"scim.grafana.app/v0alpha1\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"scim.grafana.app/v0alpha1\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "body": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "body": "{\"apiVersion\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"hfl-live-drift\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"hfl-live-drift\"}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "body": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"apiVersion\":\"changed-apiVersion\",\"kind\":\"SCIMConfig\",\"metadata\":{\"name\":\"default\"},\"spec\":{}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/apis/scim.grafana.app/v0alpha1/namespaces/example-namespace/config/default",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "recorded": "2026-11-22T18:29:45Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"some_id\",\"clientSecret\":\"\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email,read:org\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"system\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-drift\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"},\"source\":\"database\"}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live-drift\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/sso-settings/github",
+      "body": "{\"provider\":\"github\",\"settings\":{\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"enabled\":false,\"scopes\":\"user:email\"}}",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/sso-settings/github",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":\"\",\"provider\":\"github\",\"settings\":{\"allowAssignGrafanaAdmin\":false,\"allowSignUp\":true,\"allowedDomains\":\"\",\"allowedGroups\":\"\",\"allowedOrganizations\":\"\",\"apiUrl\":\"https://api.github.com/user\",\"authStyle\":\"\",\"authUrl\":\"https://github.com/login/oauth/authorize\",\"autoLogin\":false,\"clientAuthentication\":\"\",\"clientId\":\"hfl-live-2\",\"clientSecret\":\"{{redacted}}\",\"emailAttributeName\":\"\",\"emailAttributePath\":\"\",\"emptyScopes\":false,\"enabled\":false,\"federatedCredentialAudience\":\"\",\"groupsAttributePath\":\"\",\"hostedDomain\":\"\",\"icon\":\"github\",\"jwkSetUrl\":\"\",\"loginPrompt\":\"\",\"managedIdentityClientId\":\"\",\"name\":\"GitHub\",\"orgAttributePath\":\"\",\"orgMapping\":\"\",\"roleAttributePath\":\"\",\"roleAttributeStrict\":false,\"scopes\":\"user:email\",\"signoutRedirectUrl\":\"\",\"skipOrgRoleSync\":false,\"teamIds\":\"\",\"teamIdsAttributePath\":\"\",\"teamsUrl\":\"\",\"tlsClientCa\":\"\",\"tlsClientCert\":\"\",\"tlsClientKey\":\"\",\"tlsSkipVerifyInsecure\":false,\"tokenExchangeTimeout\":15,\"tokenUrl\":\"https://github.com/login/oauth/access_token\",\"usePkce\":false,\"useRefreshToken\":false,\"validateIdToken\":false,\"workloadIdentityTokenFile\":\"\"},\"source\":\"database\"}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/sso-settings/github",
+      "status": 204
+    }
+  ]
+}

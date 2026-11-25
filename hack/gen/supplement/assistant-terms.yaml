@@ -1,0 +1,31 @@
+openapi: 3.0.3
+info:
+  title: Grafana Assistant terms API (supplement)
+  version: v1
+paths:
+  /settings/terms:
+    get:
+      operationId: getAssistantTerms
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/TermsResponse'}}}}
+  /settings/accept-terms:
+    put:
+      operationId: setAssistantTermsAcceptance
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/TermsAcceptanceUpdate'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/TermsResponse'}}}}
+components:
+  schemas:
+    TermsAcceptanceUpdate:
+      type: object
+      required: [acceptedTermsAndConditions]
+      properties:
+        acceptedTermsAndConditions: {type: boolean}
+    TermsResponse:
+      type: object
+      properties:
+        status: {type: string}
+        data:
+          type: object
+          properties:
+            acceptedTermsAndConditions: {type: boolean}

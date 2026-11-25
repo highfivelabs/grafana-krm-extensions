@@ -1,0 +1,98 @@
+{
+  "recorded": "2026-11-22T18:29:47Z",
+  "target": "Grafana OSS 13.3.1",
+  "vars": {
+    "team": 3,
+    "user": 4
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"InhibitionRule\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"equal\":[\"alertname\"],\"source_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"critical\"}],\"target_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"warning\"}]}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"7b12182ccacefd36\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"7b12182ccacefd36\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"7b12182ccacefd36\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\"]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"InhibitionRule\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"equal\":[\"alertname\",\"cluster\"],\"source_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"critical\"}],\"target_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"warning\"}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"1ee33727fa473f3d\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\",\"cluster\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"1ee33727fa473f3d\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\",\"cluster\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"1ee33727fa473f3d\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\",\"cluster\"]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"InhibitionRule\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"resourceVersion\":\"1ee33727fa473f3d\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\"},\"spec\":{\"equal\":[\"cluster\"],\"source_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"critical\"}],\"target_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"warning\"}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"0fec9f7e82c056b7\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"cluster\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"0fec9f7e82c056b7\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"cluster\"]}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "body": "{\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"kind\":\"InhibitionRule\",\"metadata\":{\"name\":\"{{name}}\"},\"spec\":{\"equal\":[\"alertname\",\"cluster\"],\"source_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"critical\"}],\"target_matchers\":[{\"label\":\"severity\",\"type\":\"=\",\"value\":\"warning\"}]}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"1ee33727fa473f3d\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\",\"cluster\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"1ee33727fa473f3d\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\",\"cluster\"]}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"InhibitionRule\",\"apiVersion\":\"notifications.alerting.grafana.app/v1beta1\",\"metadata\":{\"name\":\"{{name}}\",\"namespace\":\"default\",\"uid\":\"ka4BSbcmbwpu1bHwziqmUUuDMvm4EVXaXdkXVdiYwnEX\",\"resourceVersion\":\"1ee33727fa473f3d\"},\"spec\":{\"source_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"critical\"}],\"target_matchers\":[{\"type\":\"=\",\"label\":\"severity\",\"value\":\"warning\"}],\"equal\":[\"alertname\",\"cluster\"]}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/inhibitionrules/{{name}}",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"inhibitionrules.notifications.alerting.grafana.app \\\"{{name}}\\\" not found\",\"reason\":\"NotFound\",\"details\":{\"name\":\"{{name}}\",\"group\":\"notifications.alerting.grafana.app\",\"kind\":\"inhibitionrules\"},\"code\":404}\n"
+    }
+  ]
+}

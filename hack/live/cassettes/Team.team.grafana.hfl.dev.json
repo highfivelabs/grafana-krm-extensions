@@ -1,0 +1,94 @@
+{
+  "recorded": "2026-11-22T18:29:44Z",
+  "target": "Grafana OSS 13.3.1",
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/teams",
+      "body": "{\"email\":\"hfl-live@example.com\",\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Team created\",\"teamId\":2,\"uid\":\"dg53dkvnpxuyoe\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"uid\":\"dg53dkvnpxuyoe\",\"orgId\":1,\"name\":\"{{name}}\",\"email\":\"hfl-live@example.com\",\"externalUID\":\"\",\"isProvisioned\":false,\"avatarUrl\":\"/avatar/83ded3f130c14059400a78b0c726e6e0a842022878ad65de6f62ed10ba53779f\",\"memberCount\":1,\"permission\":0,\"accessControl\":null}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"uid\":\"dg53dkvnpxuyoe\",\"orgId\":1,\"name\":\"{{name}}\",\"email\":\"hfl-live@example.com\",\"externalUID\":\"\",\"isProvisioned\":false,\"avatarUrl\":\"/avatar/83ded3f130c14059400a78b0c726e6e0a842022878ad65de6f62ed10ba53779f\",\"memberCount\":1,\"permission\":0,\"accessControl\":null}"
+    },
+    {
+      "method": "PUT",
+      "path": "/teams/2",
+      "body": "{\"email\":\"hfl-live-2@example.com\",\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Team updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"uid\":\"dg53dkvnpxuyoe\",\"orgId\":1,\"name\":\"{{name}}\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"\",\"isProvisioned\":false,\"avatarUrl\":\"/avatar/b2a633539f4a395cebb5b45a3ff3ff80587191b47a286ea15929cc2dac46ee3b\",\"memberCount\":1,\"permission\":0,\"accessControl\":null}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"uid\":\"dg53dkvnpxuyoe\",\"orgId\":1,\"name\":\"{{name}}\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"\",\"isProvisioned\":false,\"avatarUrl\":\"/avatar/b2a633539f4a395cebb5b45a3ff3ff80587191b47a286ea15929cc2dac46ee3b\",\"memberCount\":1,\"permission\":0,\"accessControl\":null}"
+    },
+    {
+      "method": "PUT",
+      "path": "/teams/2",
+      "body": "{\"accessControl\":null,\"avatarUrl\":\"/avatar/b2a633539f4a395cebb5b45a3ff3ff80587191b47a286ea15929cc2dac46ee3b\",\"email\":\"hfl-live-drift@example.com\",\"externalUID\":\"\",\"id\":2,\"isProvisioned\":false,\"memberCount\":1,\"name\":\"{{name}}\",\"orgId\":1,\"permission\":0,\"uid\":\"dg53dkvnpxuyoe\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Team updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"uid\":\"dg53dkvnpxuyoe\",\"orgId\":1,\"name\":\"{{name}}\",\"email\":\"hfl-live-drift@example.com\",\"externalUID\":\"\",\"isProvisioned\":false,\"avatarUrl\":\"/avatar/50f99dba291ed4a569ec3dda41f0e54349a2c2d048c1208a5c5ca88ea34dc2b1\",\"memberCount\":1,\"permission\":0,\"accessControl\":null}"
+    },
+    {
+      "method": "PUT",
+      "path": "/teams/2",
+      "body": "{\"email\":\"hfl-live-2@example.com\",\"name\":\"{{name}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Team updated\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"id\":2,\"uid\":\"dg53dkvnpxuyoe\",\"orgId\":1,\"name\":\"{{name}}\",\"email\":\"hfl-live-2@example.com\",\"externalUID\":\"\",\"isProvisioned\":false,\"avatarUrl\":\"/avatar/b2a633539f4a395cebb5b45a3ff3ff80587191b47a286ea15929cc2dac46ee3b\",\"memberCount\":1,\"permission\":0,\"accessControl\":null}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/teams/2",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Team deleted\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/teams/2",
+      "status": 404,
+      "contentType": "application/json",
+      "response": "{\"message\":\"Team not found\"}"
+    }
+  ]
+}

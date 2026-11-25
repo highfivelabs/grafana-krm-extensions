@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Grafana Frontend Observability API (supplement)
+  version: v1
+paths:
+  /api/v1/app:
+    post:
+      operationId: createApp
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AppWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/App'}}}}
+  /api/v1/app/{id}:
+    parameters:
+    - {in: path, name: id, required: true, schema: {type: integer}}
+    get:
+      operationId: getApp
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/App'}}}}
+    put:
+      operationId: updateApp
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/AppWrite'}}}}
+      responses:
+        '200': {description: OK, content: {application/json: {schema: {$ref: '#/components/schemas/App'}}}}
+    delete:
+      operationId: deleteApp
+      responses:
+        '200': {description: Deleted}
+components:
+  schemas:
+    AppWrite:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string}
+        extraLogLabels:
+          type: array
+          items:
+            type: object
+            required: [label, value]
+            properties:
+              label: {type: string}
+              value: {type: string}
+        corsOrigins:
+          type: array
+          description: Origins allowed for CORS.
+          items:
+            type: object
+            required: [url]
+            properties:
+              url: {type: string}
+        allowedRate: {type: integer}
+        settings:
+          type: object
+          additionalProperties: {type: string}
+    App:
+      allOf:
+      - {$ref: '#/components/schemas/AppWrite'}
+      - type: object
+        properties:
+          id: {type: integer, readOnly: true}
+          appKey: {type: string, readOnly: true}
+          collectEndpointURL: {type: string, readOnly: true}

@@ -1,0 +1,96 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills",
+      "body": "{\"body\":\"example-body\",\"name\":\"example-name\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"example-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"example-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"example-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "body": "{\"body\":\"changed-body\",\"name\":\"example-name\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"changed-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"changed-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"changed-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "body": "{\"body\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"hfl-live-drift\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"hfl-live-drift\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "body": "{\"body\":\"changed-body\",\"name\":\"example-name\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"changed-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"body\":\"changed-body\",\"commandName\":\"example-commandName\",\"created\":\"example-created\",\"createdBy\":\"example-createdBy\",\"id\":270000037,\"modified\":\"example-modified\",\"name\":\"example-name\",\"updatedBy\":\"example-updatedBy\",\"version\":1}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/plugins/grafana-assistant-app/resources/api/v1/skills/270000037",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

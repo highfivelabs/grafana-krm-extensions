@@ -1,0 +1,5 @@
+/bin/
+/hack/gen/specs/
+.grafana-sandbox
+# Local git worktrees
+.worktrees/

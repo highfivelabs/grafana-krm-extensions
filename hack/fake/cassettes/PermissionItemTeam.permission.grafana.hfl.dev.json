@@ -1,0 +1,125 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/folders",
+      "body": "{\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"id\":280000007,\"title\":\"{{name}}\",\"uid\":\"{{name}}\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/teams",
+      "body": "{\"name\":\"{{name}}\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"_stub\":\"rehearsal stand-in: the fake API has no such resource\",\"id\":280000008,\"name\":\"{{name}}\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/folders/{{name}}/teams/rehearsal-team",
+      "body": "{\"permission\":\"View\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"View\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":\"rehearsal-team\",\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"View\",\"teamId\":\"rehearsal-team\"}]\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"View\",\"teamId\":\"rehearsal-team\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/folders/{{name}}/teams/rehearsal-team",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Edit\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":\"rehearsal-team\",\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"Edit\",\"teamId\":\"rehearsal-team\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/folders/{{name}}/teams/rehearsal-team",
+      "body": "{\"permission\":\"Admin\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Admin\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":\"rehearsal-team\",\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"Admin\",\"teamId\":\"rehearsal-team\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/folders/{{name}}/teams/rehearsal-team",
+      "body": "{\"permission\":\"Edit\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"actions\":[],\"builtInRole\":\"example-builtInRole\",\"isInherited\":true,\"isManaged\":true,\"isServiceAccount\":true,\"permission\":\"Edit\",\"roleName\":\"example-roleName\",\"team\":\"example-team\",\"teamAvatarUrl\":\"example-teamAvatarUrl\",\"teamId\":\"rehearsal-team\",\"teamUid\":\"example-teamUid\",\"userAvatarUrl\":\"example-userAvatarUrl\",\"userId\":1,\"userLogin\":\"example-userLogin\",\"userUid\":\"example-userUid\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[{\"permission\":\"Edit\",\"teamId\":\"rehearsal-team\"}]\n"
+    },
+    {
+      "method": "POST",
+      "path": "/access-control/folders/{{name}}/teams/rehearsal-team",
+      "body": "{\"permission\":\"\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}"
+    },
+    {
+      "method": "GET",
+      "path": "/access-control/folders/{{name}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "[]\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/teams/rehearsal-team",
+      "status": 204
+    },
+    {
+      "method": "DELETE",
+      "path": "/folders/{{name}}",
+      "status": 204
+    }
+  ]
+}

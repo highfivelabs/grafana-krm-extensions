@@ -1,0 +1,693 @@
+openapi: 3.0.3
+info:
+  title: Grafana Assistant API (supplement)
+  version: v1
+paths:
+  /plugins/grafana-assistant-app/resources/api/v1/rules:
+    post:
+      operationId: createRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Rule'
+  /plugins/grafana-assistant-app/resources/api/v1/rules/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getRule
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Rule'
+    put:
+      operationId: updateRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Rule'
+    delete:
+      operationId: deleteRule
+      responses:
+        '200':
+          description: OK
+  /plugins/grafana-assistant-app/resources/api/v1/skills:
+    post:
+      operationId: createSkill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Skill'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Skill'
+  /plugins/grafana-assistant-app/resources/api/v1/skills/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getSkill
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Skill'
+    put:
+      operationId: updateSkill
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Skill'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Skill'
+    delete:
+      operationId: deleteSkill
+      responses:
+        '200':
+          description: OK
+  /plugins/grafana-assistant-app/resources/api/v1/quickstarts:
+    post:
+      operationId: createQuickstart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quickstart'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Quickstart'
+  /plugins/grafana-assistant-app/resources/api/v1/quickstarts/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getQuickstart
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Quickstart'
+    put:
+      operationId: updateQuickstart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Quickstart'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Quickstart'
+    delete:
+      operationId: deleteQuickstart
+      responses:
+        '200':
+          description: OK
+  /plugins/grafana-assistant-app/resources/api/v1/integrations:
+    post:
+      operationId: createIntegration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Integration'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Integration'
+  /plugins/grafana-assistant-app/resources/api/v1/integrations/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getIntegration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Integration'
+    put:
+      operationId: updateIntegration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Integration'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Integration'
+    delete:
+      operationId: deleteIntegration
+      responses:
+        '200':
+          description: OK
+  /plugins/grafana-assistant-app/resources/api/v1/automations:
+    post:
+      operationId: createAutomation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutomationWrite'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Automation'
+  /plugins/grafana-assistant-app/resources/api/v1/automations/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getAutomation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Automation'
+    put:
+      operationId: updateAutomation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutomationWrite'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    $ref: '#/components/schemas/Automation'
+    delete:
+      operationId: deleteAutomation
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    Rule:
+      type: object
+      required:
+      - scope
+      - name
+      - ruleContent
+      properties:
+        id:
+          type: string
+          readOnly: true
+        scope:
+          type: string
+          enum:
+          - user
+          - tenant
+        name:
+          type: string
+        description:
+          type: string
+        ruleContent:
+          type: string
+        enabled:
+          type: boolean
+        priority:
+          type: integer
+        applications:
+          type: array
+          items:
+            type: string
+        created:
+          type: string
+          readOnly: true
+        modified:
+          type: string
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        userId:
+          type: string
+          readOnly: true
+    Skill:
+      type: object
+      required:
+      - name
+      - body
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        body:
+          type: string
+        scope:
+          type: string
+          enum:
+          - user
+          - tenant
+        includeInKnowledgebase:
+          type: boolean
+        contextItems:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        allowedTools:
+          type: array
+          items:
+            type: object
+            required:
+            - integrationId
+            - toolName
+            properties:
+              integrationId:
+                type: string
+              toolName:
+                type: string
+        commandName:
+          type: string
+          readOnly: true
+        version:
+          type: integer
+          readOnly: true
+        created:
+          type: string
+          readOnly: true
+        modified:
+          type: string
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+    Quickstart:
+      type: object
+      required:
+      - scope
+      - prompt
+      properties:
+        id:
+          type: string
+          readOnly: true
+        scope:
+          type: string
+          enum:
+          - user
+          - tenant
+        title:
+          type: string
+        prompt:
+          type: string
+          description: The prompt.
+        contextItems:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        enabled:
+          type: boolean
+        created:
+          type: string
+          readOnly: true
+        modified:
+          type: string
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        userId:
+          type: string
+          readOnly: true
+    Integration:
+      type: object
+      required:
+      - scope
+      - name
+      - type
+      properties:
+        id:
+          type: string
+          readOnly: true
+        scope:
+          type: string
+          enum:
+          - user
+          - tenant
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        enabled:
+          type: boolean
+        applications:
+          type: array
+          items:
+            type: string
+        configuration:
+          type: object
+          properties:
+            url:
+              type: string
+              description: MCP server URL.
+            builtinId:
+              type: string
+            toolPreferences:
+              type: object
+              additionalProperties:
+                type: string
+            toolApprovalPolicies:
+              type: object
+              additionalProperties:
+                type: string
+        customHeaders:
+          type: array
+          items:
+            type: object
+            required:
+            - key
+            - value
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+        authenticationFailed:
+          type: boolean
+          readOnly: true
+        created:
+          type: string
+          readOnly: true
+        modified:
+          type: string
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+        userId:
+          type: string
+          readOnly: true
+    Automation:
+      type: object
+      required:
+      - name
+      - prompt
+      - enabled
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+          description: Optional description.
+        prompt:
+          type: string
+        enabled:
+          type: boolean
+        scope:
+          type: string
+          enum:
+          - user
+          - tenant
+        executionMode:
+          type: string
+          enum:
+          - user
+          - service_account
+        triggers:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - type
+            - config
+            properties:
+              id:
+                type: string
+              type:
+                type: string
+                description: Backend trigger type.
+              config:
+                type: object
+                additionalProperties: true
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Operator labels.
+        contextItems:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        notifications:
+          type: object
+          properties:
+            slack:
+              type: object
+              properties:
+                enabled:
+                  type: boolean
+                notifyOn:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - completed
+                    - failed
+                    - needs_approval
+                target:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - channel
+                      - dm
+                    teamId:
+                      type: string
+                    userId:
+                      type: string
+                    channelId:
+                      type: string
+            email:
+              type: object
+              properties:
+                enabled:
+                  type: boolean
+                notifyOn:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - completed
+                    - failed
+                    - needs_approval
+                addresses:
+                  type: array
+                  items:
+                    type: string
+        schedule:
+          type: object
+          readOnly: true
+          properties:
+            cron:
+              type: string
+            timezone:
+              type: string
+            nextRunAt:
+              type: string
+            endsAt:
+              type: string
+        createdAt:
+          type: string
+          readOnly: true
+        createdBy:
+          type: string
+          readOnly: true
+        updatedAt:
+          type: string
+          readOnly: true
+        updatedBy:
+          type: string
+          readOnly: true
+    AutomationWrite:
+      allOf:
+      - $ref: '#/components/schemas/Automation'
+      - type: object
+        properties:
+          scheduleCron:
+            type: string
+          scheduleTimezone:
+            type: string
+          scheduleEndsAt:
+            type: string

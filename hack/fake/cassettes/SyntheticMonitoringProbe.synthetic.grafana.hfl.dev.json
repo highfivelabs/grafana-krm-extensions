@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/api/v1/probe/add",
+      "body": "{\"latitude\":1,\"longitude\":1,\"name\":\"example-name\",\"region\":\"example-region\"}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"example-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":1,\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/probe/270000062",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"example-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":1,\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/probe/270000062",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"example-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":1,\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/probe/update",
+      "body": "{\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"name\":\"changed-name\",\"region\":\"example-region\",\"tenantId\":1}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"changed-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":1,\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/probe/270000062",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"changed-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":1,\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/probe/update",
+      "body": "{\"id\":\"270000062\",\"name\":\"hfl-live-drift\",\"tenantId\":\"{current.tenantId}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"hfl-live-drift\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":\"{current.tenantId}\",\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/probe/270000062",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"hfl-live-drift\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":\"{current.tenantId}\",\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/probe/update",
+      "body": "{\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"name\":\"changed-name\",\"region\":\"example-region\",\"tenantId\":\"{current.tenantId}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"changed-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":\"{current.tenantId}\",\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/probe/270000062",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"buildstamp\":\"example-buildstamp\",\"commit\":\"example-commit\",\"created\":1,\"deprecated\":true,\"id\":\"270000062\",\"latitude\":1,\"longitude\":1,\"modified\":1,\"name\":\"changed-name\",\"online\":true,\"onlineChange\":1,\"probe\":{\"id\":270000062},\"public\":true,\"region\":\"example-region\",\"tenantId\":\"{current.tenantId}\",\"version\":\"example-version\"}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/probe/delete/270000062",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/probe/270000062",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}

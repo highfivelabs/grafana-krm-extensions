@@ -1,0 +1,473 @@
+# Inputs to krm-rest-runtime/gen/krmgen.py. Specs are pinned to the commit in each url;
+# hack/gen/fetch-specs.sh downloads them. overrides: map (Terraform type -> API item path),
+# exclude (Terraform types), excludePaths (API item paths); the rest: krm-rest-runtime README.
+vendor: grafana
+title: Grafana
+groupSuffix: grafana.hfl.dev
+connectionKind: Connection
+credentialKeys:
+- token
+baseURLHelp: Grafana HTTP API base URL, e.g. https://<stack>.grafana.net/api or https://grafana.example.com/api. Required.
+terraform:
+  provider: grafana/grafana
+  prefix: grafana
+  gaps: terraform-gaps.json
+  # Field descriptions the OpenAPI spec lacks come from the provider's docs
+  # (hack/gen/terraform-docs.json, krm-rest-runtime's gen/tfdocs.py). The
+  # partial grafana_data_source_config documents only its encoded JSON
+  # fields; grafana_data_source documents the data source's own.
+  docsAlso:
+    grafana_data_source_config: [grafana_data_source]
+# Kinds written by hand (hack/gen/kinds/*.yaml, sources in each): Grafana
+# IRM's and Fleet Management's RPC APIs, whose calls name the object in
+# their bodies.
+handwritten: {dir: kinds}
+specs:
+- file: specs/grafana.json
+  url: https://raw.githubusercontent.com/grafana/grafana/3f36380cfd6240f348c2a6226f6fb07647746d60/public/openapi3.json
+# Grafana SLO's own spec. Its paths are relative to
+# https://<stack>.grafana.net/api/plugins/grafana-slo-app/resources: a
+# second Connection with that baseURL and the same token (README).
+- file: specs/slo.yaml
+  url: https://raw.githubusercontent.com/grafana/slo-openapi-client/75fe08b09d871ab45cb4a5eeca91dbbe43c66672/openapi.yaml
+# Grafana Cloud's API: a second Connection with baseURL
+# https://grafana.com/api and a Grafana Cloud access policy token (README).
+- file: specs/gcom.json
+  url: https://raw.githubusercontent.com/grafana/grafana-com-public-clients/7fe3d665bcc0eaf4e0d5804d1d5afefaac29acef/openapi.json
+# Grafana Cloud k6's own spec: a Connection with baseURL https://api.k6.io,
+# a k6 or stack token, and the stack's ID (README).
+- file: specs/k6.yaml
+  url: https://raw.githubusercontent.com/grafana/k6-cloud-openapi-client-go/c48eae4f9a18caed970a1e165762b99660429bc5/schema.yaml
+# Grafana Asserts' own spec, on the stack's Grafana under
+# /api/plugins/grafana-asserts-app/resources/asserts/api-server (README).
+- file: specs/asserts.yaml
+  url: https://raw.githubusercontent.com/grafana/grafana-asserts-public-clients/433280da6996a16ed7c6810ad400bcac52100be6/openapi.yaml
+# Hand-written: Synthetic Monitoring check alerts, on the SM API URL (README).
+- file: supplement/synthetic-monitoring.yaml
+# Hand-written: Frontend Observability apps, on the region's Faro API URL.
+- file: supplement/frontend-o11y.yaml
+# Hand-written: AI Observability's evaluation API, on the stack's Grafana
+# under /api/plugins/grafana-agento11y-app/resources/eval (README).
+- file: supplement/agento11y.yaml
+# Hand-written: Grafana OnCall (IRM), on the stack's OnCall API URL (README).
+- file: supplement/oncall.yaml
+# Hand-written: Grafana Assistant, on the stack's Grafana API URL (the
+# default Connection), under /plugins/grafana-assistant-app/resources/api/v1.
+- file: supplement/assistant.yaml
+# Grafana's app platform APIs (/apis/...), on the Grafana root URL: a second
+# Connection (README). Written by supplement/apps.py from Grafana's own
+# OpenAPI snapshots of each API group.
+- file: supplement/apps.yaml
+# Hand-written: Grafana Assistant's terms acceptance, on the stack's
+# Grafana under /api/plugins/grafana-assistant-app/resources/api/v1 (README).
+- file: supplement/assistant-terms.yaml
+# Hand-written: Grafana Machine Learning, on the stack's Grafana under
+# /api/plugins/grafana-ml-app/resources (README).
+- file: supplement/machine-learning.yaml
+# Hand-written: Cloud Provider Observability, on the stack's Cloud Provider
+# API URL (README).
+- file: supplement/cloud-provider.yaml
+# Hand-written: Connections' metrics endpoint scrape jobs, on the
+# Connections API URL (README).
+- file: supplement/connections.yaml
+# Hand-written: k6 load tests, the spec's own operations with the project's
+# placeholder named apart from the load test's (both {id} in the spec).
+- file: supplement/k6-load-tests.yaml
+envelope: {}
+# Some writes are a POST to the path they are read from: a data source's
+# cache config (POST /datasources/{uid}/cache), a dashboard's or folder's
+# permissions (POST /dashboards/uid/{uid}/permissions, which replaces them).
+postUpdates: true
+overrides:
+  map:
+    # Terraform's grafana_user is a user the server administrator makes
+    # (POST /admin/users), not the caller's own profile at /user.
+    grafana_user: /users/{user_id}
+    grafana_slo: /v1/slo/{id}
+    # Not SLO's /v1/report/{id}, an SLO report.
+    grafana_report: /reports/{id}
+    # Grafana Cloud. Terraform creates, updates and deletes a stack on
+    # /v1/stacks (and reads /instances/{slug}, the same stack).
+    grafana_cloud_stack: /v1/stacks/{idOrSlug}
+    grafana_cloud_org_member: /orgs/{slugOrId}/members/{usernameOrId}
+    grafana_cloud_plugin_installation: /instances/{instanceId}/plugins/{pluginSlugOrId}
+    grafana_cloud_stack_service_account: /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}
+    grafana_cloud_stack_service_account_token: /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}
+    # Grafana OnCall (supplement/oncall.yaml).
+    grafana_oncall_escalation: /api/v1/escalation_policies/{id}
+    grafana_oncall_escalation_chain: /api/v1/escalation_chains/{id}
+    grafana_oncall_integration: /api/v1/integrations/{id}
+    grafana_oncall_route: /api/v1/routes/{id}
+    grafana_oncall_schedule: /api/v1/schedules/{id}
+    grafana_oncall_on_call_shift: /api/v1/on_call_shifts/{id}
+    grafana_oncall_outgoing_webhook: /api/v1/webhooks/{id}
+    grafana_oncall_user_notification_rule: /api/v1/personal_notification_rules/{id}
+    grafana_oncall_team_access_management: /api/v1/teams/{id}
+    grafana_team: /teams/{team_id}
+    grafana_synthetic_monitoring_check_alerts: /api/v1/check/{checkID}/alerts
+    grafana_synthetic_monitoring_check: /api/v1/check/{id}
+    grafana_synthetic_monitoring_probe: /api/v1/probe/{id}
+    grafana_frontend_o11y_app: /api/v1/app/{id}
+    # Grafana Asserts (specs/asserts.yaml).
+    grafana_asserts_custom_model_rules: /v1/config/model-rules/{name}
+    # AI Observability (supplement/agento11y.yaml).
+    grafana_agento11y_evaluator: /evaluators/{evaluator_id}
+    grafana_agento11y_evaluation_rule: /rules/{rule_id}
+    grafana_agento11y_rule_action: /rules/{rule_id}/actions/{action_id}
+    grafana_agento11y_collection: /collections/{collection_id}
+    grafana_agento11y_hook_rule: /hook-rules/{rule_id}
+    # Grafana Cloud k6 (specs/k6.yaml).
+    # Machine Learning (supplement/machine-learning.yaml).
+    grafana_machine_learning_job: /manage/api/v1/jobs/{id}
+    grafana_machine_learning_holiday: /manage/api/v1/holidays/{id}
+    grafana_machine_learning_outlier_detector: /manage/api/v1/outliers/{id}
+    grafana_machine_learning_alert: /manage/api/v1/{parent}/{parent_id}/alerts/{alertId}
+    # Cloud Provider Observability (supplement/cloud-provider.yaml).
+    grafana_cloud_provider_aws_account: /api/v2/stacks/{stack_id}/aws/accounts/{account_id}
+    grafana_cloud_provider_aws_cloudwatch_scrape_job: /api/v2/stacks/{stack_id}/aws/jobs/cloudwatch/{job_name}
+    grafana_cloud_provider_aws_resource_metadata_scrape_job: /api/v2/stacks/{stack_id}/aws/jobs/resources/{job_name}
+    grafana_cloud_provider_azure_credential: /api/v2/stacks/{stack_id}/azure/credentials/{credential_id}
+    # Connections (supplement/connections.yaml).
+    grafana_connections_metrics_endpoint_scrape_job: /api/v1/stacks/{stack_id}/metrics-endpoint/jobs/{job_name}
+    # Asserts drilldown, alert and suppression configs: written by a POST
+    # to the collection, read in the tenant's list (readFrom below).
+    grafana_asserts_log_config: /v2/config/log/{name}
+    grafana_asserts_profile_config: /v2/config/profile/{name}
+    grafana_asserts_trace_config: /v2/config/trace/{name}
+    grafana_asserts_notification_alerts_config: /v1/config/alert/{name}
+    grafana_asserts_suppressed_assertions_config: /v1/config/disabled-alert/{name}
+    grafana_k6_project: /cloud/v6/projects/{id}
+    grafana_k6_project_limits: /cloud/v6/projects/{id}/limits
+    grafana_k6_project_allowed_load_zones: /cloud/v6/projects/{id}/allowed_load_zones
+    # Made by a multipart upload to the project, changed by a JSON PATCH
+    # (supplement/k6-load-tests.yaml; overrides.multipart below).
+    grafana_k6_load_test: /cloud/v6/load_tests/{id}
+    grafana_k6_schedule: /cloud/v6/load_tests/{id}/schedule
+    # App platform (supplement/apps.yaml).
+    grafana_apps_dashboard_dashboard_v1beta1: /apis/dashboard.grafana.app/v1beta1/namespaces/{namespace}/dashboards/{name}
+    grafana_apps_dashboard_dashboard_v2beta1: /apis/dashboard.grafana.app/v2beta1/namespaces/{namespace}/dashboards/{name}
+    grafana_apps_dashboard_dashboard_v2: /apis/dashboard.grafana.app/v2/namespaces/{namespace}/dashboards/{name}
+    grafana_apps_playlist_playlist_v0alpha1: /apis/playlist.grafana.app/v0alpha1/namespaces/{namespace}/playlists/{name}
+    grafana_apps_playlist_playlist_v1: /apis/playlist.grafana.app/v1/namespaces/{namespace}/playlists/{name}
+    grafana_apps_notifications_routingtree_v1beta1: /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/routingtrees/{name}
+    grafana_apps_notifications_timeinterval_v1beta1: /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/timeintervals/{name}
+    grafana_apps_notifications_inhibitionrule_v1beta1: /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/inhibitionrules/{name}
+    grafana_apps_rules_alertrule_v0alpha1: /apis/rules.alerting.grafana.app/v0alpha1/namespaces/{namespace}/alertrules/{name}
+    grafana_apps_rules_alertrule_v1beta1: /apis/rules.alerting.grafana.app/v1beta1/namespaces/{namespace}/alertrules/{name}
+    grafana_apps_rules_recordingrule_v0alpha1: /apis/rules.alerting.grafana.app/v0alpha1/namespaces/{namespace}/recordingrules/{name}
+    grafana_apps_rules_recordingrule_v1beta1: /apis/rules.alerting.grafana.app/v1beta1/namespaces/{namespace}/recordingrules/{name}
+    grafana_apps_rules_rulesequence_v0alpha1: /apis/rules.alerting.grafana.app/v0alpha1/namespaces/{namespace}/rulesequences/{name}
+    grafana_apps_rules_rulesequence_v1beta1: /apis/rules.alerting.grafana.app/v1beta1/namespaces/{namespace}/rulesequences/{name}
+    grafana_apps_provisioning_repository_v0alpha1: /apis/provisioning.grafana.app/v0alpha1/namespaces/{namespace}/repositories/{name}
+    grafana_apps_provisioning_connection_v0alpha1: /apis/provisioning.grafana.app/v0alpha1/namespaces/{namespace}/connections/{name}
+    grafana_apps_secret_keeper_v1beta1: /apis/secret.grafana.app/v1beta1/namespaces/{namespace}/keepers/{name}
+    grafana_apps_secret_securevalue_v1beta1: /apis/secret.grafana.app/v1beta1/namespaces/{namespace}/securevalues/{name}
+    grafana_apps_alertenrichment_alertenrichment_v1beta1: /apis/alertenrichment.grafana.app/v1beta1/namespaces/{namespace}/alertenrichments/{name}
+    grafana_apps_queries_query_v1: /apis/queries.grafana.app/v1/namespaces/{namespace}/queries/{name}
+    grafana_apps_productactivation_appo11yconfig_v1alpha1: /apis/productactivation.ext.grafana.com/v1alpha1/namespaces/{namespace}/appo11yconfigs/{name}
+    grafana_apps_productactivation_dbo11yconfig_v1alpha1: /apis/productactivation.ext.grafana.com/v1alpha1/namespaces/{namespace}/dbo11yconfigs/{name}
+    grafana_apps_productactivation_k8so11yconfig_v1alpha1: /apis/productactivation.ext.grafana.com/v1alpha1/namespaces/{namespace}/k8so11yconfigs/{name}
+    grafana_apps_servicemodel_component_v1alpha1: /apis/servicemodel.ext.grafana.com/v1alpha1/namespaces/{namespace}/components/{name}
+    grafana_apps_generic_resource: /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}
+    # Made by POST .../public-dashboards, read there (one object, not a
+    # list), updated and deleted at .../public-dashboards/{uid} (readFrom).
+    grafana_dashboard_public: /dashboards/uid/{dashboardUid}/public-dashboards/{uid}
+    # Written at /settings/accept-terms, read at /settings/terms (readFrom).
+    grafana_assistant_terms_acceptance: /settings/accept-terms
+    grafana_scim_config: /apis/scim.grafana.app/v0alpha1/namespaces/{namespace}/config/default
+    # Not the list at /datasources, which postUpdates reads as settings.
+    grafana_data_source_config: /datasources/uid/{uid}
+    # Enterprise; PUT replaces the data source's team LBAC rules.
+    grafana_data_source_config_lbac_rules: /datasources/uid/{uid}/lbac/teams
+    # The full set: POST replaces every permission not listed (Grafana's
+    # legacy permissions API, which the pinned spec still describes).
+    grafana_dashboard_permission: /dashboards/uid/{uid}/permissions
+    grafana_folder_permission: /folders/{folder_uid}/permissions
+    # Grafana Cloud access policies and their tokens (?region= on every
+    # call: queryFields below). A private data source connect network is an
+    # access policy with the set:pdc-signing scope, and its token an access
+    # policy token (the provider's resource_private_data_source_connect_network*.go).
+    grafana_cloud_access_policy: /v1/accesspolicies/{id}
+    grafana_cloud_private_data_source_connect_network: /v1/accesspolicies/{id}
+    grafana_cloud_access_policy_token: /v1/tokens/{id}
+    grafana_cloud_private_data_source_connect_network_token: /v1/tokens/{id}
+    # One permission of one user, team or basic role on a dashboard, folder,
+    # data source or service account ({resource}: dashboards, folders,
+    # datasources, serviceaccounts): one kind per kind of target.
+    grafana_dashboard_permission_item: &permissionItem
+    - /access-control/{resource}/{resourceID}/users/{userID}
+    - /access-control/{resource}/{resourceID}/teams/{teamID}
+    - /access-control/{resource}/{resourceID}/builtInRoles/{builtInRole}
+    grafana_folder_permission_item: *permissionItem
+    grafana_data_source_permission_item: *permissionItem
+    grafana_service_account_permission_item: *permissionItem
+    # The whole set of a data source's or service account's permissions
+    # (Terraform sends the ones it drops with an empty permission): here one
+    # object per user, team or role, of the item kinds.
+    grafana_data_source_permission: *permissionItem
+    grafana_service_account_permission: *permissionItem
+    # Grafana Asserts: the tenant's custom thresholds (one object), and a
+    # Prometheus rules file, created and replaced by a PUT of the whole file
+    # to the collection (the item's own POST changes one rule).
+    grafana_asserts_thresholds: /v2/config/threshold
+    grafana_asserts_prom_rule_file: /v1/config/prom-rules/{name}
+    # A team's external (IdP) group: a link, one per group.
+    grafana_team_external_group: /teams/{teamId}/groups
+    # Grafana Assistant (supplement/assistant.yaml).
+    grafana_assistant_rule: /plugins/grafana-assistant-app/resources/api/v1/rules/{id}
+    grafana_assistant_skill: /plugins/grafana-assistant-app/resources/api/v1/skills/{id}
+    grafana_assistant_quickstart: /plugins/grafana-assistant-app/resources/api/v1/quickstarts/{id}
+    grafana_assistant_mcp_server: /plugins/grafana-assistant-app/resources/api/v1/integrations/{id}
+    grafana_assistant_automation: /plugins/grafana-assistant-app/resources/api/v1/automations/{id}
+  # Grafana Machine Learning answers {"status": .., "data": {..}}; the
+  # rest of the stack's API (Annotation, the OnCall webhook) has data
+  # fields of its own, so the envelope is these kinds' only.
+  envelope:
+    /plugins/grafana-assistant-app/resources/api/v1/rules/{id}: {response: data, request: ""}
+    /plugins/grafana-assistant-app/resources/api/v1/skills/{id}: {response: data, request: ""}
+    /plugins/grafana-assistant-app/resources/api/v1/quickstarts/{id}: {response: data, request: ""}
+    /plugins/grafana-assistant-app/resources/api/v1/integrations/{id}: {response: data, request: ""}
+    /plugins/grafana-assistant-app/resources/api/v1/automations/{id}: {response: data, request: ""}
+    /manage/api/v1/jobs/{id}: {response: data, request: ""}
+    /manage/api/v1/holidays/{id}: {response: data, request: ""}
+    /manage/api/v1/outliers/{id}: {response: data, request: ""}
+    /manage/api/v1/{parent}/{parent_id}/alerts/{alertId}: {response: data, request: ""}
+    # So do Cloud Provider Observability and Connections.
+    /api/v2/stacks/{stack_id}/aws/accounts/{account_id}: {response: data, request: ""}
+    /api/v2/stacks/{stack_id}/aws/jobs/cloudwatch/{job_name}: {response: data, request: ""}
+    /api/v2/stacks/{stack_id}/aws/jobs/resources/{job_name}: {response: data, request: ""}
+    /api/v2/stacks/{stack_id}/azure/credentials/{credential_id}: {response: data, request: ""}
+    /api/v1/stacks/{stack_id}/metrics-endpoint/jobs/{job_name}: {response: data, request: ""}
+    # And Grafana Assistant.
+    /settings/accept-terms: {response: data, request: ""}
+  # Asserts configs the API writes (an upsert POST to the collection) and
+  # deletes by name but reads only in the tenant's whole list. The POST
+  # answers nothing; a change is reported as drift (no update call).
+  kindNames:
+    /v2/config/threshold: AssertsThresholdsConfig
+    /v1/accesspolicies/{id}: CloudAccessPolicy
+    /v1/tokens/{id}: CloudAccessPolicyToken
+    /access-control/{resource}/{resourceID}/users/{userID}: PermissionItemUser
+    /access-control/{resource}/{resourceID}/teams/{teamID}: PermissionItemTeam
+    /access-control/{resource}/{resourceID}/builtInRoles/{builtInRole}: PermissionItemRole
+  # Grafana Assistant authorizes an update or a delete by the scope the
+  # object has now (user or tenant), sent as X-Resource-Scope; the update's
+  # body names the scope it should have.
+  headers:
+    /plugins/grafana-assistant-app/resources/api/v1/rules/{id}:
+      update: {X-Resource-Scope: "{current.scope}"}
+      delete: {X-Resource-Scope: "{current.scope}"}
+    /plugins/grafana-assistant-app/resources/api/v1/skills/{id}:
+      update: {X-Resource-Scope: "{current.scope}"}
+      delete: {X-Resource-Scope: "{current.scope}"}
+    /plugins/grafana-assistant-app/resources/api/v1/quickstarts/{id}:
+      update: {X-Resource-Scope: "{current.scope}"}
+      delete: {X-Resource-Scope: "{current.scope}"}
+    /plugins/grafana-assistant-app/resources/api/v1/integrations/{id}:
+      update: {X-Resource-Scope: "{current.scope}"}
+      delete: {X-Resource-Scope: "{current.scope}"}
+    /plugins/grafana-assistant-app/resources/api/v1/automations/{id}:
+      update: {X-Resource-Scope: "{current.scope}"}
+      delete: {X-Resource-Scope: "{current.scope}"}
+  # Grafana Cloud's access policy API takes the stack's region as
+  # ?region= on every call; it is no field of the body.
+  queryFields:
+    /v1/accesspolicies/{id}: [region]
+    /v1/tokens/{id}: [region]
+  # A permission item is written by a POST to its own path, read in the
+  # resource's whole list of permissions, and removed by the same POST with
+  # an empty permission, as Terraform removes it.
+  deleteBody:
+    /access-control/{resource}/{resourceID}/users/{userID}: {method: POST, body: {permission: ""}}
+    /access-control/{resource}/{resourceID}/teams/{teamID}: {method: POST, body: {permission: ""}}
+    /access-control/{resource}/{resourceID}/builtInRoles/{builtInRole}: {method: POST, body: {permission: ""}}
+    # The DELETE names the thresholds it removes: the ones the spec set
+    # (the provider's resourceThresholdsDelete).
+    /v2/config/threshold: {method: DELETE, sendSpec: true}
+  # A team's external groups: one link per group, removed by
+  # DELETE /teams/{teamId}/groups?groupId=<the group>.
+  assocs:
+  - create: /teams/{teamId}/groups
+    read: /teams/{teamId}/groups
+    delete: /teams/{teamId}/groups
+    deleteMethod: delete
+    deleteQuery: {groupId: '{groupId}'}
+  readFrom:
+    /access-control/{resource}/{resourceID}/users/{userID}: {path: "/access-control/{resource}/{resourceID}", field: userId}
+    /access-control/{resource}/{resourceID}/teams/{teamID}: {path: "/access-control/{resource}/{resourceID}", field: teamId}
+    /access-control/{resource}/{resourceID}/builtInRoles/{builtInRole}: {path: "/access-control/{resource}/{resourceID}", field: builtInRole}
+    /v2/config/log/{name}: {path: /v2/config/log, list: logDrilldownConfigs, field: name}
+    /v2/config/profile/{name}: {path: /v2/config/profile, list: profileDrilldownConfigs, field: name}
+    /v2/config/trace/{name}: {path: /v2/config/trace, list: traceDrilldownConfigs, field: name}
+    /v1/config/alert/{name}: {path: /v1/config/alerts, list: alertConfigs, field: name}
+    /v1/config/disabled-alert/{name}: {path: /v1/config/disabled-alerts, list: disabledAlertConfigs, field: name}
+    # A dashboard's public dashboard: read at the collection it is made in.
+    /dashboards/uid/{dashboardUid}/public-dashboards/{uid}: {path: "/dashboards/uid/{dashboardUid}/public-dashboards"}
+    # Assistant terms acceptance: written at accept-terms, read at terms.
+    /settings/accept-terms: {path: /settings/terms}
+    # A Grafana Cloud stack's service account token: made by POST, found in
+    # the account's token list, deleted by ID.
+    /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}: {path: "/instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens", field: id}
+  creates:
+    # Synthetic Monitoring: made by POST /check/add, deleted by DELETE
+    # /check/delete/{id}, and replaced by POST /check/update, the whole
+    # check with its id (and the tenantId the API gave it, as the
+    # provider sends it); the same for probes.
+    /api/v1/check/{id}: /api/v1/check/add
+    /api/v1/probe/{id}: /api/v1/probe/add
+    /v1/config/prom-rules/{name}: {path: /v1/config/prom-rules, method: put}
+    /users/{user_id}: /admin/users
+    /cloud/v6/load_tests/{id}: /cloud/v6/projects/{project_id}/load_tests
+    # A scrape job is named by the caller: POST makes it, PUT updates it.
+    /api/v1/stacks/{stack_id}/metrics-endpoint/jobs/{job_name}: /api/v1/stacks/{stack_id}/metrics-endpoint/jobs/{job_name}
+    # A collection path that ends in a placeholder ({plural}).
+    /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}: /apis/{group}/{version}/namespaces/{namespace}/{plural}
+  deletes:
+    /api/v1/check/{id}: /api/v1/check/delete/{id}
+    /api/v1/probe/{id}: /api/v1/probe/delete/{id}
+    /users/{user_id}: /admin/users/{user_id}
+    # A k6 load test's schedule: made and changed by POST (and read) at
+    # .../load_tests/{id}/schedule, deleted by its own ID, which the read
+    # answers (internal/resources/k6/resource_schedule.go).
+    /cloud/v6/load_tests/{id}/schedule: "/cloud/v6/schedules/{current.id}"
+  # A rules file is replaced whole by the same PUT, named by its name.
+  updateBody:
+    /api/v1/check/{id}: {tenantId: '{current.tenantId}'}
+    /api/v1/probe/{id}: {tenantId: '{current.tenantId}'}
+  updates:
+    /api/v1/check/{id}: {path: /api/v1/check/update, method: post}
+    /api/v1/probe/{id}: {path: /api/v1/probe/update, method: post}
+    /v1/config/prom-rules/{name}: {path: /v1/config/prom-rules, method: put}
+  updateID:
+    /api/v1/check/{id}: id
+    /api/v1/probe/{id}: id
+    /v1/config/prom-rules/{name}: name
+  idFrom:
+    # A probe's add answers {"probe": {...}, "token": ...}.
+    /api/v1/probe/{id}: probe/id
+    /v1/config/prom-rules/{name}: name
+    # A create answers {"teamId": ..} and {"orgId": ..}, not id (live run, Grafana 13.3.1).
+    /teams/{team_id}: teamId
+    /orgs/{org_id}: orgId
+    # Cloud Provider scrape jobs are named by the caller.
+    /api/v2/stacks/{stack_id}/aws/jobs/cloudwatch/{job_name}: name
+    /api/v2/stacks/{stack_id}/aws/jobs/resources/{job_name}: name
+    /v1/slo/{id}: uuid
+    # A member is read by its user's username or ID; the response's id is
+    # the membership's own.
+    /orgs/{slugOrId}/members/{usernameOrId}: userId
+    # Installed plugins are read by the plugin's slug, not the install's id.
+    /instances/{instanceId}/plugins/{pluginSlugOrId}: pluginSlug
+    # App platform objects are named by the caller, in metadata.name.
+    /apis/dashboard.grafana.app/v1beta1/namespaces/{namespace}/dashboards/{name}: metadata/name
+    /apis/dashboard.grafana.app/v2beta1/namespaces/{namespace}/dashboards/{name}: metadata/name
+    /apis/dashboard.grafana.app/v2/namespaces/{namespace}/dashboards/{name}: metadata/name
+    /apis/playlist.grafana.app/v0alpha1/namespaces/{namespace}/playlists/{name}: metadata/name
+    /apis/playlist.grafana.app/v1/namespaces/{namespace}/playlists/{name}: metadata/name
+    /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/routingtrees/{name}: metadata/name
+    /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/timeintervals/{name}: metadata/name
+    /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/inhibitionrules/{name}: metadata/name
+    /apis/rules.alerting.grafana.app/v0alpha1/namespaces/{namespace}/alertrules/{name}: metadata/name
+    /apis/rules.alerting.grafana.app/v1beta1/namespaces/{namespace}/alertrules/{name}: metadata/name
+    /apis/rules.alerting.grafana.app/v0alpha1/namespaces/{namespace}/recordingrules/{name}: metadata/name
+    /apis/rules.alerting.grafana.app/v1beta1/namespaces/{namespace}/recordingrules/{name}: metadata/name
+    /apis/rules.alerting.grafana.app/v0alpha1/namespaces/{namespace}/rulesequences/{name}: metadata/name
+    /apis/rules.alerting.grafana.app/v1beta1/namespaces/{namespace}/rulesequences/{name}: metadata/name
+    /apis/provisioning.grafana.app/v0alpha1/namespaces/{namespace}/repositories/{name}: metadata/name
+    /apis/provisioning.grafana.app/v0alpha1/namespaces/{namespace}/connections/{name}: metadata/name
+    /apis/secret.grafana.app/v1beta1/namespaces/{namespace}/keepers/{name}: metadata/name
+    /apis/secret.grafana.app/v1beta1/namespaces/{namespace}/securevalues/{name}: metadata/name
+    /apis/alertenrichment.grafana.app/v1beta1/namespaces/{namespace}/alertenrichments/{name}: metadata/name
+    /apis/queries.grafana.app/v1/namespaces/{namespace}/queries/{name}: metadata/name
+    /apis/productactivation.ext.grafana.com/v1alpha1/namespaces/{namespace}/appo11yconfigs/{name}: metadata/name
+    /apis/productactivation.ext.grafana.com/v1alpha1/namespaces/{namespace}/dbo11yconfigs/{name}: metadata/name
+    /apis/productactivation.ext.grafana.com/v1alpha1/namespaces/{namespace}/k8so11yconfigs/{name}: metadata/name
+    /apis/servicemodel.ext.grafana.com/v1alpha1/namespaces/{namespace}/components/{name}: metadata/name
+    /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}: metadata/name
+  # App platform updates must name the version a read answered (Grafana
+  # 13.3.1, live: a playlist without it 422 "metadata.resourceVersion: must
+  # be specified for an update"; a routing tree 409 "Provided version ''
+  # does not match current version"), as the provider's Update sends it.
+  carry:
+    /apis/playlist.grafana.app/v0alpha1/namespaces/{namespace}/playlists/{name}: [metadata.resourceVersion]
+    /apis/playlist.grafana.app/v1/namespaces/{namespace}/playlists/{name}: [metadata.resourceVersion]
+    /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/routingtrees/{name}: [metadata.resourceVersion]
+    /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/timeintervals/{name}: [metadata.resourceVersion]
+    /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}: [metadata.resourceVersion]
+  # Grafana names a time interval itself (13.3.1, live: a create naming it
+  # answers 400 "object's metadata.name should be empty"; the provider's
+  # docs: 13.4 takes a name the client sets), so the create leaves it out.
+  serverNamed:
+    /apis/notifications.alerting.grafana.app/v1beta1/namespaces/{namespace}/timeintervals/{name}: metadata.name
+  createOnly:
+    # An access policy's and a token's update bodies have no name (nor a
+    # token its policy).
+    /v1/accesspolicies/{id}: [name]
+    /v1/tokens/{id}: [name, accessPolicyId]
+    # A rules file is named once; the update names it by the same field.
+    /v1/config/prom-rules/{name}: [name]
+    # Fields the update's body does not take (grafana-com-public-clients).
+    /orgs/{slugOrId}/members/{usernameOrId}: [username]
+    /instances/{instanceId}/plugins/{pluginSlugOrId}: [plugin]
+    /v1/stacks/{idOrSlug}: [org, plugins, region]
+    # AI Observability: a rule's ID is set when it is made.
+    /rules/{rule_id}: [rule_id]
+    # A load test's PATCH takes no script (the provider changes it with
+    # PUT .../script, which a kind does not send).
+    /cloud/v6/load_tests/{id}: [script]
+    # OnCall: fields its update does not take (amixr-api-go-client).
+    /api/v1/escalation_policies/{id}: [escalation_chain_id]
+    /api/v1/integrations/{id}: [type]
+    /api/v1/routes/{id}: [integration_id]
+    /api/v1/schedules/{id}: [type]
+    /api/v1/personal_notification_rules/{id}: [user_id, important]
+  excludePaths:
+  # SAML single logout, not a service level objective.
+  - /saml/slo
+  writeOnly:
+    # A read answers every secret in settings as "*********".
+    /v1/sso-settings/{key}: [settings.clientSecret, settings.tlsClientKey]
+    # OnCall: credentials an outgoing webhook sends (Terraform: sensitive).
+    /api/v1/webhooks/{id}: [password, authorization_header]
+    # A secure value's value is never read back.
+    /apis/secret.grafana.app/v1beta1/namespaces/{namespace}/securevalues/{name}: [spec.value]
+    # Cloud Provider: a secret (Terraform: sensitive, not imported), and a
+    # region subset read back only as regions + regionsSubsetOverrideUsed.
+    /api/v2/stacks/{stack_id}/azure/credentials/{credential_id}: [client_secret]
+    /api/v2/stacks/{stack_id}/aws/jobs/cloudwatch/{job_name}: [regionsSubsetOverride]
+    /api/v2/stacks/{stack_id}/aws/jobs/resources/{job_name}: [regionsSubsetOverride]
+    # Connections: credentials the scrape sends (Terraform: sensitive).
+    /api/v1/stacks/{stack_id}/metrics-endpoint/jobs/{job_name}: [bearer_token, basic_password]
+  # A probe's access token is answered once, by its add.
+  secretOutputs:
+    /api/v1/probe/{id}: [token]
+    # A Cloud access policy token's secret is answered once, by its create (the
+    # generator misses `token` inside the response's allOf).
+    /v1/tokens/{id}: [token]
+    # A stack service account token's key is answered once, by its create.
+    /instances/{instanceId}/api/serviceaccounts/{serviceAccountId}/tokens/{tokenId}: [key]
+  # A k6 load test is uploaded as a multipart form (its script a file); the
+  # PATCH that changes it takes JSON.
+  multipart:
+  - path: /cloud/v6/load_tests/{id}
+    calls: [create]
+  elements:
+    grafana_role_assignment_item:
+      item: /access-control/roles/{roleUID}/assignments
+      in: {user_id: users, team_id: teams, service_account_id: service_accounts}
+# Terraform gap types no kind will cover, and why: no draft kind is made for them
+# (krm-rest-runtime's README, "Draft kinds"). The README's "Not covered" table is
+# generated from these and draftNotes.
+hardBlocks:
+  grafana_k6_installation: &install >-
+    One-off actions that answer a new token: k6's `PUT /v3/account/grafana-app/start`
+    and Synthetic Monitoring's `POST .../register/install`. Terraform reads nothing back
+    ("management of the installation is a one-off operation"); destroying the k6
+    installation does nothing, and destroying Synthetic Monitoring's deletes the token it
+    answered (`.../token/delete`).
+  grafana_synthetic_monitoring_installation: *install
+  grafana_cloud_integration: >-
+    An install the provider performs itself: it fetches the integration's dashboards and
+    alert rules, creates a folder, the dashboards and the rules in Grafana, then records
+    the install (`POST .../integrations/{slug}/install`); uninstalling deletes them the
+    same way. Not one API resource.

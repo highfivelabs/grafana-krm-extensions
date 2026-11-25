@@ -1,0 +1,74 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "GET",
+      "path": "/v1/stack/status",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stack/status",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "PUT",
+      "path": "/v2/stack",
+      "body": "{\"assertionDetectorToken\":\"{{redacted}}\",\"gcomToken\":\"{{redacted}}\",\"mimirToken\":\"{{redacted}}\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/v2/stack/datasets/auto-setup",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/v2/stack/enable",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"enabled\":\"true\",\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stack/status",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"enabled\":\"true\",\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stack/status",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"enabled\":\"true\",\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/stack/status",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"enabled\":\"true\",\"status\":\"COMPLETE\",\"version\":1}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/v2/stack/disable",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"enabled\":\"false\",\"status\":\"COMPLETE\",\"version\":1}\n"
+    }
+  ]
+}

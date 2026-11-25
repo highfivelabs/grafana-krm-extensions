@@ -1,0 +1,89 @@
+{
+  "recorded": "2000-01-01T00:00:00Z",
+  "target": "krm-rest-runtime fake API (built from types.yaml; not the vendor's API)",
+  "vars": {
+    "team": "rehearsal-team",
+    "user": 280000006
+  },
+  "interactions": [
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/outliers",
+      "body": "{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"example-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}",
+      "status": 201,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"example-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"example-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"example-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/outliers/270000051",
+      "body": "{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"changed-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"changed-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"changed-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/outliers/270000051",
+      "body": "{\"datasourceType\":\"hfl-live-drift\"}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"hfl-live-drift\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"hfl-live-drift\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/manage/api/v1/outliers/270000051",
+      "body": "{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"changed-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"changed-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 200,
+      "contentType": "application/json",
+      "response": "{\"data\":{\"algorithm\":{\"name\":\"mad\"},\"datasourceType\":\"changed-datasourceType\",\"datasourceUid\":\"example-datasourceUid\",\"id\":270000051,\"metric\":\"example-metric\",\"name\":\"example-name\",\"queryParams\":{}}}\n"
+    },
+    {
+      "method": "DELETE",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/manage/api/v1/outliers/270000051",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "response": "{\"message\":\"Not Found\"}\n"
+    }
+  ]
+}
