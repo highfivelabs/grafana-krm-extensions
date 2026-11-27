@@ -3138,7 +3138,7 @@ kinds:
     path: /access-control/roles/{roleUID}
   id:
     param: roleUID
-    from: id
+    from: uid
   terraform:
   - grafana_role
   sample:

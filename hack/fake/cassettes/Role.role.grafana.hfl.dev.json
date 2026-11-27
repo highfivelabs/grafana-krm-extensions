@@ -12,21 +12,21 @@
       "body": "{\"description\":\"example-description\"}",
       "status": 201,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"example-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"example-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "GET",
       "path": "/access-control/roles/270000008",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"example-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"example-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "GET",
       "path": "/access-control/roles/270000008",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"example-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"example-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "PUT",
@@ -34,14 +34,14 @@
       "body": "{\"description\":\"changed-description\"}",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "GET",
       "path": "/access-control/roles/270000008",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "PUT",
@@ -49,14 +49,14 @@
       "body": "{\"description\":\"hfl-live-drift\"}",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"hfl-live-drift\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"hfl-live-drift\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "GET",
       "path": "/access-control/roles/270000008",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"hfl-live-drift\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"hfl-live-drift\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "PUT",
@@ -64,14 +64,14 @@
       "body": "{\"description\":\"changed-description\"}",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "GET",
       "path": "/access-control/roles/270000008",
       "status": 200,
       "contentType": "application/json",
-      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"id\":270000008,\"mapped\":true,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
+      "response": "{\"created\":\"2000-01-01T00:00:00Z\",\"delegatable\":true,\"description\":\"changed-description\",\"mapped\":true,\"uid\":270000008,\"updated\":\"2000-01-01T00:00:00Z\",\"version\":1}\n"
     },
     {
       "method": "DELETE",
