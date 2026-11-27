@@ -1,0 +1,5419 @@
+{
+ "formatVersion": 1,
+ "generatedBy": "factory upjet sync (upjet/README.md in highfivelabs/factory)",
+ "provider": {
+  "repo": "grafana/crossplane-provider-grafana",
+  "tag": "v2.18.1",
+  "commit": "45a4bbc8511a6b24c47e83a2bb1c8b1427045ed7",
+  "commitDate": "2026-11-09T10:18:41Z",
+  "licence": "Apache-2.0"
+ },
+ "join": "types.yaml terraform",
+ "counts": {
+  "ours": 111,
+  "matched": 109,
+  "references": 115,
+  "referencesOur": 81,
+  "handExamples": 4,
+  "notTested": 0
+ },
+ "entries": [
+  {
+   "ours": {
+    "kind": "Agento11yCollection",
+    "group": "agento11y.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_agento11y_collection",
+    "group": "agento11y.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Collection",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "agento11y/v1alpha1/collection",
+      "at": "examples-generated/cluster/agento11y/v1alpha1/collection.yaml",
+      "origin": "generated",
+      "fields": [
+       "description",
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Agento11yEvaluationRule",
+    "group": "agento11y.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_agento11y_evaluation_rule",
+    "group": "agento11y.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "EvaluationRule",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "agento11y/v1alpha1/evaluationrule",
+      "at": "examples-generated/cluster/agento11y/v1alpha1/evaluationrule.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_agento11y_evaluator"
+      ],
+      "fields": [
+       "enabled",
+       "evaluator_ids",
+       "execution_mode",
+       "filterable_tag_keys",
+       "match",
+       "rule_id",
+       "sample_rate",
+       "selector"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Agento11yEvaluator",
+    "group": "agento11y.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_agento11y_evaluator",
+    "group": "agento11y.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Evaluator",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "agento11y/v1alpha1/evaluator",
+      "at": "examples-generated/cluster/agento11y/v1alpha1/evaluator.yaml",
+      "origin": "generated",
+      "fields": [
+       "config",
+       "description",
+       "evaluator_id",
+       "kind",
+       "output_keys",
+       "version"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Agento11yHookRule",
+    "group": "agento11y.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_agento11y_hook_rule",
+    "group": "agento11y.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "HookRule",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "agento11y/v1alpha1/hookrule",
+      "at": "examples-generated/cluster/agento11y/v1alpha1/hookrule.yaml",
+      "origin": "generated",
+      "fields": [
+       "action_on_fail",
+       "blocked_tools",
+       "phase",
+       "redact",
+       "redact.id",
+       "redact.regex",
+       "rule_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Agento11yRuleAction",
+    "group": "agento11y.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_agento11y_rule_action",
+    "group": "agento11y.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RuleAction",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "agento11y/v1alpha1/ruleaction",
+      "at": "examples-generated/cluster/agento11y/v1alpha1/ruleaction.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_agento11y_collection",
+       "grafana_agento11y_evaluation_rule",
+       "grafana_agento11y_evaluator"
+      ],
+      "fields": [
+       "collection_ids",
+       "condition",
+       "rule_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Annotation",
+    "group": "annotation.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_annotation",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Annotation",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "dashboard_uid",
+      "target": "grafana_dashboard",
+      "targetKind": "oss.grafana.crossplane.io/Dashboard",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/oss.go:16"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_annotation_types.go:131"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/annotation",
+      "at": "examples-generated/cluster/oss/v1alpha1/annotation.yaml",
+      "origin": "generated",
+      "fields": [
+       "text"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsAlertenrichmentAlertenrichmentV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_alertenrichment_alertenrichment_v1beta1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AlertenrichmentV1Beta1",
+    "tested": true,
+    "generated": true,
+    "customCode": [
+     {
+      "what": "helper",
+      "expr": "ujconfig.TraverseSchemas",
+      "at": "config/grafana/oss.go:143"
+     }
+    ],
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/alertenrichmentv1beta1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/alertenrichmentv1beta1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.alert_rule_uids",
+       "spec.annotation_matchers",
+       "spec.annotation_matchers.name",
+       "spec.annotation_matchers.type",
+       "spec.annotation_matchers.value",
+       "spec.description",
+       "spec.label_matchers",
+       "spec.label_matchers.name",
+       "spec.label_matchers.type",
+       "spec.label_matchers.value",
+       "spec.receivers",
+       "spec.step",
+       "spec.step.assign",
+       "spec.step.assign.annotations",
+       "spec.step.assign.timeout",
+       "spec.step.assistant_investigations",
+       "spec.step.conditional",
+       "spec.step.conditional.else",
+       "spec.step.conditional.else.step",
+       "spec.step.conditional.else.step.assign",
+       "spec.step.conditional.else.step.assign.annotations",
+       "spec.step.conditional.if",
+       "spec.step.conditional.if.label_matchers",
+       "spec.step.conditional.if.label_matchers.name",
+       "spec.step.conditional.if.label_matchers.type",
+       "spec.step.conditional.if.label_matchers.value",
+       "spec.step.conditional.then",
+       "spec.step.conditional.then.step",
+       "spec.step.conditional.then.step.assign",
+       "spec.step.conditional.then.step.assign.annotations",
+       "spec.step.conditional.then.step.external",
+       "spec.step.conditional.then.step.external.url",
+       "spec.step.data_source",
+       "spec.step.data_source.logs_query",
+       "spec.step.data_source.logs_query.data_source_type",
+       "spec.step.data_source.logs_query.data_source_uid",
+       "spec.step.data_source.logs_query.expr",
+       "spec.step.data_source.logs_query.max_lines",
+       "spec.step.data_source.raw_query",
+       "spec.step.data_source.raw_query.ref_id",
+       "spec.step.data_source.raw_query.request",
+       "spec.step.data_source.timeout",
+       "spec.step.explain",
+       "spec.step.explain.annotation",
+       "spec.step.external",
+       "spec.step.external.url",
+       "spec.step.sift",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsDashboardDashboardV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_dashboard_dashboard_v1beta1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardV1Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardv1beta1",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardv1beta1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.json",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsDashboardDashboardV2",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_dashboard_dashboard_v2",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardV2",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardv2",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardv2.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.json",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsDashboardDashboardV2beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_dashboard_dashboard_v2beta1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardV2Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardv2beta1",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardv2beta1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.json",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsGenericResource",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_generic_resource",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Resource",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/resource",
+      "at": "examples-generated/cluster/oss/v1alpha1/resource.yaml",
+      "origin": "generated",
+      "fields": [
+       "manifest"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsNotificationsInhibitionruleV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_notifications_inhibitionrule_v1beta1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "InhibitionruleV1Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/inhibitionrulev1beta1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/inhibitionrulev1beta1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.equal",
+       "spec.source_matchers",
+       "spec.source_matchers.label",
+       "spec.source_matchers.type",
+       "spec.source_matchers.value",
+       "spec.target_matchers",
+       "spec.target_matchers.label",
+       "spec.target_matchers.type",
+       "spec.target_matchers.value"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsNotificationsRoutingtreeV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_notifications_routingtree_v1beta1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RoutingtreeV1Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/routingtreev1beta1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/routingtreev1beta1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.defaults",
+       "spec.defaults.group_by",
+       "spec.defaults.group_interval",
+       "spec.defaults.group_wait",
+       "spec.defaults.receiver",
+       "spec.defaults.repeat_interval",
+       "spec.disable_provenance",
+       "spec.routes",
+       "spec.routes.continue",
+       "spec.routes.group_by",
+       "spec.routes.matchers",
+       "spec.routes.matchers.label",
+       "spec.routes.matchers.type",
+       "spec.routes.matchers.value",
+       "spec.routes.mute_time_intervals",
+       "spec.routes.receiver",
+       "spec.routes.routes",
+       "spec.routes.routes.continue",
+       "spec.routes.routes.matchers",
+       "spec.routes.routes.matchers.label",
+       "spec.routes.routes.matchers.type",
+       "spec.routes.routes.matchers.value",
+       "spec.routes.routes.receiver"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsPlaylistPlaylistV0alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_playlist_playlist_v0alpha1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "PlaylistV0Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/playlistv0alpha1",
+      "at": "examples-generated/cluster/oss/v1alpha1/playlistv0alpha1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.interval",
+       "spec.items",
+       "spec.items.type",
+       "spec.items.value",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsPlaylistPlaylistV1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_playlist_playlist_v1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "PlaylistV1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/playlistv1",
+      "at": "examples-generated/cluster/oss/v1alpha1/playlistv1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.interval",
+       "spec.items",
+       "spec.items.type",
+       "spec.items.value",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsProductactivationAppo11yconfigV1alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_productactivation_appo11yconfig_v1alpha1",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Appo11YconfigV1Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/appo11yconfigv1alpha1",
+      "at": "examples-generated/cluster/cloud/v1alpha1/appo11yconfigv1alpha1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.enabled"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsProductactivationDbo11yconfigV1alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_productactivation_dbo11yconfig_v1alpha1",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Dbo11YconfigV1Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/dbo11yconfigv1alpha1",
+      "at": "examples-generated/cluster/cloud/v1alpha1/dbo11yconfigv1alpha1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.enabled"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsProductactivationK8so11yconfigV1alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_productactivation_k8so11yconfig_v1alpha1",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "K8So11YconfigV1Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/k8so11yconfigv1alpha1",
+      "at": "examples-generated/cluster/cloud/v1alpha1/k8so11yconfigv1alpha1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.enabled"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsProvisioningConnectionV0alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_provisioning_connection_v0alpha1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ConnectionV0Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/connectionv0alpha1",
+      "at": "examples-generated/cluster/oss/v1alpha1/connectionv0alpha1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "secure",
+       "secure.private_key",
+       "secure_version",
+       "spec",
+       "spec.description",
+       "spec.github",
+       "spec.github.app_id",
+       "spec.github.installation_id",
+       "spec.title",
+       "spec.type",
+       "spec.url"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsProvisioningRepositoryV0alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_provisioning_repository_v0alpha1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RepositoryV0Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/repositoryv0alpha1",
+      "at": "examples-generated/cluster/oss/v1alpha1/repositoryv0alpha1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "secure",
+       "secure.token",
+       "secure_version",
+       "spec",
+       "spec.description",
+       "spec.github",
+       "spec.github.branch",
+       "spec.github.path",
+       "spec.github.url",
+       "spec.sync",
+       "spec.sync.enabled",
+       "spec.sync.interval_seconds",
+       "spec.sync.target",
+       "spec.title",
+       "spec.type",
+       "spec.webhook",
+       "spec.webhook.base_url",
+       "spec.workflows"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsQueriesQueryV1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_queries_query_v1",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "QueryV1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/queryv1",
+      "at": "examples-generated/cluster/oss/v1alpha1/queryv1.yaml",
+      "origin": "generated",
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.description",
+       "spec.is_visible",
+       "spec.tags",
+       "spec.targets",
+       "spec.targets.properties_json",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsRulesAlertruleV0alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_rules_alertrule_v0alpha1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AlertruleV0Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/alertrulev0alpha1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/alertrulev0alpha1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder"
+      ],
+      "fields": [
+       "metadata",
+       "metadata.folder_uid",
+       "metadata.uid",
+       "spec",
+       "spec.annotations",
+       "spec.exec_err_state",
+       "spec.expressions",
+       "spec.for",
+       "spec.labels",
+       "spec.missing_series_evals_to_resolve",
+       "spec.no_data_state",
+       "spec.notification_settings",
+       "spec.notification_settings.simplified_routing",
+       "spec.notification_settings.simplified_routing.contact_point",
+       "spec.panel_ref",
+       "spec.paused",
+       "spec.title",
+       "spec.trigger",
+       "spec.trigger.interval"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsRulesAlertruleV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_rules_alertrule_v1beta1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AlertruleV1Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/alertrulev1beta1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/alertrulev1beta1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder"
+      ],
+      "fields": [
+       "metadata",
+       "metadata.folder_uid",
+       "metadata.uid",
+       "spec",
+       "spec.annotations",
+       "spec.exec_err_state",
+       "spec.expressions",
+       "spec.for",
+       "spec.labels",
+       "spec.missing_series_evals_to_resolve",
+       "spec.no_data_state",
+       "spec.notification_settings",
+       "spec.notification_settings.simplified_routing",
+       "spec.notification_settings.simplified_routing.contact_point",
+       "spec.panel_ref",
+       "spec.panel_ref.dashboard_uid",
+       "spec.panel_ref.panel_id",
+       "spec.paused",
+       "spec.title",
+       "spec.trigger",
+       "spec.trigger.interval"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsRulesRecordingruleV0alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_rules_recordingrule_v0alpha1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RecordingruleV0Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/recordingrulev0alpha1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/recordingrulev0alpha1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder"
+      ],
+      "fields": [
+       "?provider",
+       "metadata",
+       "metadata.folder_uid",
+       "metadata.uid",
+       "spec",
+       "spec.expressions",
+       "spec.labels",
+       "spec.metric",
+       "spec.paused",
+       "spec.target_datasource_uid",
+       "spec.title",
+       "spec.trigger",
+       "spec.trigger.interval"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsRulesRecordingruleV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_rules_recordingrule_v1beta1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RecordingruleV1Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/recordingrulev1beta1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/recordingrulev1beta1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder"
+      ],
+      "fields": [
+       "metadata",
+       "metadata.folder_uid",
+       "metadata.uid",
+       "spec",
+       "spec.expressions",
+       "spec.labels",
+       "spec.metric",
+       "spec.paused",
+       "spec.target_datasource_uid",
+       "spec.title",
+       "spec.trigger",
+       "spec.trigger.interval"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsRulesRulesequenceV0alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_rules_rulesequence_v0alpha1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RulesequenceV0Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/rulesequencev0alpha1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/rulesequencev0alpha1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_apps_rules_alertrule_v0alpha1",
+       "grafana_apps_rules_recordingrule_v0alpha1",
+       "grafana_folder"
+      ],
+      "fields": [
+       "metadata",
+       "metadata.folder_uid",
+       "metadata.uid",
+       "spec",
+       "spec.alerting_rules",
+       "spec.alerting_rules.name",
+       "spec.recording_rules",
+       "spec.recording_rules.name",
+       "spec.trigger",
+       "spec.trigger.interval"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsRulesRulesequenceV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_rules_rulesequence_v1beta1",
+    "group": "alerting.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RulesequenceV1Beta1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "alerting/v1alpha1/rulesequencev1beta1",
+      "at": "examples-generated/cluster/alerting/v1alpha1/rulesequencev1beta1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_apps_rules_alertrule_v1beta1",
+       "grafana_apps_rules_recordingrule_v1beta1",
+       "grafana_folder"
+      ],
+      "fields": [
+       "metadata",
+       "metadata.folder_uid",
+       "metadata.uid",
+       "spec",
+       "spec.alert_rules",
+       "spec.alert_rules.name",
+       "spec.recording_rules",
+       "spec.recording_rules.name",
+       "spec.trigger",
+       "spec.trigger.interval"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsSecretKeeperActivationV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_secret_keeper_activation_v1beta1",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "KeeperActivationV1Beta1",
+    "tested": true,
+    "generated": true
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsSecretKeeperV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_secret_keeper_v1beta1",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "KeeperV1Beta1",
+    "tested": true,
+    "generated": true
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsSecretSecurevalueV1beta1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_secret_securevalue_v1beta1",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "SecurevalueV1Beta1",
+    "tested": true,
+    "generated": true
+   }
+  },
+  {
+   "ours": {
+    "kind": "AppsServicemodelComponentV1alpha1",
+    "group": "apps.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_apps_servicemodel_component_v1alpha1",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ComponentV1Alpha1",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/componentv1alpha1",
+      "at": "examples-generated/cluster/cloud/v1alpha1/componentv1alpha1.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_team"
+      ],
+      "fields": [
+       "metadata",
+       "metadata.uid",
+       "spec",
+       "spec.title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsCustomModelRules",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_custom_model_rules",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "CustomModelRules",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/custommodelrules",
+      "at": "examples-generated/cluster/asserts/v1alpha1/custommodelrules.yaml",
+      "origin": "generated",
+      "fields": [
+       "name",
+       "rules",
+       "rules.entity",
+       "rules.entity.defined_by",
+       "rules.entity.defined_by.disabled",
+       "rules.entity.defined_by.label_values",
+       "rules.entity.defined_by.literals",
+       "rules.entity.defined_by.query",
+       "rules.entity.lookup",
+       "rules.entity.name",
+       "rules.entity.scope",
+       "rules.entity.type"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsLogConfig",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_log_config",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "LogConfig",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/logconfig",
+      "at": "examples-generated/cluster/asserts/v1alpha1/logconfig.yaml",
+      "origin": "generated",
+      "fields": [
+       "data_source_uid",
+       "default_config",
+       "entity_property_to_log_label_mapping",
+       "error_label",
+       "filter_by_span_id",
+       "filter_by_trace_id",
+       "match",
+       "match.op",
+       "match.property",
+       "match.values",
+       "name",
+       "priority"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsNotificationAlertsConfig",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_notification_alerts_config",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "NotificationAlertsConfig",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/notificationalertsconfig",
+      "at": "examples-generated/cluster/asserts/v1alpha1/notificationalertsconfig.yaml",
+      "origin": "generated",
+      "fields": [
+       "match_labels",
+       "name",
+       "silenced"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsProfileConfig",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_profile_config",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ProfileConfig",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/profileconfig",
+      "at": "examples-generated/cluster/asserts/v1alpha1/profileconfig.yaml",
+      "origin": "generated",
+      "fields": [
+       "data_source_uid",
+       "default_config",
+       "entity_property_to_profile_label_mapping",
+       "match",
+       "match.op",
+       "match.property",
+       "match.values",
+       "name",
+       "priority"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsPromRuleFile",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_prom_rule_file",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "PromRuleFile",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/promrulefile",
+      "at": "examples-generated/cluster/asserts/v1alpha1/promrulefile.yaml",
+      "origin": "generated",
+      "fields": [
+       "active",
+       "group",
+       "group.interval",
+       "group.name",
+       "group.rule",
+       "group.rule.expr",
+       "group.rule.labels",
+       "group.rule.record",
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsStack",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_stack",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Stack",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/stack",
+      "at": "examples-generated/cluster/asserts/v1alpha1/stack.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_access_policy",
+       "grafana_cloud_access_policy_token",
+       "grafana_cloud_stack_service_account",
+       "grafana_cloud_stack_service_account_token"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsSuppressedAssertionsConfig",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_suppressed_assertions_config",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "SuppressedAssertionsConfig",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/suppressedassertionsconfig",
+      "at": "examples-generated/cluster/asserts/v1alpha1/suppressedassertionsconfig.yaml",
+      "origin": "generated",
+      "fields": [
+       "match_labels",
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsThresholdsConfig",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_thresholds",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Thresholds",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/thresholds",
+      "at": "examples-generated/cluster/asserts/v1alpha1/thresholds.yaml",
+      "origin": "generated",
+      "fields": [
+       "health_thresholds",
+       "health_thresholds.assertion_name",
+       "health_thresholds.entity_type",
+       "health_thresholds.expression",
+       "request_thresholds",
+       "request_thresholds.assertion_name",
+       "request_thresholds.entity_name",
+       "request_thresholds.request_context",
+       "request_thresholds.request_type",
+       "request_thresholds.value",
+       "resource_thresholds",
+       "resource_thresholds.assertion_name",
+       "resource_thresholds.container_name",
+       "resource_thresholds.resource_type",
+       "resource_thresholds.severity",
+       "resource_thresholds.source",
+       "resource_thresholds.value"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssertsTraceConfig",
+    "group": "asserts.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_asserts_trace_config",
+    "group": "asserts.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "TraceConfig",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "asserts/v1alpha1/traceconfig",
+      "at": "examples-generated/cluster/asserts/v1alpha1/traceconfig.yaml",
+      "origin": "generated",
+      "fields": [
+       "data_source_uid",
+       "default_config",
+       "entity_property_to_trace_label_mapping",
+       "match",
+       "match.op",
+       "match.property",
+       "match.values",
+       "name",
+       "priority"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssistantAutomation",
+    "group": "assistant.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_assistant_automation",
+    "group": "assistant.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Automation",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "assistant/v1alpha1/automation",
+      "at": "examples-generated/cluster/assistant/v1alpha1/automation.yaml",
+      "origin": "generated",
+      "fields": [
+       "description",
+       "enabled",
+       "execution_mode",
+       "labels",
+       "name",
+       "notifications",
+       "notifications.slack",
+       "notifications.slack.enabled",
+       "notifications.slack.notify_on",
+       "notifications.slack.target",
+       "notifications.slack.target.channel_id",
+       "notifications.slack.target.type",
+       "prompt",
+       "schedule_cron",
+       "schedule_timezone",
+       "scope"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssistantMcpServer",
+    "group": "assistant.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_assistant_mcp_server",
+    "group": "assistant.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "McpServer",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "assistant/v1alpha1/mcpserver",
+      "at": "examples-generated/cluster/assistant/v1alpha1/mcpserver.yaml",
+      "origin": "generated",
+      "fields": [
+       "applications",
+       "configuration",
+       "configuration.url",
+       "name",
+       "scope"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssistantQuickstart",
+    "group": "assistant.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_assistant_quickstart",
+    "group": "assistant.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Quickstart",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "assistant/v1alpha1/quickstart",
+      "at": "examples-generated/cluster/assistant/v1alpha1/quickstart.yaml",
+      "origin": "generated",
+      "fields": [
+       "prompt",
+       "scope",
+       "title"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssistantRule",
+    "group": "assistant.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_assistant_rule",
+    "group": "assistant.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Rule",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "assistant/v1alpha1/rule",
+      "at": "examples-generated/cluster/assistant/v1alpha1/rule.yaml",
+      "origin": "generated",
+      "fields": [
+       "applications",
+       "name",
+       "priority",
+       "rule_content",
+       "scope"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssistantSkill",
+    "group": "assistant.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_assistant_skill",
+    "group": "assistant.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Skill",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "assistant/v1alpha1/skill",
+      "at": "examples-generated/cluster/assistant/v1alpha1/skill.yaml",
+      "origin": "generated",
+      "fields": [
+       "body",
+       "command_name",
+       "name",
+       "scope"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "AssistantTermsAcceptance",
+    "group": "assistant.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_assistant_terms_acceptance",
+    "group": "assistant.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "TermsAcceptance",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "assistant/v1alpha1/termsacceptance",
+      "at": "examples-generated/cluster/assistant/v1alpha1/termsacceptance.yaml",
+      "origin": "generated",
+      "fields": [
+       "accepted"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudAccessPolicy",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_access_policy",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AccessPolicy",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "realm.identifier",
+      "target": "grafana_cloud_stack",
+      "targetKind": "cloud.grafana.crossplane.io/Stack",
+      "extractor": "computedFieldExtractor(\"id\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:19"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/accesspolicy",
+      "at": "examples-generated/cluster/cloud/v1alpha1/accesspolicy.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_access_policy_token"
+      ],
+      "fields": [
+       "display_name",
+       "name",
+       "realm",
+       "realm.label_policy",
+       "realm.label_policy.selector",
+       "realm.type",
+       "region",
+       "scopes"
+      ]
+     },
+     {
+      "at": "examples/cluster/datasource-with-access-policy-basic-auth.yaml",
+      "origin": "hand",
+      "with": [
+       "grafana_cloud_access_policy_token",
+       "grafana_data_source"
+      ],
+      "fields": [
+       "name",
+       "realm",
+       "realm.identifier",
+       "realm.label_policy",
+       "realm.label_policy.selector",
+       "realm.type",
+       "region",
+       "scopes"
+      ],
+      "values": {
+       "name": "example-datasource-with-basic-auth",
+       "realm": [
+        {
+         "identifier": "STACKID",
+         "label_policy": [
+          {
+           "selector": "{foo=\"bar\"}"
+          }
+         ],
+         "type": "stack"
+        }
+       ],
+       "region": "REGION",
+       "scopes": [
+        "metrics:read",
+        "logs:read"
+       ]
+      }
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_stack": [
+     "cloud.grafana.hfl.dev/CloudStack"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudAccessPolicy",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_private_data_source_connect_network",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "PrivateDataSourceConnectNetwork",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "stack_identifier",
+      "target": "grafana_cloud_stack",
+      "targetKind": "cloud.grafana.crossplane.io/Stack",
+      "extractor": "computedFieldExtractor(\"id\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:235"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/privatedatasourceconnectnetwork",
+      "at": "examples-generated/cluster/cloud/v1alpha1/privatedatasourceconnectnetwork.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_private_data_source_connect_network_token"
+      ],
+      "fields": [
+       "display_name",
+       "name",
+       "region"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_stack": [
+     "cloud.grafana.hfl.dev/CloudStack"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudAccessPolicyRotatingToken",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_access_policy_rotating_token",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AccessPolicyRotatingToken",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/accesspolicyrotatingtoken",
+      "at": "examples-generated/cluster/cloud/v1alpha1/accesspolicyrotatingtoken.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_access_policy"
+      ],
+      "fields": [
+       "access_policy_id",
+       "display_name",
+       "early_rotation_window",
+       "expire_after",
+       "name_prefix",
+       "region"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudAccessPolicyToken",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_access_policy_token",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AccessPolicyToken",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "access_policy_id",
+      "target": "grafana_cloud_access_policy",
+      "targetKind": "cloud.grafana.crossplane.io/AccessPolicy",
+      "extractor": "computedFieldExtractor(\"policyId\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:27"
+     }
+    ],
+    "customCode": [
+     {
+      "what": "connection details",
+      "at": "config/grafana/cloud.go:33"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/accesspolicytoken",
+      "at": "examples-generated/cluster/cloud/v1alpha1/accesspolicytoken.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_access_policy"
+      ],
+      "fields": [
+       "display_name",
+       "expires_at",
+       "name",
+       "region"
+      ],
+      "refFields": [
+       "access_policy_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_access_policy": [
+     "cloud.grafana.hfl.dev/CloudAccessPolicy"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudAccessPolicyToken",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_private_data_source_connect_network_token",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "PrivateDataSourceConnectNetworkToken",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "pdc_network_id",
+      "target": "grafana_cloud_private_data_source_connect_network",
+      "targetKind": "cloud.grafana.crossplane.io/PrivateDataSourceConnectNetwork",
+      "extractor": "computedFieldExtractor(\"pdcNetworkId\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:243"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/privatedatasourceconnectnetworktoken",
+      "at": "examples-generated/cluster/cloud/v1alpha1/privatedatasourceconnectnetworktoken.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_private_data_source_connect_network"
+      ],
+      "fields": [
+       "display_name",
+       "name",
+       "region"
+      ],
+      "refFields": [
+       "pdc_network_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_private_data_source_connect_network": [
+     "cloud.grafana.hfl.dev/CloudAccessPolicy"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudOrgMember",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_org_member",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "OrgMember",
+    "tested": true,
+    "generated": true
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudPluginInstallation",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_plugin_installation",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "PluginInstallation",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "stack_slug",
+      "target": "grafana_cloud_stack",
+      "targetKind": "cloud.grafana.crossplane.io/Stack",
+      "extractor": "fieldExtractor(\"slug\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:55"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/plugininstallation",
+      "at": "examples-generated/cluster/cloud/v1alpha1/plugininstallation.yaml",
+      "origin": "generated",
+      "fields": [
+       "slug",
+       "version"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_stack": [
+     "cloud.grafana.hfl.dev/CloudStack"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudProviderAwsAccount",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_provider_aws_account",
+    "group": "cloudprovider.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AwsAccount",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloudprovider/v1alpha1/awsaccount",
+      "at": "examples-generated/cluster/cloudprovider/v1alpha1/awsaccount.yaml",
+      "origin": "generated",
+      "fields": [
+       "regions",
+       "role_arn",
+       "stack_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudProviderAwsCloudwatchScrapeJob",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_provider_aws_cloudwatch_scrape_job",
+    "group": "cloudprovider.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AwsCloudwatchScrapeJob",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloudprovider/v1alpha1/awscloudwatchscrapejob",
+      "at": "examples-generated/cluster/cloudprovider/v1alpha1/awscloudwatchscrapejob.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_provider_aws_account"
+      ],
+      "fields": [
+       "aws_account_resource_id",
+       "custom_namespace",
+       "custom_namespace.metric",
+       "custom_namespace.metric.name",
+       "custom_namespace.metric.statistics",
+       "custom_namespace.name",
+       "custom_namespace.scrape_interval_seconds",
+       "export_tags",
+       "name",
+       "service",
+       "service.metric",
+       "service.metric.name",
+       "service.metric.statistics",
+       "service.name",
+       "service.resource_discovery_tag_filter",
+       "service.resource_discovery_tag_filter.key",
+       "service.resource_discovery_tag_filter.value",
+       "service.scrape_interval_seconds",
+       "service.tags_to_add_to_metrics",
+       "stack_id",
+       "static_labels"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudProviderAwsResourceMetadataScrapeJob",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_provider_aws_resource_metadata_scrape_job",
+    "group": "cloudprovider.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AwsResourceMetadataScrapeJob",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloudprovider/v1alpha1/awsresourcemetadatascrapejob",
+      "at": "examples-generated/cluster/cloudprovider/v1alpha1/awsresourcemetadatascrapejob.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_provider_aws_account"
+      ],
+      "fields": [
+       "aws_account_resource_id",
+       "name",
+       "service",
+       "service.name",
+       "service.resource_discovery_tag_filter",
+       "service.resource_discovery_tag_filter.key",
+       "service.resource_discovery_tag_filter.value",
+       "service.scrape_interval_seconds",
+       "stack_id",
+       "static_labels"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudProviderAzureCredential",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_provider_azure_credential",
+    "group": "cloudprovider.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "AzureCredential",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloudprovider/v1alpha1/azurecredential",
+      "at": "examples-generated/cluster/cloudprovider/v1alpha1/azurecredential.yaml",
+      "origin": "generated",
+      "fields": [
+       "auto_discovery_configuration",
+       "auto_discovery_configuration.resource_type_configurations",
+       "auto_discovery_configuration.resource_type_configurations.metric_configuration",
+       "auto_discovery_configuration.resource_type_configurations.metric_configuration.aggregations",
+       "auto_discovery_configuration.resource_type_configurations.metric_configuration.dimensions",
+       "auto_discovery_configuration.resource_type_configurations.metric_configuration.name",
+       "auto_discovery_configuration.resource_type_configurations.resource_type_name",
+       "auto_discovery_configuration.subscription_id",
+       "client_id",
+       "name",
+       "resource_discovery_tag_filter",
+       "resource_discovery_tag_filter.key",
+       "resource_discovery_tag_filter.value",
+       "resource_tags_to_add_to_metrics",
+       "stack_id",
+       "static_labels",
+       "tenant_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudStack",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_stack",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Stack",
+    "tested": true,
+    "generated": true,
+    "externalName": {
+     "style": "custom",
+     "expr": "ujconfig.ExternalName{ SetIdentifierArgumentFn: ujconfig.NopSetIdentifierArgument, GetExternalNameFn: func(tfstate map[string]any) (string, error) { slug, ok := tfstate[\"slug\"].(string) if !ok { return \"\", errors.New(\"cannot get slug attribute\") } return slug, nil }, GetIDFn: ujconfig.ExternalNameAsID, DisableNameInitializer: true, }",
+     "at": "config/grafana/cloud.go:69"
+    },
+    "async": {
+     "at": "config/grafana/cloud.go:63"
+    },
+    "customCode": [
+     {
+      "what": "connection details",
+      "at": "config/grafana/cloud.go:81"
+     },
+     {
+      "what": "custom diff",
+      "expr": "func literal",
+      "at": "config/grafana/cloud.go:175"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/stack",
+      "at": "examples-generated/cluster/cloud/v1alpha1/stack.yaml",
+      "origin": "generated",
+      "fields": [
+       "description",
+       "name",
+       "region_slug",
+       "slug"
+      ]
+     },
+     {
+      "at": "examples/cluster/cloud-stack-chain.yaml",
+      "origin": "hand",
+      "with": [
+       "grafana_cloud_stack_service_account",
+       "grafana_cloud_stack_service_account_token",
+       "grafana_dashboard",
+       "grafana_folder",
+       "grafana_report"
+      ],
+      "fields": [
+       "name",
+       "region_slug",
+       "slug"
+      ],
+      "values": {
+       "name": "crossplanetest",
+       "region_slug": "us",
+       "slug": "crossplanetest"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudStackServiceAccount",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_stack_service_account",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "StackServiceAccount",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "stack_slug",
+      "target": "grafana_cloud_stack",
+      "targetKind": "cloud.grafana.crossplane.io/Stack",
+      "extractor": "fieldExtractor(\"slug\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:196"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/stackserviceaccount",
+      "at": "examples-generated/cluster/cloud/v1alpha1/stackserviceaccount.yaml",
+      "origin": "generated",
+      "fields": [
+       "is_disabled",
+       "name",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_stack": [
+     "cloud.grafana.hfl.dev/CloudStack"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudStackServiceAccountRotatingToken",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_stack_service_account_rotating_token",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "StackServiceAccountRotatingToken",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/stackserviceaccountrotatingtoken",
+      "at": "examples-generated/cluster/cloud/v1alpha1/stackserviceaccountrotatingtoken.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_stack_service_account"
+      ],
+      "fields": [
+       "early_rotation_window_seconds",
+       "name_prefix",
+       "seconds_to_live",
+       "service_account_id",
+       "stack_slug"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "CloudStackServiceAccountToken",
+    "group": "cloud.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_cloud_stack_service_account_token",
+    "group": "cloud.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "StackServiceAccountToken",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "service_account_id",
+      "target": "grafana_cloud_stack_service_account",
+      "targetKind": "cloud.grafana.crossplane.io/StackServiceAccount",
+      "source": "both",
+      "at": "config/grafana/cloud.go:210"
+     },
+     {
+      "field": "stack_slug",
+      "target": "grafana_cloud_stack",
+      "targetKind": "cloud.grafana.crossplane.io/Stack",
+      "extractor": "fieldExtractor(\"slug\")",
+      "source": "both",
+      "at": "config/grafana/cloud.go:204"
+     }
+    ],
+    "customCode": [
+     {
+      "what": "connection details",
+      "at": "config/grafana/cloud.go:215"
+     }
+    ],
+    "examples": [
+     {
+      "id": "cloud/v1alpha1/stackserviceaccounttoken",
+      "at": "examples-generated/cluster/cloud/v1alpha1/stackserviceaccounttoken.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_cloud_stack_service_account"
+      ],
+      "fields": [
+       "name"
+      ],
+      "refFields": [
+       "service_account_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_cloud_stack": [
+     "cloud.grafana.hfl.dev/CloudStack"
+    ],
+    "grafana_cloud_stack_service_account": [
+     "cloud.grafana.hfl.dev/CloudStackServiceAccount"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "ConnectionsMetricsEndpointScrapeJob",
+    "group": "connections.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_connections_metrics_endpoint_scrape_job",
+    "group": "connections.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "MetricsEndpointScrapeJob",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "connections/v1alpha1/metricsendpointscrapejob",
+      "at": "examples-generated/cluster/connections/v1alpha1/metricsendpointscrapejob.yaml",
+      "origin": "generated",
+      "fields": [
+       "authentication_basic_username",
+       "authentication_method",
+       "enabled",
+       "name",
+       "scrape_interval_seconds",
+       "stack_id",
+       "static_labels",
+       "url"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "DashboardPermission",
+    "group": "dashboard.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_dashboard_permission",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardPermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "dashboard_uid",
+      "target": "grafana_dashboard",
+      "targetKind": "oss.grafana.crossplane.io/Dashboard",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/oss.go:40"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_dashboardpermission_types.go:97"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/oss.go:46"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/oss.go:51"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardpermission",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardpermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_dashboard",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.permission",
+       "permissions.role"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "DashboardPublic",
+    "group": "dashboard.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_dashboard_public",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardPublic",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "dashboard_uid",
+      "target": "grafana_dashboard",
+      "targetKind": "oss.grafana.crossplane.io/Dashboard",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/oss.go:32"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_dashboardpublic_types.go:152"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardpublic",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardpublic.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_dashboard",
+       "grafana_folder",
+       "grafana_organization"
+      ],
+      "fields": [
+       "access_token",
+       "annotations_enabled",
+       "is_enabled",
+       "share",
+       "time_selection_enabled",
+       "uid"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "DataSourceCacheConfig",
+    "group": "data.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_cache_config",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourceCacheConfig",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcecacheconfig_types.go:102"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcecacheconfig",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcecacheconfig.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source"
+      ],
+      "fields": [
+       "datasource_uid",
+       "enabled",
+       "ttl_queries_ms",
+       "ttl_resources_ms",
+       "use_default_ttl"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "DataSourceConfig",
+    "group": "data.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_config",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourceConfig",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_datasourceconfig_types.go:83"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/datasourceconfig",
+      "at": "examples-generated/cluster/oss/v1alpha1/datasourceconfig.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source"
+      ],
+      "fields": [
+       "json_data_encoded",
+       "uid"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "DataSourceConfigLbacRules",
+    "group": "data.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_config_lbac_rules",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourceConfigLbacRules",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourceconfiglbacrules",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourceconfiglbacrules.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_team"
+      ],
+      "fields": [
+       "datasource_uid",
+       "rules"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "FleetManagementCollector",
+    "group": "fleet.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_fleet_management_collector",
+    "group": "fleetmanagement.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Collector",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "fleetmanagement/v1alpha1/collector",
+      "at": "examples-generated/cluster/fleetmanagement/v1alpha1/collector.yaml",
+      "origin": "generated",
+      "fields": [
+       "enabled",
+       "remote_attributes"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "FleetManagementPipeline",
+    "group": "fleet.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_fleet_management_pipeline",
+    "group": "fleetmanagement.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Pipeline",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "fleetmanagement/v1alpha1/pipeline",
+      "at": "examples-generated/cluster/fleetmanagement/v1alpha1/pipeline.yaml",
+      "origin": "generated",
+      "fields": [
+       "contents",
+       "enabled",
+       "matchers",
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "FolderPermission",
+    "group": "folder.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_folder_permission",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "FolderPermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "folder_uid",
+      "target": "grafana_folder",
+      "targetKind": "oss.grafana.crossplane.io/Folder",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/oss.go:66"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_folderpermission_types.go:97"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/oss.go:72"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/oss.go:77"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/folderpermission",
+      "at": "examples-generated/cluster/oss/v1alpha1/folderpermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.permission",
+       "permissions.role"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "FrontendO11yApp",
+    "group": "frontend.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_frontend_o11y_app",
+    "group": "frontendobservability.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "App",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "frontendobservability/v1alpha1/app",
+      "at": "examples-generated/cluster/frontendobservability/v1alpha1/app.yaml",
+      "origin": "generated",
+      "fields": [
+       "?provider",
+       "allowed_origins",
+       "extra_log_attributes",
+       "name",
+       "settings",
+       "stack_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "IncidentRole",
+    "group": "incident.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_incident_role",
+    "group": "incident.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Role",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "incident/v1alpha1/role",
+      "at": "examples-generated/cluster/incident/v1alpha1/role.yaml",
+      "origin": "generated",
+      "fields": [
+       "description",
+       "important",
+       "mandatory",
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "IncidentSeverity",
+    "group": "incident.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_incident_severity",
+    "group": "incident.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Severity",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "incident/v1alpha1/severity",
+      "at": "examples-generated/cluster/incident/v1alpha1/severity.yaml",
+      "origin": "generated",
+      "fields": [
+       "dark_color",
+       "description",
+       "icon",
+       "label",
+       "level",
+       "light_color"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "K6LoadTest",
+    "group": "k6.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_k6_load_test",
+    "group": "k6.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "LoadTest",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "project_id",
+      "target": "grafana_k6_project",
+      "targetKind": "k6.grafana.crossplane.io/Project",
+      "source": "both",
+      "at": "config/grafana/k6.go:20"
+     }
+    ],
+    "examples": [
+     {
+      "id": "k6/v1alpha1/loadtest",
+      "at": "examples-generated/cluster/k6/v1alpha1/loadtest.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_k6_project"
+      ],
+      "fields": [
+       "name",
+       "script"
+      ],
+      "refFields": [
+       "project_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_k6_project": [
+     "k6.grafana.hfl.dev/K6Project"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "K6Project",
+    "group": "k6.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_k6_project",
+    "group": "k6.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Project",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "k6/v1alpha1/project",
+      "at": "examples-generated/cluster/k6/v1alpha1/project.yaml",
+      "origin": "generated",
+      "fields": [
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "K6ProjectAllowedLoadZones",
+    "group": "k6.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_k6_project_allowed_load_zones",
+    "group": "k6.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ProjectAllowedLoadZones",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "k6/v1alpha1/projectallowedloadzones",
+      "at": "examples-generated/cluster/k6/v1alpha1/projectallowedloadzones.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_k6_project"
+      ],
+      "fields": [
+       "allowed_load_zones",
+       "project_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "K6ProjectLimits",
+    "group": "k6.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_k6_project_limits",
+    "group": "k6.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ProjectLimits",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "project_id",
+      "target": "grafana_k6_project",
+      "targetKind": "k6.grafana.crossplane.io/Project",
+      "source": "both",
+      "at": "config/grafana/k6.go:13"
+     }
+    ],
+    "examples": [
+     {
+      "id": "k6/v1alpha1/projectlimits",
+      "at": "examples-generated/cluster/k6/v1alpha1/projectlimits.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_k6_project"
+      ],
+      "fields": [
+       "duration_max_per_test",
+       "vu_browser_max_per_test",
+       "vu_max_per_test",
+       "vuh_max_per_month"
+      ],
+      "refFields": [
+       "project_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_k6_project": [
+     "k6.grafana.hfl.dev/K6Project"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "K6Schedule",
+    "group": "k6.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_k6_schedule",
+    "group": "k6.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Schedule",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "k6/v1alpha1/schedule",
+      "at": "examples-generated/cluster/k6/v1alpha1/schedule.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_k6_load_test",
+       "grafana_k6_project"
+      ],
+      "fields": [
+       "cron",
+       "cron.schedule",
+       "cron.timezone",
+       "load_test_id",
+       "starts"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "MachineLearningAlert",
+    "group": "machine.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_machine_learning_alert",
+    "group": "ml.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Alert",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "ml/v1alpha1/alert",
+      "at": "examples-generated/cluster/ml/v1alpha1/alert.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_machine_learning_job"
+      ],
+      "fields": [
+       "anomaly_condition",
+       "job_id",
+       "no_data_state",
+       "threshold",
+       "title",
+       "window"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "MachineLearningHoliday",
+    "group": "machine.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_machine_learning_holiday",
+    "group": "ml.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Holiday",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "ml/v1alpha1/holiday",
+      "at": "examples-generated/cluster/ml/v1alpha1/holiday.yaml",
+      "origin": "generated",
+      "fields": [
+       "description",
+       "ical_timezone",
+       "ical_url",
+       "name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "MachineLearningJob",
+    "group": "machine.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_machine_learning_job",
+    "group": "ml.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Job",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/ml.go:13"
+     }
+    ],
+    "examples": [
+     {
+      "id": "ml/v1alpha1/job",
+      "at": "examples-generated/cluster/ml/v1alpha1/job.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source"
+      ],
+      "fields": [
+       "datasource_type",
+       "metric",
+       "name",
+       "query_params"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "MachineLearningOutlierDetector",
+    "group": "machine.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_machine_learning_outlier_detector",
+    "group": "ml.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "OutlierDetector",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/ml.go:22"
+     }
+    ],
+    "examples": [
+     {
+      "id": "ml/v1alpha1/outlierdetector",
+      "at": "examples-generated/cluster/ml/v1alpha1/outlierdetector.yaml",
+      "origin": "generated",
+      "fields": [
+       "algorithm",
+       "algorithm.config",
+       "algorithm.config.epsilon",
+       "algorithm.name",
+       "algorithm.sensitivity",
+       "datasource_type",
+       "description",
+       "interval",
+       "metric",
+       "name",
+       "query_params"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallEscalation",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_escalation",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Escalation",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "action_to_trigger",
+      "target": "grafana_oncall_outgoing_webhook",
+      "targetKind": "oncall.grafana.crossplane.io/OutgoingWebhook",
+      "source": "both",
+      "at": "config/grafana/oncall.go:40"
+     },
+     {
+      "field": "escalation_chain_id",
+      "target": "grafana_oncall_escalation_chain",
+      "targetKind": "oncall.grafana.crossplane.io/EscalationChain",
+      "source": "both",
+      "at": "config/grafana/oncall.go:35"
+     },
+     {
+      "field": "group_to_notify",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.UserGroup",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_escalation_types.go:284"
+     },
+     {
+      "field": "notify_on_call_from_schedule",
+      "target": "grafana_oncall_schedule",
+      "targetKind": "oncall.grafana.crossplane.io/Schedule",
+      "source": "both",
+      "at": "config/grafana/oncall.go:45"
+     },
+     {
+      "field": "notify_to_team_members",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.Team",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_escalation_types.go:332"
+     },
+     {
+      "field": "persons_to_notify",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.User",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_escalation_types.go:352"
+     },
+     {
+      "field": "persons_to_notify_next_each_time",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.User",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_escalation_types.go:362"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/escalation",
+      "at": "examples-generated/cluster/oncall/v1alpha1/escalation.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_oncall_escalation_chain"
+      ],
+      "fields": [
+       "position",
+       "type"
+      ],
+      "refFields": [
+       "escalation_chain_id",
+       "persons_to_notify"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_oncall_escalation_chain": [
+     "oncall.grafana.hfl.dev/OncallEscalationChain"
+    ],
+    "grafana_oncall_outgoing_webhook": [
+     "oncall.grafana.hfl.dev/OncallOutgoingWebhook"
+    ],
+    "grafana_oncall_schedule": [
+     "oncall.grafana.hfl.dev/OncallSchedule"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallEscalationChain",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_escalation_chain",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "EscalationChain",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "team_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.Team",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_escalationchain_types.go:67"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/escalationchain",
+      "at": "examples-generated/cluster/oncall/v1alpha1/escalationchain.yaml",
+      "origin": "generated",
+      "fields": [
+       "?provider",
+       "name"
+      ],
+      "refFields": [
+       "team_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallIntegration",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_integration",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Integration",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "default_route.escalation_chain_id",
+      "target": "grafana_oncall_escalation_chain",
+      "targetKind": "oncall.grafana.crossplane.io/EscalationChain",
+      "source": "both",
+      "at": "config/grafana/oncall.go:61"
+     },
+     {
+      "field": "default_route.slack.channel_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.SlackChannel",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_integration_types.go:477"
+     },
+     {
+      "field": "team_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.Team",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_integration_types.go:251"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/integration",
+      "at": "examples-generated/cluster/oncall/v1alpha1/integration.yaml",
+      "origin": "generated",
+      "fields": [
+       "?provider",
+       "default_route",
+       "name",
+       "type"
+      ],
+      "refFields": [
+       "team_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_oncall_escalation_chain": [
+     "oncall.grafana.hfl.dev/OncallEscalationChain"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallOnCallShift",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_on_call_shift",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "OnCallShift",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "team_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.Team",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_oncallshift_types.go:260"
+     },
+     {
+      "field": "users",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.User",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_oncallshift_types.go:293"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/oncallshift",
+      "at": "examples-generated/cluster/oncall/v1alpha1/oncallshift.yaml",
+      "origin": "generated",
+      "fields": [
+       "by_day",
+       "duration",
+       "frequency",
+       "interval",
+       "name",
+       "start",
+       "time_zone",
+       "type",
+       "week_start"
+      ],
+      "refFields": [
+       "team_id",
+       "users"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallOutgoingWebhook",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_outgoing_webhook",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "OutgoingWebhook",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "integration_filter",
+      "target": "grafana_oncall_integration",
+      "targetKind": "oncall.grafana.crossplane.io/Integration",
+      "source": "both",
+      "at": "config/grafana/oncall.go:88"
+     },
+     {
+      "field": "team_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.Team",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_outgoingwebhook_types.go:230"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/outgoingwebhook",
+      "at": "examples-generated/cluster/oncall/v1alpha1/outgoingwebhook.yaml",
+      "origin": "generated",
+      "fields": [
+       "?provider",
+       "name",
+       "url"
+      ],
+      "refFields": [
+       "team_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_oncall_integration": [
+     "oncall.grafana.hfl.dev/OncallIntegration"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallRoute",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_route",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Route",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "escalation_chain_id",
+      "target": "grafana_oncall_escalation_chain",
+      "targetKind": "oncall.grafana.crossplane.io/EscalationChain",
+      "source": "both",
+      "at": "config/grafana/oncall.go:96"
+     },
+     {
+      "field": "integration_id",
+      "target": "grafana_oncall_integration",
+      "targetKind": "oncall.grafana.crossplane.io/Integration",
+      "source": "both",
+      "at": "config/grafana/oncall.go:101"
+     },
+     {
+      "field": "slack.channel_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.SlackChannel",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_route_types.go:254"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/route",
+      "at": "examples-generated/cluster/oncall/v1alpha1/route.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_oncall_escalation_chain",
+       "grafana_oncall_integration"
+      ],
+      "fields": [
+       "msteams",
+       "msteams.enabled",
+       "msteams.id",
+       "position",
+       "routing_regex",
+       "slack",
+       "slack.enabled",
+       "telegram",
+       "telegram.enabled",
+       "telegram.id"
+      ],
+      "refFields": [
+       "escalation_chain_id",
+       "integration_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_oncall_escalation_chain": [
+     "oncall.grafana.hfl.dev/OncallEscalationChain"
+    ],
+    "grafana_oncall_integration": [
+     "oncall.grafana.hfl.dev/OncallIntegration"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallSchedule",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_schedule",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Schedule",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "shifts",
+      "target": "grafana_oncall_on_call_shift",
+      "targetKind": "oncall.grafana.crossplane.io/OnCallShift",
+      "source": "both",
+      "at": "config/grafana/oncall.go:110"
+     },
+     {
+      "field": "slack.channel_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.SlackChannel",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_schedule_types.go:249"
+     },
+     {
+      "field": "slack.user_group_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.UserGroup",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_schedule_types.go:274"
+     },
+     {
+      "field": "team_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.Team",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_schedule_types.go:173"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/schedule",
+      "at": "examples-generated/cluster/oncall/v1alpha1/schedule.yaml",
+      "origin": "generated",
+      "fields": [
+       "ical_url_overrides",
+       "ical_url_primary",
+       "name",
+       "slack",
+       "type"
+      ],
+      "refFields": [
+       "team_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_oncall_on_call_shift": [
+     "oncall.grafana.hfl.dev/OncallOnCallShift"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallTeamAccessManagement",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_team_access_management",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "TeamAccessManagement",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/teamaccessmanagement",
+      "at": "examples-generated/cluster/oncall/v1alpha1/teamaccessmanagement.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_team"
+      ],
+      "fields": [
+       "is_sharing_resources_to_all",
+       "team_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OncallUserNotificationRule",
+    "group": "oncall.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_oncall_user_notification_rule",
+    "group": "oncall.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "UserNotificationRule",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "user_id",
+      "targetKind": "github.com/grafana/crossplane-provider-grafana/v2/apis/observed/oncall/v1alpha1.User",
+      "extractor": "github.com/crossplane/crossplane-runtime/v2/pkg/reference.ExternalName()",
+      "source": "inferred",
+      "at": "apis/cluster/oncall/v1alpha1/zz_usernotificationrule_types.go:114"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oncall/v1alpha1/usernotificationrule",
+      "at": "examples-generated/cluster/oncall/v1alpha1/usernotificationrule.yaml",
+      "origin": "generated",
+      "fields": [
+       "?provider",
+       "position",
+       "type"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Organization",
+    "group": "organization.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_organization",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Organization",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/organization",
+      "at": "examples-generated/cluster/oss/v1alpha1/organization.yaml",
+      "origin": "generated",
+      "fields": [
+       "admin_user",
+       "admins",
+       "create_users",
+       "editors",
+       "name",
+       "viewers"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "OrganizationPreferences",
+    "group": "organization.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_organization_preferences",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "OrganizationPreferences",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_organizationpreferences_types.go:89"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/organizationpreferences",
+      "at": "examples-generated/cluster/oss/v1alpha1/organizationpreferences.yaml",
+      "origin": "generated",
+      "fields": [
+       "theme",
+       "timezone",
+       "week_start"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemRole",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_dashboard_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_dashboardpermissionitem_types.go:97"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_dashboard",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "dashboard_uid",
+       "permission",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemRole",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_permission",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourcePermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:18"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcepermission_types.go:110"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:24"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:29"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcepermission",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcepermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.built_in_role",
+       "permissions.permission"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemRole",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_permission_item",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourcePermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:36"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcepermissionitem_types.go:156"
+     },
+     {
+      "field": "team",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:42"
+     },
+     {
+      "field": "user",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:47"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcepermissionitem",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcepermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permission"
+      ],
+      "refFields": [
+       "team"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemRole",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_folder_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "FolderPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_folderpermissionitem_types.go:97"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/folderpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/folderpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "folder_uid",
+       "permission",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemRole",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_permission",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountPermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_serviceaccountpermission_types.go:79"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/oss.go:97"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/oss.go:102"
+     },
+     {
+      "field": "service_account_id",
+      "target": "grafana_service_account",
+      "targetKind": "oss.grafana.crossplane.io/ServiceAccount",
+      "source": "both",
+      "at": "config/grafana/oss.go:92"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountpermission",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountpermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.permission"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id",
+       "service_account_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemRole",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_serviceaccountpermissionitem_types.go:84"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permission",
+       "service_account_id",
+       "team"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemTeam",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_dashboard_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_dashboardpermissionitem_types.go:97"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_dashboard",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "dashboard_uid",
+       "permission",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemTeam",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_permission",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourcePermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:18"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcepermission_types.go:110"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:24"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:29"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcepermission",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcepermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.built_in_role",
+       "permissions.permission"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemTeam",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_permission_item",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourcePermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:36"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcepermissionitem_types.go:156"
+     },
+     {
+      "field": "team",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:42"
+     },
+     {
+      "field": "user",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:47"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcepermissionitem",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcepermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permission"
+      ],
+      "refFields": [
+       "team"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemTeam",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_folder_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "FolderPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_folderpermissionitem_types.go:97"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/folderpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/folderpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "folder_uid",
+       "permission",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemTeam",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_permission",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountPermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_serviceaccountpermission_types.go:79"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/oss.go:97"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/oss.go:102"
+     },
+     {
+      "field": "service_account_id",
+      "target": "grafana_service_account",
+      "targetKind": "oss.grafana.crossplane.io/ServiceAccount",
+      "source": "both",
+      "at": "config/grafana/oss.go:92"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountpermission",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountpermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.permission"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id",
+       "service_account_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemTeam",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_serviceaccountpermissionitem_types.go:84"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permission",
+       "service_account_id",
+       "team"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemUser",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_dashboard_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DashboardPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_dashboardpermissionitem_types.go:97"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/dashboardpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/dashboardpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_dashboard",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "dashboard_uid",
+       "permission",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemUser",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_permission",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourcePermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:18"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcepermission_types.go:110"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:24"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:29"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcepermission",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcepermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.built_in_role",
+       "permissions.permission"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemUser",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_data_source_permission_item",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "DataSourcePermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "datasource_uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:36"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_datasourcepermissionitem_types.go:156"
+     },
+     {
+      "field": "team",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:42"
+     },
+     {
+      "field": "user",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:47"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/datasourcepermissionitem",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/datasourcepermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_data_source",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permission"
+      ],
+      "refFields": [
+       "team"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemUser",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_folder_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "FolderPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_folderpermissionitem_types.go:97"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/folderpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/folderpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_folder",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "folder_uid",
+       "permission",
+       "role"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemUser",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_permission",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountPermission",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_serviceaccountpermission_types.go:79"
+     },
+     {
+      "field": "permissions.team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/oss.go:97"
+     },
+     {
+      "field": "permissions.user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/oss.go:102"
+     },
+     {
+      "field": "service_account_id",
+      "target": "grafana_service_account",
+      "targetKind": "oss.grafana.crossplane.io/ServiceAccount",
+      "source": "both",
+      "at": "config/grafana/oss.go:92"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountpermission",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountpermission.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permissions",
+       "permissions.permission"
+      ],
+      "refFields": [
+       "permissions.team_id",
+       "permissions.user_id",
+       "service_account_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "PermissionItemUser",
+    "group": "permission.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_permission_item",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountPermissionItem",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_serviceaccountpermissionitem_types.go:84"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountpermissionitem",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountpermissionitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "fields": [
+       "permission",
+       "service_account_id",
+       "team"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Playlist",
+    "group": "playlist.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_playlist",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Playlist",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_playlist_types.go:127"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/playlist",
+      "at": "examples-generated/cluster/oss/v1alpha1/playlist.yaml",
+      "origin": "generated",
+      "fields": [
+       "interval",
+       "item",
+       "item.order",
+       "item.type",
+       "item.value",
+       "name"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Report",
+    "group": "report.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_report",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Report",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "dashboard_uid",
+      "target": "grafana_dashboard",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "config",
+      "at": "config/grafana/enterprise.go:54"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_report_types.go:229"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/report",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/report.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_dashboard"
+      ],
+      "fields": [
+       "dashboards",
+       "dashboards.uid",
+       "name",
+       "recipients",
+       "schedule",
+       "schedule.frequency"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Role",
+    "group": "role.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_role",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Role",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_role_types.go:167"
+     }
+    ],
+    "customCode": [
+     {
+      "what": "initializers",
+      "expr": "append(r.InitializerFns, createroleInitializer)",
+      "at": "config/grafana/enterprise.go:62"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/role",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/role.yaml",
+      "origin": "generated",
+      "fields": [
+       "description",
+       "global",
+       "name",
+       "permissions",
+       "permissions.action",
+       "permissions.scope",
+       "uid"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "RoleAssignment",
+    "group": "role.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_role_assignment",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RoleAssignment",
+    "tested": true,
+    "generated": true,
+    "externalName": {
+     "style": "custom",
+     "expr": "ujconfig.ExternalName{ SetIdentifierArgumentFn: ujconfig.NopSetIdentifierArgument, GetExternalNameFn: func(tfstate map[string]any) (string, error) { roleUID, ok := tfstate[\"role_uid\"].(string) if !ok { return \"\", errors.New(\"cannot get role_uid attribute\") } return roleUID, nil }, GetIDFn: ujconfig.ExternalNameAsID, DisableNameInitializer: true, }",
+     "at": "config/grafana/enterprise.go:86"
+    },
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_roleassignment_types.go:135"
+     },
+     {
+      "field": "role_uid",
+      "target": "grafana_role",
+      "targetKind": "enterprise.grafana.crossplane.io/Role",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:65"
+     },
+     {
+      "field": "service_accounts",
+      "target": "grafana_service_account",
+      "targetKind": "oss.grafana.crossplane.io/ServiceAccount",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:71"
+     },
+     {
+      "field": "teams",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:76"
+     },
+     {
+      "field": "users",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:81"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/roleassignment",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/roleassignment.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_role",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "refFields": [
+       "service_accounts",
+       "teams",
+       "users"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_role": [
+     "role.grafana.hfl.dev/Role"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "RoleAssignmentItem",
+    "group": "role.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_role_assignment_item",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "RoleAssignmentItem",
+    "tested": true,
+    "generated": true,
+    "externalName": {
+     "style": "custom",
+     "expr": "ujconfig.ExternalName{ SetIdentifierArgumentFn: ujconfig.NopSetIdentifierArgument, GetExternalNameFn: func(tfstate map[string]any) (string, error) { roleUID, ok := tfstate[\"role_uid\"].(string) if !ok { return \"\", errors.New(\"cannot get role_uid attribute\") } if serviceAccountID, ok := tfstate[\"service_account_id\"].(string); ok { return fmt.Sprintf(\"%s:service_account:%s\", roleUID, serviceAccountID…",
+     "at": "config/grafana/enterprise.go:138"
+    },
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_roleassignmentitem_types.go:129"
+     },
+     {
+      "field": "role_uid",
+      "target": "grafana_role",
+      "targetKind": "enterprise.grafana.crossplane.io/Role",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:100"
+     },
+     {
+      "field": "service_account_id",
+      "target": "grafana_service_account",
+      "targetKind": "oss.grafana.crossplane.io/ServiceAccount",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:106"
+     },
+     {
+      "field": "team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:111"
+     },
+     {
+      "field": "user_id",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:116"
+     }
+    ],
+    "customCode": [
+     {
+      "what": "custom diff",
+      "expr": "func literal",
+      "at": "config/grafana/enterprise.go:121"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/roleassignmentitem",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/roleassignmentitem.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_role",
+       "grafana_service_account",
+       "grafana_team",
+       "grafana_user"
+      ],
+      "refFields": [
+       "user_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_role": [
+     "role.grafana.hfl.dev/Role"
+    ],
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "ScimConfig",
+    "group": "scim.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_scim_config",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ScimConfig",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/enterprise/v1alpha1/zz_scimconfig_types.go:86"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/scimconfig",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/scimconfig.yaml",
+      "origin": "generated",
+      "fields": [
+       "enable_group_sync",
+       "enable_user_sync",
+       "reject_non_provisioned_users"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "ServiceAccountRotatingToken",
+    "group": "service.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_service_account_rotating_token",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "ServiceAccountRotatingToken",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/serviceaccountrotatingtoken",
+      "at": "examples-generated/cluster/oss/v1alpha1/serviceaccountrotatingtoken.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_service_account"
+      ],
+      "fields": [
+       "early_rotation_window_seconds",
+       "name_prefix",
+       "seconds_to_live",
+       "service_account_id"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Slo",
+    "group": "slo.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_slo",
+    "group": "slo.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "SLO",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "destination_datasource.uid",
+      "target": "grafana_data_source",
+      "targetKind": "oss.grafana.crossplane.io/DataSource",
+      "extractor": "optionalFieldExtractor(\"uid\")",
+      "source": "both",
+      "at": "config/grafana/slo.go:13"
+     }
+    ],
+    "examples": [
+     {
+      "id": "slo/v1alpha1/slo",
+      "at": "examples-generated/cluster/slo/v1alpha1/slo.yaml",
+      "origin": "generated",
+      "fields": [
+       "?destinationDatasource.selector.matchLabels",
+       "?destinationDatasource.selector.matchLabels.testing.upbound.io/example-name",
+       "alerting",
+       "alerting.fastburn",
+       "alerting.fastburn.annotation",
+       "alerting.fastburn.annotation.key",
+       "alerting.fastburn.annotation.value",
+       "alerting.slowburn",
+       "alerting.slowburn.annotation",
+       "alerting.slowburn.annotation.key",
+       "alerting.slowburn.annotation.value",
+       "description",
+       "destinationDatasource.selector",
+       "destination_datasource",
+       "label",
+       "label.key",
+       "label.value",
+       "name",
+       "objectives",
+       "objectives.value",
+       "objectives.window",
+       "query",
+       "query.ratio",
+       "query.ratio.group_by_labels",
+       "query.ratio.success_metric",
+       "query.ratio.total_metric",
+       "query.type"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "SsoSettings",
+    "group": "sso.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_sso_settings",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "SsoSettings",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/ssosettings",
+      "at": "examples-generated/cluster/oss/v1alpha1/ssosettings.yaml",
+      "origin": "generated",
+      "fields": [
+       "oauth2_settings",
+       "oauth2_settings.allow_sign_up",
+       "oauth2_settings.allowed_domains",
+       "oauth2_settings.allowed_organizations",
+       "oauth2_settings.auto_login",
+       "oauth2_settings.client_id",
+       "oauth2_settings.name",
+       "oauth2_settings.scopes",
+       "oauth2_settings.team_ids",
+       "provider_name"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "SyntheticMonitoringCheck",
+    "group": "synthetic.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_synthetic_monitoring_check",
+    "group": "sm.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Check",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "sm/v1alpha1/check",
+      "at": "examples-generated/cluster/sm/v1alpha1/check.yaml",
+      "origin": "generated",
+      "fields": [
+       "enabled",
+       "job",
+       "labels",
+       "probes",
+       "settings",
+       "settings.dns",
+       "target"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "SyntheticMonitoringCheckAlerts",
+    "group": "synthetic.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_synthetic_monitoring_check_alerts",
+    "group": "sm.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "CheckAlerts",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "check_id",
+      "target": "grafana_synthetic_monitoring_check",
+      "targetKind": "sm.grafana.crossplane.io/Check",
+      "extractor": "optionalFieldExtractor(\"id\")",
+      "source": "both",
+      "at": "config/grafana/sm.go:43"
+     }
+    ],
+    "examples": [
+     {
+      "id": "sm/v1alpha1/checkalerts",
+      "at": "examples-generated/cluster/sm/v1alpha1/checkalerts.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_synthetic_monitoring_check"
+      ],
+      "fields": [
+       "alerts",
+       "alerts.name",
+       "alerts.period",
+       "alerts.runbook_url",
+       "alerts.threshold"
+      ],
+      "refFields": [
+       "check_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_synthetic_monitoring_check": [
+     "synthetic.grafana.hfl.dev/SyntheticMonitoringCheck"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "SyntheticMonitoringProbe",
+    "group": "synthetic.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_synthetic_monitoring_probe",
+    "group": "sm.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Probe",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "sm/v1alpha1/probe",
+      "at": "examples-generated/cluster/sm/v1alpha1/probe.yaml",
+      "origin": "generated",
+      "fields": [
+       "labels",
+       "latitude",
+       "longitude",
+       "name",
+       "region"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "Team",
+    "group": "team.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_team",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "Team",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "members",
+      "target": "grafana_user",
+      "targetKind": "oss.grafana.crossplane.io/User",
+      "extractor": "fieldExtractor(\"email\")",
+      "source": "both",
+      "at": "config/grafana/oss.go:133"
+     },
+     {
+      "field": "org_id",
+      "target": "grafana_organization",
+      "targetKind": "oss.grafana.crossplane.io/Organization",
+      "source": "inferred",
+      "at": "apis/cluster/oss/v1alpha1/zz_team_types.go:234"
+     }
+    ],
+    "examples": [
+     {
+      "id": "oss/v1alpha1/team",
+      "at": "examples-generated/cluster/oss/v1alpha1/team.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_user"
+      ],
+      "fields": [
+       "admins",
+       "email",
+       "name"
+      ],
+      "refFields": [
+       "members"
+      ]
+     },
+     {
+      "id": "cloud/v1alpha1/oncall-escalation-refs",
+      "at": "examples/cloud/v1alpha1/oncall-escalation-refs.yaml",
+      "origin": "hand",
+      "annotations": {
+       "uptest.upbound.io/disable-import": "true"
+      },
+      "with": [
+       "grafana_oncall_escalation",
+       "grafana_oncall_escalation_chain",
+       "grafana_oncall_schedule"
+      ],
+      "fields": [
+       "name"
+      ],
+      "values": {
+       "name": "e2e-refs-team"
+      }
+     },
+     {
+      "id": "oss/v1alpha1/team",
+      "at": "examples/cluster/v1alpha1/team.yaml",
+      "origin": "hand",
+      "with": [
+       "grafana_user"
+      ],
+      "fields": [
+       "email",
+       "name"
+      ],
+      "refFields": [
+       "members"
+      ],
+      "values": {
+       "email": "teamemail@example.com",
+       "name": "Test Team"
+      }
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_organization": [
+     "organization.grafana.hfl.dev/Organization"
+    ],
+    "grafana_user": [
+     "user.grafana.hfl.dev/User"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "TeamExternalGroup",
+    "group": "team.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_team_external_group",
+    "group": "enterprise.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "TeamExternalGroup",
+    "tested": true,
+    "generated": true,
+    "references": [
+     {
+      "field": "team_id",
+      "target": "grafana_team",
+      "targetKind": "oss.grafana.crossplane.io/Team",
+      "source": "both",
+      "at": "config/grafana/enterprise.go:176"
+     }
+    ],
+    "examples": [
+     {
+      "id": "enterprise/v1alpha1/teamexternalgroup",
+      "at": "examples-generated/cluster/enterprise/v1alpha1/teamexternalgroup.yaml",
+      "origin": "generated",
+      "with": [
+       "grafana_team"
+      ],
+      "fields": [
+       "groups"
+      ],
+      "refFields": [
+       "team_id"
+      ]
+     }
+    ]
+   },
+   "targetsOurs": {
+    "grafana_team": [
+     "team.grafana.hfl.dev/Team"
+    ]
+   }
+  },
+  {
+   "ours": {
+    "kind": "User",
+    "group": "user.grafana.hfl.dev"
+   },
+   "facts": {
+    "terraform": "grafana_user",
+    "group": "oss.grafana.crossplane.io",
+    "version": "v1alpha1",
+    "kind": "User",
+    "tested": true,
+    "generated": true,
+    "examples": [
+     {
+      "id": "oss/v1alpha1/user",
+      "at": "examples-generated/cluster/oss/v1alpha1/user.yaml",
+      "origin": "generated",
+      "fields": [
+       "email",
+       "is_admin",
+       "login",
+       "name"
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "noUpjet": [
+  "apps.grafana.hfl.dev/AppsNotificationsTimeintervalV1beta1",
+  "incident.grafana.hfl.dev/IncidentCustomField"
+ ]
+}
