@@ -1737,6 +1737,7 @@ kinds:
     hlUsage: 1
     hmCurrentGraphiteUsage: 1
     hmCurrentPrometheusUsage: 1
+    id: 1
     marketplaceSubscription:
       isLegacy: true
       provider: aws
@@ -1803,6 +1804,7 @@ kinds:
     plugin: example-plugin
   serverFields:
     createdAt: example-createdAt
+    id: 1
     instanceId: 1
     instanceSlug: example-instanceSlug
     instanceUrl: example-instanceUrl
@@ -3042,6 +3044,7 @@ kinds:
     name: example-name
   serverFields:
     address: {}
+    id: 1
   readiness: live
 - kind: OrganizationPreferences
   group: organization.grafana.hfl.dev
@@ -3374,6 +3377,7 @@ kinds:
     commit: example-commit
     created: 1
     deprecated: true
+    id: 1
     modified: 1
     online: true
     onlineChange: 1
@@ -3411,6 +3415,7 @@ kinds:
     accessControl: {}
     avatarUrl: example-avatarUrl
     externalUID: example-externalUID
+    id: 1
     isProvisioned: true
     memberCount: 1
     orgId: 1
