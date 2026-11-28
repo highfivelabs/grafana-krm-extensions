@@ -1,0 +1,15 @@
+# Upjet references that gen/examples.py (krm-rest-runtime) would turn into
+# examples/<Kind>/with-<Target>.yaml, but that don't hold here, with why.
+upjet:
+  RoleAssignment: >-
+    roleuid takes the Role's ID, its uid, as Grafana's path does, but the
+    Role's example sends only a description, and Grafana makes no role
+    without a name (the spec doesn't mark name required). The fake takes
+    it.
+  RoleAssignmentItem: >-
+    the same Role, which Grafana wouldn't make without a name; its
+    service_account_id is also a placeholder. The fake takes it.
+  SyntheticMonitoringCheckAlerts: >-
+    checkid takes the check's ID, but the SyntheticMonitoringCheck's
+    example has no probes and an empty settings, and Synthetic Monitoring
+    makes no check without a probe and one check type. The fake takes it.
